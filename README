@@ -1,0 +1,5 @@
+Jekyll site for https://jorin.se
+
+Requires `ruby`, `gem`, and `bundle`/`bundler`.
+Install dependencies with `bundle install`
+Run locally with `bundle exec jekyll serve`

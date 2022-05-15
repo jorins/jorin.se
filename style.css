@@ -1,0 +1,53 @@
+body, #site-container { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scrollbar-gutter: stable; }
+
+body { max-width: 100%; min-height: 100vh; display: grid; justify-items: center; align-items: stretch; padding: 1rem; }
+
+#site-container { display: grid; gap: 1rem; grid-template-columns: 15rem 1fr; grid-template-rows: auto auto 1fr; grid-template-areas: "nav nav" "toc toc" "main main"; justify-content: stretch; align-items: stretch; max-width: 100rem; width: 100%; }
+
+main { grid-area: main; }
+
+#site-navigation { grid-area: nav; }
+
+#table-of-contents { grid-area: toc; }
+
+.site-block { border-radius: 2rem; background: rgba(0, 0, 0, 0.25); padding: 1rem; margin: 0; }
+
+#site-navigation > header { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; }
+
+#emblem, #header-filler { margin: 1em; width: 5em; }
+
+html { font-family: sans-serif; color: white; background: linear-gradient(15deg, #613, #426) no-repeat fixed center; line-height: 1.5em; }
+
+a { color: #89f; }
+
+a:visited { color: #c9e; }
+
+hr { opacity: 0.1; margin: 2rem 0; }
+
+table { background: rgba(0, 0, 0, 0.25); border-spacing: 0; border-radius: 1rem; }
+
+table tbody tr:nth-child(odd) { background: rgba(0, 0, 0, 0.25); }
+
+table td, table th { padding: 0.5rem; }
+
+table tr:last-child td:first-child { border-radius: 0 0 0 1rem; }
+
+table tr:last-child td:last-child { border-radius: 0 0 1rem 0; }
+
+figure { text-align: center; max-width: 16rem; margin: 0; padding: 1rem; background: rgba(0, 0, 0, 0.25); border-radius: 1rem; }
+
+figure.inline { display: inline-block; clear: both; }
+
+figure.inline-right { float: right; }
+
+figure.inline-left { float: left; }
+
+#site-navigation h1, #site-navigation h2, #site-navigation h3, #site-navigation h4, #site-navigation h5, #site-navigation h6, #table-of-contents h1, #table-of-contents h2, #table-of-contents h3, #table-of-contents h4, #table-of-contents h5, #table-of-contents h6 { text-align: center; }
+
+#emblem-path { fill: white; }
+
+@media only screen and (false: 3/4), only screen and (min-width: 50rem) { #site-container { grid-template-areas: "nav main" "toc main" "  . main"; } #table-of-contents { align-self: start; top: 1rem; position: sticky; } #site-navigation > header { flex-direction: column; } #emblem { width: 100%; } #header-filler { display: none; } }
+
+/*# sourceMappingURL=style.css.map */
