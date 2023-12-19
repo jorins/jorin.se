@@ -1,0 +1,82 @@
+@import 'constants';
+
+html {
+  font-family: sans-serif;
+  color: white;
+  background: linear-gradient(15deg, #613, #426) no-repeat fixed center;
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quicksand";
+  font-weight: bold;
+}
+
+a {
+  color: #89f;
+
+  &:visited {
+    color: #c9e;
+  }
+}
+
+hr {
+  opacity: 0.1;
+  margin: 2rem 0;
+}
+
+table {
+  background: $glass;
+  border-spacing: 0;
+  border-radius: $border-radius-small;
+
+  // Heavier background on every other row
+  tbody tr:nth-child(odd) {
+    background: $glass;
+  }
+
+  // Adjust for readability
+  td, th {
+    padding: 0.5rem;
+  }
+
+  // Round out last row
+  tr:last-child {
+    td:first-child {
+      border-radius: 0 0 0 $border-radius-small;
+    }
+
+    td:last-child {
+      border-radius: 0 0 $border-radius-small 0;
+    }
+  }
+}
+
+figure {
+  text-align: center;
+  max-width: 16rem;
+  margin: 0;
+  padding: 1rem;
+  background: $glass;
+  border-radius: $border-radius-small;
+}
+
+figure.inline {
+  display: inline-block;
+  clear: both;
+}
+
+figure.inline-right {
+  float: right;
+}
+
+figure.inline-left {
+  float: left;
+}
+
+#site-navigation, #table-of-contents {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Quicksand";
+    text-align: center;
+  }
+}

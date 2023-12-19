@@ -1,0 +1,58 @@
+@import 'constants';
+@import 'mediaQueries';
+
+// Normalisation
+body, #__next, #site-container, {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// NOTE: Jekyll site artifact:
+// FIXME: this gutter looks awful
+html {
+  scrollbar-gutter: stable;
+}
+
+// Main site container
+#__next {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100rem; // Cap overall site width
+  margin: auto;
+  padding: $gap;
+
+  // Grid definition
+  display: grid;
+  gap: $gap;
+  justify-content: stretch;
+  align-items: stretch;
+
+  grid-template-columns: 20rem 1fr;
+  grid-template-rows: auto auto 1fr;
+
+  // Mobile defaults
+  grid-template-areas:
+    " nav nav"
+    " toc toc"
+    "main main";
+
+  @include desktop {
+    grid-template-areas:
+      "nav main"
+      "toc main"
+      "  . main";
+  }
+}
+
+// Site block placements
+main { grid-area: main; }
+#site-navigation { grid-area: nav; }
+#table-of-contents { grid-area: toc; }
+
+.site-block {
+  border-radius: $border-radius;
+  background: $glass;
+  padding: $gap;
+  margin: 0
+}

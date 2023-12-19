@@ -1,0 +1,47 @@
+@import 'mediaQueries';
+
+#site-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "header header" "internal external";
+
+  li {
+    line-height: 2em;
+    font-size: 1.25em;
+  }
+}
+
+#site-navigation-header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2em;
+  line-height: 2em;
+}
+
+#site-navigation-internal {
+  grid-area: internal
+}
+
+#site-navigation-external {
+  grid-area: external
+}
+
+@include desktop {
+  #site-navigation {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "header" "internal" "external";
+  }
+
+  #site-navigation-header {
+    flex-direction: column;
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+}
