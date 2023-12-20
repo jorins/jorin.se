@@ -12,6 +12,8 @@ const Page: Template = ({children, pageOpts, themeConfig}) => {
     <Head>
       <title>{fullTitle}</title>
     </Head>
+
+    <h1>{pageOpts.title}</h1>
     {children}
   </>
 }

@@ -12,6 +12,7 @@ const Tag: Template = ({children, pageOpts, themeConfig}) => {
     <Head>
       <title>{fullTitle}</title>
     </Head>
+
     {children}
   </>
 }
