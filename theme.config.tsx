@@ -1,7 +1,11 @@
-import type { ThemeConfig } from './theme/config'
+import type { ThemeConfig } from './theme/lib/config'
 
 const config: ThemeConfig = {
   lang: 'en-GB',
+  title: {
+    postfix: 'Jorin',
+    separator: ' · ',
+  },
   templates: [
     {
       pattern: '/',
@@ -24,48 +28,23 @@ const config: ThemeConfig = {
       template: 'page',
     },
   ],
-  nav: {
-    internal: [
-      {
-        id: 'index',
-        title: 'Site index',
-        href: '/',
-      },
-      {
-        id: 'grimoire',
-        title: 'Grimoire',
-        href: '/grimoire/',
-      },
-      {
-        id: 'machinations',
-        title: 'Machinations',
-        href: '/machination/',
-      },
-      {
-        id: 'rambles',
-        title: 'Rambles',
-        href: '/ramble/',
-      },
-    ],
-
-    external: [
-      {
-        id: 'soundcloud',
-        title: 'SoundCloud',
-        href: 'https://soundcloud.com/yawninggirl',
-      },
-      {
-        id: 'bandcamp',
-        title: 'Bandcamp',
-        href: 'https://yawninggirl.bandcamp.com',
-      },
-      {
-        id: 'github',
-        title: 'GitHub',
-        href: 'https://github.com/jorins',
-      }
-    ],
-  }
+  externalLinks: [
+    {
+      id: 'soundcloud',
+      title: 'SoundCloud',
+      href: 'https://soundcloud.com/yawninggirl',
+    },
+    {
+      id: 'bandcamp',
+      title: 'Bandcamp',
+      href: 'https://yawninggirl.bandcamp.com',
+    },
+    {
+      id: 'github',
+      title: 'GitHub',
+      href: 'https://github.com/jorins',
+    }
+  ],
 }
 
 export default config

@@ -6,7 +6,7 @@ export interface TocProps {
 
 export default function Toc({headings}: TocProps): JSX.Element {
   return (
-    <nav id="toc"><>
+    <nav id="toc">
       <h1>Table of Contents</h1>
       <ul>
         {headings.map(heading => {
@@ -15,6 +15,6 @@ export default function Toc({headings}: TocProps): JSX.Element {
           </li>
         })}
       </ul>
-    </></nav>
+    </nav>
   )
 }
