@@ -2,48 +2,30 @@ import type { PageOpts, MdxFile } from "nextra"
 import type { FullThemeConfig } from "../lib/config"
 
 import { Tabs } from 'nextra/components'
-import { minimatch } from 'minimatch'
 
 import { locateFolder, isMdxFile, isNotIndex, getTitle } from "../lib/pageMap"
 
-interface AlphabeticCategory {
-  heading: string
-  matchPattern: string
+import alphabeticTabSpec from './CollectionContents.alphabetic'
+import dateTabSpec from "./CollectionContents.date"
+import tagTabSpec from "./CollectionContents.tag"
+
+export interface TabSpec<SortKey> {
+  id: string
+  title: string
+  categorise: (pages: MdxFile[]) => Category<SortKey>[]
+  sortCategories: (a: Category<SortKey>, b: Category<SortKey>) => number
+  sortPages: (a: MdxFile, b: MdxFile) => number
 }
 
-const alphabeticCategories: AlphabeticCategory[] = [
-  {
-    heading: '#',
-    matchPattern: '[[:digit:]]*',
-  }, 
-  ...("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').map(letter => ({
-    heading: letter,
-    matchPattern: `[${letter}${letter.toUpperCase()}]*`,
-  }))),
-  {
-    heading: '!@#$',
-    matchPattern: '*',
-  }
-]
-
-interface Category {
+export interface Category<SortKey> {
   heading: string
   contents: MdxFile[]
+  sortKey: SortKey
 }
 
-/** Filter out empty Categories */
-function filterEmptyCategory({contents}: Category): boolean {
-  return contents.length > 0
-}
-
-/** Sort categories alphabetically */
-function sortCategories(a: Category, b: Category): number {
+/** Sort categories alphabetically by their heading */
+function sortCategories(a: Category<any>, b: Category<any>): number {
   return a.heading.localeCompare(b.heading)
-}
-
-/** Create a function that finds a Category by name */
-function findCategory(name: string): (category: Category) => boolean {
-  return category => category.heading === name 
 }
 
 /** Sort alphabetically by title */
@@ -51,83 +33,18 @@ function sortPages(a: MdxFile, b: MdxFile): number {
   return getTitle(a).localeCompare(getTitle(b))
 }
 
-interface TabSpec {
-  id: string
-  title: string
-  categorise: (pages: MdxFile[]) => Category[]
+/** Create a function that finds a Category by name */
+export function findCategory(name: string): (category: Category<any>) => boolean {
+  return category => category.heading === name 
 }
 
-const tabs: TabSpec[] = [
-  {
-    id: 'alphabetic',
-    title: 'Alphabetic',
-    categorise: (pages) => {
-      function matchCategory(page: MdxFile, category: AlphabeticCategory) {
-        return minimatch(getTitle(page), category.matchPattern)
-      }
-
-      const categorised: Category[] = []
-
-      for (const page of pages) {
-        // Find the heading of the first category that matches
-        const { heading } = alphabeticCategories.find(category => matchCategory(page, category))
-
-        // Find the pre-existing entry in categorised, if any
-        const preExisting: Category | undefined = categorised.find(findCategory(heading))
-
-        if (preExisting === undefined) {
-          // Initiate with the current page
-          categorised.push({
-            heading,
-            contents: [page]
-          })
-        } else {
-          // Add page to pre-existing entry
-          preExisting.contents.push(page)
-        }
-      }
-
-      return categorised
-        .map(({heading, contents}) => ({
-          heading,
-          contents: contents.sort(sortPages)
-        }))
-        .sort(sortCategories)
-    }
-  },
-  /*{
-    id: 'date',
-    title: 'By date',
-    categorise: (pages) => {
-      const categorised: Category[] = []
-      for (const category of alphabeticCategories) {
-        categorised.push({
-          heading: 'uh',
-          contents: []
-        })
-      }
-
-      return categorised
-    }
-  },
-  {
-    id: 'tag',
-    title: 'By tag',
-    categorise: (pages) => {
-      const categorised: Category[] = []
-      for (const category of alphabeticCategories) {
-        categorised.push({
-          heading: 'uh',
-          contents: []
-        })
-      }
-
-      return categorised
-    }
-  },*/
+const tabSpecs = [
+  alphabeticTabSpec,
+  dateTabSpec,
+  tagTabSpec,
 ]
 
-function findDefaultTab(pageOpts: PageOpts): (tab: TabSpec) => boolean {
+function findDefaultTab<SortKey>(pageOpts: PageOpts): (tab: TabSpec<SortKey>) => boolean {
   return tab => [
     tab.id,
     tab.title
@@ -141,30 +58,41 @@ export interface CollectionContentsProps {
 
 export default function CollectionContents({ pageOpts }: CollectionContentsProps): JSX.Element {
   const pages = locateFolder(pageOpts).children.filter(isMdxFile).filter(isNotIndex)
-  const defaultTab = tabs.findIndex(findDefaultTab(pageOpts)) ?? 0
-  const items = tabs.map(tab => tab.title)
+  const defaultIndex = tabSpecs.findIndex(findDefaultTab(pageOpts)) ?? 0
+  const items = tabSpecs.map(tab => tab.title)
 
-  return <Tabs items={items} defaultIndex={defaultTab}>
-    {tabs.map(tab => {
-      const categories = tab.categorise(pages).filter(filterEmptyCategory)
-      return <Tab categories={categories}/>
-    })}
-  </Tabs>
+  return <div className="collection-tabs">
+    <Tabs items={items} defaultIndex={defaultIndex}>
+      {tabSpecs.map(tabSpec => {
+        const categories = tabSpec
+          .categorise(pages)
+          .map(({heading, sortKey, contents}) => ({
+            heading,
+            sortKey,
+            contents: contents.sort(tabSpec.sortPages),
+          }))
+          .sort(tabSpec.sortCategories)
+        return <Tab categories={categories}/>
+      })}
+    </Tabs>
+  </div>
 }
 
 interface TabProps {
-  categories: Category[]
+  categories: Category<unknown>[]
 }
 
 function Tab({categories}: TabProps): JSX.Element {
-  return <Tabs.Tab>
-    {categories.map(CategorySection)}
-  </Tabs.Tab>
+  return <div className="collection-tab">
+    <Tabs.Tab>
+      {categories.map(CategorySection)}
+    </Tabs.Tab>
+  </div>
 }
 
-function CategorySection(category: Category): JSX.Element {
+function CategorySection(category: Category<unknown>): JSX.Element {
   console.log(category.heading, category.contents)
-  return <section>
+  return <section className="collection-category">
     <h1>{category.heading}</h1>
     <ul>
       {category.contents.map(page => {

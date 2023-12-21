@@ -1,0 +1,52 @@
+@import 'constants';
+@import 'mediaQueries';
+@import 'normalise';
+
+// Tab button container
+.collection-tabs > div:first-child {
+  position: sticky;
+  top: 0;
+  background: $glass;
+}
+
+.collection-tabs button {
+  @include normaliseButton();
+  cursor: pointer;
+
+  padding: $gap;
+  border-radius: $border-radius $border-radius 0 0;
+  background: none;
+  width: 7em;
+
+  font-family: "Quicksand";
+  font-size: 1.5em;
+  
+  &[aria-selected="true"] {
+    border-bottom: 0.1em solid white;
+  }
+}
+
+.collection-tab > div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+
+  padding: $gap;
+  border-radius: 0 $border-radius $border-radius $border-radius;
+}
+
+.collection-category {
+  width: 100%;
+}
+
+@include desktop {
+  .collection-tab > div {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .collection-category {
+    width: 25%;
+    min-width: 20rem;
+  }
+}
