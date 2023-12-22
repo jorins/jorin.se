@@ -1,0 +1,49 @@
+// Constants
+$border-radius: 2rem;
+$border-radius-small: 1rem;
+$gap: 1rem;
+$transparency: 15%;
+$white: rgba(85%, 85%, 85%, $transparency);
+$grey:  rgba(15%, 15%, 15%, $transparency);
+$black: rgba( 0%,  0%,  0%, $transparency);
+$border-width: 0.2rem;
+
+// Mixins
+
+@mixin glass (
+  $background: $grey,
+  $radius: $border-radius,
+) {
+  backdrop-filter: grayscale(25%) blur(4px);
+
+  $border-a: $border-width solid $white;
+  $border-b: $border-width solid $black;
+
+  border-top: $border-a;
+  border-left: $border-a;
+  border-right: $border-b;
+  border-bottom: $border-b;
+  border-radius: $radius;
+
+  box-shadow: 0.4rem 0.4rem 2.0rem $black;
+}
+
+@mixin normaliseButton {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+// Desktop media query
+@mixin desktop () {
+  // Use `not max` instead of `min` to exclude 3:4 devices (iPad) and less
+  // but make sure to include large devices regardless
+  @media only screen and not (max-aspect-ratio: 3 / 4),
+         only screen and (min-width: 70rem) {
+    @content
+  }
+}

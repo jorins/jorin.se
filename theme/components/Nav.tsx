@@ -19,8 +19,6 @@ export interface MoreNavProps {
 }
 
 export default function Nav({pageOpts, themeConfig}: NavProps): JSX.Element {
-  console.log(pageOpts)
-
   const indexPage = pageOpts.pageMap
     .filter(isMdxFile)
     .find(findIndex)

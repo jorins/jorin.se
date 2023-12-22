@@ -1,5 +1,4 @@
-@import 'constants';
-@import 'mediaQueries';
+@import 'lib';
 
 // Normalisation
 body, #__next, #site-container, {
@@ -51,8 +50,8 @@ main { grid-area: main; }
 #table-of-contents { grid-area: toc; }
 
 .site-block {
+  @include glass;
   border-radius: $border-radius;
-  background: $glass;
   padding: $gap;
   margin: 0
 }

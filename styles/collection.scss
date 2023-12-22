@@ -1,22 +1,39 @@
-@import 'constants';
-@import 'mediaQueries';
-@import 'normalise';
+@import 'lib';
 
-// Tab button container
+// Tab button container (outer)
 .collection-tabs > div:first-child {
   position: sticky;
   top: 0;
-  background: $glass;
+
+  @include glass($grey, $border-radius-small);
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $border-radius-small;
+
+  &::before {
+    content: "Pages";
+    font-family: "Quicksand";
+    flex-grow: 1;
+    font-size: 1.5em;
+    text-align: left;
+  }
+
+  > div {
+
+  }
 }
 
+// Tab button
 .collection-tabs button {
-  @include normaliseButton();
+  @include normaliseButton;
   cursor: pointer;
 
   padding: $gap;
-  border-radius: $border-radius $border-radius 0 0;
   background: none;
-  width: 7em;
+  width: 6em;
 
   font-family: "Quicksand";
   font-size: 1.5em;
@@ -24,15 +41,16 @@
   &[aria-selected="true"] {
     border-bottom: 0.1em solid white;
   }
+
+  &:hover {
+    background-color: $white;
+  }
 }
 
+// Tab's contents
 .collection-tab > div {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-
-  padding: $gap;
-  border-radius: 0 $border-radius $border-radius $border-radius;
 }
 
 .collection-category {
@@ -40,13 +58,43 @@
 }
 
 @include desktop {
+  .collection-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "img header"
+      "img content";
+
+    img {
+      grid-area: img;
+      place-self: stretch;
+    }
+
+    h1 {
+      grid-area: header;
+      place-self: end stretch;
+    }
+
+    .collection-description {
+      grid-area: content;
+      place-self: end stretch;
+    }
+
+  }
+
   .collection-tab > div {
     display: flex;
     flex-flow: row wrap;
   }
 
   .collection-category {
-    width: 25%;
+    width: calc(100% / 3);
+    flex-grow: 1;
     min-width: 20rem;
+  }
+
+  img {
+    display: inline-block;
   }
 }

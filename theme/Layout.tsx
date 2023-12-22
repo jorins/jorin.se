@@ -17,11 +17,15 @@ export default function Layout(props: NextraThemeLayoutProps) {
 
   const Template = resolveTemplate(pageOpts, themeConfig)
 
-  console.log(`Headings (${pageOpts.headings.length}):`, pageOpts.headings)
+  // FIXME: why is it empty >:(
+  console.debug(`Headings (${pageOpts.headings.length}):`, pageOpts.headings)
 
   return <>
     <Nav pageOpts={pageOpts} themeConfig={themeConfig}/>
-    <Toc headings={pageOpts.headings}/>
+    {
+      // Re-enable with headings
+      // }<Toc headings={pageOpts.headings}/>
+    }
     <main className='site-block'>
       <Template {...props}>
         {children}

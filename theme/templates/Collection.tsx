@@ -19,9 +19,14 @@ const Collection: Template = ({children, pageOpts, themeConfig}) => {
       <title>{fullTitle}</title>
     </Head>
 
-    <PredefinedImage imgId={imgId} asFigure={false} override={{id: styles.headerImage}} />
-    <h1 id={styles.title}>{pageOpts.title}</h1>
-    {children}
+    <header className="collection-header">
+      <PredefinedImage imgId={imgId} asFigure={false} override={{id: styles.headerImage}} />
+      <h1 id={styles.title}>{pageOpts.title}</h1>
+      <div class-name="collection-description">
+        {children}
+      </div>
+    </header>
+
     <CollectionContents pageOpts={pageOpts} themeConfig={themeConfig} />
   </>
 }

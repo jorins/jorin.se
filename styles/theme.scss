@@ -1,10 +1,10 @@
-@import 'constants';
+@import 'lib';
 
 html {
   font-family: sans-serif;
   color: white;
   background: linear-gradient(15deg, #613, #426) no-repeat fixed center;
-  line-height: 1.5em;
+  line-height: 2em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,13 +26,12 @@ hr {
 }
 
 table {
-  background: $glass;
+  @include glass($grey, $border-radius-small);
   border-spacing: 0;
-  border-radius: $border-radius-small;
 
   // Heavier background on every other row
   tbody tr:nth-child(odd) {
-    background: $glass;
+    background-color: $black;
   }
 
   // Adjust for readability
@@ -57,8 +56,8 @@ figure {
   max-width: 16rem;
   margin: 0;
   padding: 1rem;
-  background: $glass;
   border-radius: $border-radius-small;
+  @include glass;
 }
 
 figure.inline {

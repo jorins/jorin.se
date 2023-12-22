@@ -9,32 +9,26 @@ import alphabeticTabSpec from './CollectionContents.alphabetic'
 import dateTabSpec from "./CollectionContents.date"
 import tagTabSpec from "./CollectionContents.tag"
 
-export interface TabSpec<SortKey> {
-  id: string
-  title: string
-  categorise: (pages: MdxFile[]) => Category<SortKey>[]
-  sortCategories: (a: Category<SortKey>, b: Category<SortKey>) => number
-  sortPages: (a: MdxFile, b: MdxFile) => number
-}
-
-export interface Category<SortKey> {
-  heading: string
-  contents: MdxFile[]
+export interface Page<SortKey> extends MdxFile {
   sortKey: SortKey
 }
 
-/** Sort categories alphabetically by their heading */
-function sortCategories(a: Category<any>, b: Category<any>): number {
-  return a.heading.localeCompare(b.heading)
+export interface TabSpec<CategorySortKey, PageSortKey> {
+  id: string
+  title: string
+  categorise: (pages: MdxFile[]) => Category<CategorySortKey, PageSortKey>[]
+  sortCategories: (a: Category<CategorySortKey, PageSortKey>, b: Category<CategorySortKey, PageSortKey>) => number
+  sortPages: (a: Page<PageSortKey>, b: Page<PageSortKey>) => number
 }
 
-/** Sort alphabetically by title */
-function sortPages(a: MdxFile, b: MdxFile): number {
-  return getTitle(a).localeCompare(getTitle(b))
+export interface Category<CategorySortKey, PageSortKey> {
+  heading: string
+  contents: Page<PageSortKey>[]
+  sortKey: CategorySortKey
 }
 
-/** Create a function that finds a Category by name */
-export function findCategory(name: string): (category: Category<any>) => boolean {
+/** Create a function that finds a Category by its heading */
+export function findCategoryByHeading(name: string): (category: Category<any, any>) => boolean {
   return category => category.heading === name 
 }
 
@@ -44,7 +38,7 @@ const tabSpecs = [
   tagTabSpec,
 ]
 
-function findDefaultTab<SortKey>(pageOpts: PageOpts): (tab: TabSpec<SortKey>) => boolean {
+function findDefaultTab(pageOpts: PageOpts): (tab: TabSpec<any, any>) => boolean {
   return tab => [
     tab.id,
     tab.title
@@ -79,7 +73,7 @@ export default function CollectionContents({ pageOpts }: CollectionContentsProps
 }
 
 interface TabProps {
-  categories: Category<unknown>[]
+  categories: Category<unknown, unknown>[]
 }
 
 function Tab({categories}: TabProps): JSX.Element {
@@ -90,14 +84,13 @@ function Tab({categories}: TabProps): JSX.Element {
   </div>
 }
 
-function CategorySection(category: Category<unknown>): JSX.Element {
-  console.log(category.heading, category.contents)
+function CategorySection(category: Category<unknown, unknown>): JSX.Element {
   return <section className="collection-category">
     <h1>{category.heading}</h1>
     <ul>
       {category.contents.map(page => {
         const title = getTitle(page)
-        return <li id={page.route}>
+        return <li key={page.route}>
           <a href={page.route}>{title}</a>
         </li>
       })}

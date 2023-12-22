@@ -1,14 +1,3 @@
-@import 'constants';
-
-@mixin desktop () {
-  // Use `not max` instead of `min` to exclude 3:4 devices (iPad) and less
-  // but make sure to include large devices regardless
-  @media only screen and not (max-aspect-ratio: 3 / 4),
-         only screen and (min-width: 70rem) {
-    @content
-  }
-}
-
 // FIXME
 #to-move-into-other-scss-documents {
   // Sticky ToC

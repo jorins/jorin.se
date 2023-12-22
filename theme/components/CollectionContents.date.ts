@@ -1,26 +1,49 @@
-import type { TabSpec, Category } from './CollectionContents'
+import type * as Generic from './CollectionContents'
 
-const dateTabSpec: TabSpec<number> = {
+import { getTitle } from '../lib/pageMap'
+
+type TabSpec = Generic.TabSpec<number, PageSortKey>
+type Category = Generic.Category<number, PageSortKey>
+type Page = Generic.Page<PageSortKey>
+
+interface PageSortKey {
+  timestamp: number
+  title: string
+}
+
+const dateTabSpec: TabSpec = {
   id: 'date',
   title: 'By date',
   sortCategories: (a, b) => {
-    return 0
+    return b.sortKey - a.sortKey
   },
   sortPages: (a, b) => {
-    return 0
+    if (a.sortKey.timestamp > b.sortKey.timestamp) { return -1 }
+    if (a.sortKey.timestamp < b.sortKey.timestamp) { return 1 }
+    return a.sortKey.title.localeCompare(b.sortKey.title)
   },
   categorise: (pages) => {
-    const categorised: Category<number>[] = []
+    const categorised: Category[] = []
 
-    for (const page of pages) {
-      const timestamp = new Date(page.frontMatter.date)
+    for (const sourcePage of pages) {
+      const timestamp = new Date(sourcePage.frontMatter.date)
       const timestampIsValid = !Number.isNaN(timestamp.getTime())
       const timestampNumber = timestampIsValid
         ? timestamp.getTime()
-        : -Infinity
+        : 0
       const timestampString = timestampIsValid
-        ? `${timestamp.getUTCFullYear()}-${timestamp.getUTCMonth()}`
+        ? `${timestamp.getUTCFullYear()}-${String(timestamp.getUTCMonth() + 1).padStart(2, '0')}`
         : 'No date'
+
+      const title = getTitle(sourcePage)
+
+      const page: Page = {
+        ...sourcePage,
+        sortKey: {
+          timestamp: timestampNumber,
+          title: title
+        }
+      }
 
       const preExisting = categorised.find(category => category.heading === timestampString)
 

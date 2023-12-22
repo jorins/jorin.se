@@ -42,6 +42,5 @@ export function locateFolder(pageOpts: PageOpts): Folder {
 }
 
 export function getTitle(page: MdxFile): string {
-  console.log("Getting title for page", page)
   return page.frontMatter.title ?? page.frontMatter.shortTitle ?? page.name
 }

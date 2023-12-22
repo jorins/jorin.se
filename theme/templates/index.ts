@@ -50,7 +50,6 @@ export function resolveTemplate(page: PageOpts, themeConfig: ThemeConfig): Templ
   // Then match against patterns
   for (const i of themeConfig.templates) {
     if (minimatch(route, i.pattern)) {
-      // console.debug(route, '->', i.pattern)
       return templates[i.template]
     }
   }

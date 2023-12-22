@@ -1,9 +1,12 @@
-import type { MdxFile } from "nextra"
-import type { TabSpec, Category } from './CollectionContents'
+import type * as Generic from './CollectionContents'
 
 import { minimatch } from 'minimatch'
-import { findCategory } from './CollectionContents'
+import { findCategoryByHeading } from './CollectionContents'
 import { getTitle } from "../lib/pageMap"
+
+type TabSpec = Generic.TabSpec<string, string>
+type Category = Generic.Category<string, string>
+type Page = Generic.Page<string>
 
 interface AlphabeticMatcher {
   heading: string
@@ -25,24 +28,30 @@ const alphabeticCategories: AlphabeticMatcher[] = [
   }
 ]
 
-const alphabeticTabSpec: TabSpec<string> = {
+const alphabeticTabSpec: TabSpec = {
   id: 'alphabetic',
   title: 'Alphabetic',
   sortCategories: (a, b) => a.sortKey.localeCompare(b.sortKey),
   sortPages: (a, b) => getTitle(a).localeCompare(getTitle(b)),
   categorise: (pages) => {
-    function match(page: MdxFile, matcher: AlphabeticMatcher) {
+    function matchTitle(page: Page, matcher: AlphabeticMatcher) {
       return minimatch(getTitle(page), matcher.matchPattern)
     }
 
-    const categorised: Category<string>[] = []
+    const categorised: Category[] = []
 
-    for (const page of pages) {
+    for (const sourcePage of pages) {
+      const title = getTitle(sourcePage)
+      const page: Page = {
+        ...sourcePage,
+        sortKey: title.toLocaleLowerCase()
+      }
+
       // Find the heading of the first category that matches
-      const { heading } = alphabeticCategories.find(category => match(page, category))
+      const { heading } = alphabeticCategories.find(category => matchTitle(page, category))
 
       // Find the pre-existing entry in categorised, if any
-      const preExisting = categorised.find(findCategory(heading))
+      const preExisting = categorised.find(findCategoryByHeading(heading))
 
       if (preExisting === undefined) {
         // Initiate with the current page
