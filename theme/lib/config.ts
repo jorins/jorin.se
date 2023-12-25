@@ -1,4 +1,4 @@
-import type { Locale } from "../../lib/types"
+import type { Locale } from "./types/locale"
 import type { LinkSpec } from '../components/Nav'
 import type { TemplatePattern } from '../templates'
 

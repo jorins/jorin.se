@@ -2,9 +2,8 @@ import type { Template } from '.'
 
 import Head from 'next/head'
 
-import { PredefinedImage } from '../../lib/components'
-
-import CollectionContents from '../components/CollectionContents'
+import PredefinedImage from '../pageComponents/PredefinedImage'
+import CollectionContents from '../siteComponents/CollectionContents'
 import { makeTitle } from '../lib/title'
 
 import styles from './Collection.module.scss'

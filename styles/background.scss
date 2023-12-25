@@ -1,0 +1,101 @@
+@import 'lib';
+
+$background-animation-length: 12s;
+
+.background-container {
+  background: linear-gradient(#332266, #662233);
+}
+
+// Common, no animations
+.background-container,
+//.background-layer,
+.background-stars {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+//.background-layer,
+.background-stars {
+  opacity: 0;
+}
+
+@include animate {
+  // Layers
+  //.background-layer {
+    //animation-duration: 240s;
+    //animation-timing-function: linear;
+    //animation-iteration-count: infinite;
+    //animation-direction: normal;
+  //}
+
+  //.background-layer-1 { animation-name: layerAnim1; background: linear-gradient(#332266, #662233); }
+  //.background-layer-2 { animation-name: layerAnim2; background: linear-gradient(#FF9B55, #D461A6); }
+  //.background-layer-3 { animation-name: layerAnim3; background: linear-gradient(#D62900, #A50062); }
+  //.background-layer-4 { animation-name: layerAnim4; background: linear-gradient(#55CDFC, #F7A8B8); }
+
+  // Stars
+  .background-stars {
+    animation-direction: alternate;
+    animation-duration: $background-animation-length;
+    animation-iteration-count: infinite;
+    animation-name: starsAnim;
+    animation-timing-function: ease-in-out;
+
+    background-repeat: repeat;
+  }
+
+  .background-stars-1 {
+    animation-delay:  0.0s;
+    background-image: url('/images/stars1.png');
+  }
+
+  .background-stars-2 {
+    animation-delay: $background-animation-length / 3;
+    background-image: url('/images/stars2.png');
+  }
+
+  .background-stars-3 {
+    animation-delay:  2 * $background-animation-length / 3;
+    background-image: url('/images/stars3.png');
+  }
+}
+
+@keyframes layerAnim1 {
+    0% { opacity: 1.00; }
+   25% { opacity: 0.25; }
+   50% { opacity: 0.00; }
+   75% { opacity: 0.25; }
+  100% { opacity: 1.00; }
+}
+
+@keyframes layerAnim2 {
+    0% { opacity: 0.25; }
+   25% { opacity: 1.00; }
+   50% { opacity: 0.00; }
+   75% { opacity: 0.00; }
+  100% { opacity: 0.25; }
+}
+
+@keyframes layerAnim3 {
+    0% { opacity: 0.00; }
+   25% { opacity: 0.25; }
+   50% { opacity: 1.00; }
+   75% { opacity: 0.25; }
+  100% { opacity: 0.00; }
+}
+
+@keyframes layerAnim4 {
+    0% { opacity: 0.25; }
+   25% { opacity: 0.00; }
+   50% { opacity: 0.25; }
+   75% { opacity: 1.00; }
+  100% { opacity: 0.25; }
+}
+
+@keyframes starsAnim {
+  from { opacity: 0.00; }
+  to   { opacity: 0.25; }
+}

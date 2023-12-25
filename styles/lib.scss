@@ -1,11 +1,18 @@
+@use "sass:color";
+
 // Constants
 $border-radius: 2rem;
 $border-radius-small: 1rem;
 $gap: 1rem;
-$transparency: 15%;
-$white: rgba(85%, 85%, 85%, $transparency);
-$grey:  rgba(15%, 15%, 15%, $transparency);
-$black: rgba( 0%,  0%,  0%, $transparency);
+
+$low-transparency: 0.5;
+$medium-transparency: 0.25;
+$high-transparency: 0.1;
+
+$white: rgb(85%, 85%, 85%, $high-transparency);
+$grey:  rgb(15%, 15%, 15%, $high-transparency);
+$black: rgb( 0%,  0%,  0%, $high-transparency);
+
 $border-width: 0.2rem;
 
 // Mixins
@@ -13,11 +20,14 @@ $border-width: 0.2rem;
 @mixin glass (
   $background: $grey,
   $radius: $border-radius,
+  $panel-transparency: $medium-transparency,
+  $border-transparency: $high-transparency,
 ) {
-  backdrop-filter: grayscale(25%) blur(4px);
+  background-color: color.change($grey, $alpha: $panel-transparency);
+  backdrop-filter: blur(4px);
 
-  $border-a: $border-width solid $white;
-  $border-b: $border-width solid $black;
+  $border-a: $border-width solid color.change($white, $alpha: $border-transparency);
+  $border-b: $border-width solid color.change($grey, $alpha: $border-transparency);
 
   border-top: $border-a;
   border-left: $border-a;
@@ -25,7 +35,7 @@ $border-width: 0.2rem;
   border-bottom: $border-b;
   border-radius: $radius;
 
-  box-shadow: 0.4rem 0.4rem 2.0rem $black;
+  box-shadow: 0.5rem 0.5rem 0.75rem $black;
 }
 
 @mixin normaliseButton {
@@ -39,11 +49,18 @@ $border-width: 0.2rem;
 }
 
 // Desktop media query
-@mixin desktop () {
+@mixin desktop {
   // Use `not max` instead of `min` to exclude 3:4 devices (iPad) and less
   // but make sure to include large devices regardless
   @media only screen and not (max-aspect-ratio: 3 / 4),
          only screen and (min-width: 70rem) {
+    @content
+  }
+}
+
+// Block only in effect when user does not have prefers-reduced-motion
+@mixin animate {
+  @media not (prefers-reduced-motion) {
     @content
   }
 }

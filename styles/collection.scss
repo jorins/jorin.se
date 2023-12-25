@@ -13,6 +13,7 @@
   align-items: center;
   padding: 0 $border-radius-small;
 
+  // FIXME: this should be handled by the component, not a CSS hack.
   &::before {
     content: "Pages";
     font-family: "Quicksand";
@@ -21,6 +22,7 @@
     text-align: left;
   }
 
+  // Inner
   > div {
 
   }

@@ -27,30 +27,38 @@ html {
   justify-content: stretch;
   align-items: stretch;
 
-  grid-template-columns: 20rem 1fr;
-  grid-template-rows: auto auto 1fr;
-
-  // Mobile defaults
-  grid-template-areas:
-    " nav nav"
-    " toc toc"
-    "main main";
+  // Mobile default layout
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "nav" "toc" "main";
 
   @include desktop {
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
       "nav main"
-      "toc main"
-      "  . main";
+      "toc main";
   }
 }
 
 // Site block placements
-main { grid-area: main; }
-#site-navigation { grid-area: nav; }
-#table-of-contents { grid-area: toc; }
+main {
+  grid-area: main;
+}
+
+#site-navigation {
+  grid-area: nav;
+}
+
+#table-of-contents {
+  grid-area: toc;
+  align-self: start;
+  position: sticky;
+  top: $gap;
+}
 
 .site-block {
-  @include glass;
+  @include glass($panel-transparency: $low-transparency);
   border-radius: $border-radius;
   padding: $gap;
   margin: 0

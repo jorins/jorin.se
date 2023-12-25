@@ -50,7 +50,7 @@ export interface CollectionContentsProps {
   themeConfig: FullThemeConfig
 }
 
-export default function CollectionContents({ pageOpts }: CollectionContentsProps): JSX.Element {
+export function CollectionContents({ pageOpts }: CollectionContentsProps): JSX.Element {
   const pages = locateFolder(pageOpts).children.filter(isMdxFile).filter(isNotIndex)
   const defaultIndex = tabSpecs.findIndex(findDefaultTab(pageOpts)) ?? 0
   const items = tabSpecs.map(tab => tab.title)
@@ -97,3 +97,5 @@ function CategorySection(category: Category<unknown, unknown>): JSX.Element {
     </ul>
   </section>
 }
+
+export default CollectionContents

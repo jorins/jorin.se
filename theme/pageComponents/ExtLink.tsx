@@ -1,6 +1,6 @@
-import type { LanguageCode, Locale, AnchorTarget } from '../types'
+import type { LanguageCode, Locale, AnchorTarget } from '../lib/types'
 
-import { getFlag } from '../flag'
+import { getFlag } from '../lib/flag'
 
 function linkTitle(href: string, lang: LanguageCode | Locale): string {
   const url = new URL(href)
@@ -36,3 +36,5 @@ export function ExtLink(props: ExtLinkProps): JSX.Element {
       </a>
   )
 }
+
+export default ExtLink

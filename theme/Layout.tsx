@@ -1,16 +1,17 @@
 import type { NextraThemeLayoutProps } from 'nextra'
+import type { FullThemeConfig } from './lib/config'
 
 import '@openfonts/quicksand_all'
 
-import Nav from './components/Nav'
-import Toc from './components/Toc'
+import Nav from './siteComponents/Nav'
+import Toc from './siteComponents/Toc'
 
 import { resolveTemplate } from './templates'
 import { defaultConfig } from './lib/config'
 
 export default function Layout(props: NextraThemeLayoutProps) {
   const { pageOpts, children } = props
-  const themeConfig = {
+  const themeConfig: FullThemeConfig  = {
     ...defaultConfig,
     ...props.themeConfig,
   }
@@ -22,10 +23,7 @@ export default function Layout(props: NextraThemeLayoutProps) {
 
   return <>
     <Nav pageOpts={pageOpts} themeConfig={themeConfig}/>
-    {
-      // Re-enable with headings
-      // }<Toc headings={pageOpts.headings}/>
-    }
+    <Toc headings={pageOpts.headings}/>
     <main className='site-block'>
       <Template {...props}>
         {children}

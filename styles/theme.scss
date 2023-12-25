@@ -3,7 +3,7 @@
 html {
   font-family: sans-serif;
   color: white;
-  background: linear-gradient(15deg, #613, #426) no-repeat fixed center;
+  // background: linear-gradient(15deg, #613, #426) no-repeat fixed center;
   line-height: 2em;
 }
 
@@ -13,10 +13,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #89f;
+  color: #79f;
 
   &:visited {
-    color: #c9e;
+    color: #d9d;
   }
 }
 

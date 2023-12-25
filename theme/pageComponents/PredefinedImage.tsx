@@ -36,3 +36,5 @@ export function PredefinedImage({imgId, asFigure, override}: PredefinedImageProp
     </figure>)
     : (<Image {...attributes} />)
 }
+
+export default PredefinedImage
