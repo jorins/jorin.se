@@ -1,33 +1,33 @@
-import React from "react";
-import functionToKatex from "../lib/functionToKatex.ts";
-import functionPlot from "function-plot";
+import React from 'react'
+import functionToKatex from '../lib/functionToKatex.ts'
+import functionPlot from 'function-plot'
 
-let idCounter = 1;
+let idCounter = 1
 function getId(): string {
-  return `function-plot-${idCounter++}`;
+  return `function-plot-${idCounter++}`
 }
 
 export interface FunctionPlotProps {
-  entries: FunctionPlotEntry[];
+  entries: FunctionPlotEntry[]
 }
 
 export interface FunctionPlotEntry {
-  fn: Function;
-  derivative: Function;
+  fn: Function
+  derivative: Function
 }
 
 export function FunctionPlot({ entries }: FunctionPlotProps): JSX.Element {
-  const id = getId();
-  const out = <div id={id}></div>;
+  const id = getId()
+  const out = <div id={id}></div>
 
   functionPlot({
     target: `#${id}`,
-    data: entries.map((entry) => ({
+    data: entries.map(entry => ({
       fn: functionToKatex(entry.fn),
     })),
-  });
+  })
 
-  return out;
+  return out
 }
 
-export default FunctionPlot;
+export default FunctionPlot

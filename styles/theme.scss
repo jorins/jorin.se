@@ -1,4 +1,4 @@
-@import "lib";
+@import 'lib';
 
 html {
   font-family: sans-serif;
@@ -13,7 +13,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-weight: bold;
 }
 
@@ -87,7 +87,7 @@ figure.inline-left {
   h4,
   h5,
   h6 {
-    font-family: "Quicksand";
+    font-family: 'Quicksand';
     text-align: center;
   }
 }

@@ -1,17 +1,17 @@
-import type { Template } from ".";
+import type { Template } from '.'
 
-import Head from "next/head";
+import Head from 'next/head'
 
-import PredefinedImage from "../pageComponents/PredefinedImage";
-import CollectionContents from "../siteComponents/CollectionContents";
-import { makeTitle } from "../lib/title";
+import PredefinedImage from '../pageComponents/PredefinedImage'
+import CollectionContents from '../siteComponents/CollectionContents'
+import { makeTitle } from '../lib/title'
 
-import styles from "./Collection.module.scss";
+import styles from './Collection.module.scss'
 
 const Collection: Template = ({ children, pageOpts, themeConfig }) => {
-  const imgId = pageOpts.route.split("/")[1];
-  const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title;
-  const fullTitle = makeTitle([pageTitle], themeConfig);
+  const imgId = pageOpts.route.split('/')[1]
+  const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title
+  const fullTitle = makeTitle([pageTitle], themeConfig)
 
   return (
     <>
@@ -31,7 +31,7 @@ const Collection: Template = ({ children, pageOpts, themeConfig }) => {
 
       <CollectionContents pageOpts={pageOpts} themeConfig={themeConfig} />
     </>
-  );
-};
+  )
+}
 
-export default Collection;
+export default Collection

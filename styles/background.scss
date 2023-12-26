@@ -1,4 +1,4 @@
-@import "lib";
+@import 'lib';
 
 $background-animation-length: 12s;
 
@@ -49,17 +49,17 @@ $background-animation-length: 12s;
 
   .background-stars-1 {
     animation-delay: 0s;
-    background-image: url("/images/stars1.png");
+    background-image: url('/images/stars1.png');
   }
 
   .background-stars-2 {
     animation-delay: $background-animation-length / 3;
-    background-image: url("/images/stars2.png");
+    background-image: url('/images/stars2.png');
   }
 
   .background-stars-3 {
     animation-delay: 2 * $background-animation-length / 3;
-    background-image: url("/images/stars3.png");
+    background-image: url('/images/stars3.png');
   }
 }
 

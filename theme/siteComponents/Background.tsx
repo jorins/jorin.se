@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export interface BackgroundProps {}
 export function Background({}: BackgroundProps): JSX.Element {
@@ -14,7 +14,7 @@ export function Background({}: BackgroundProps): JSX.Element {
       <div className="background-stars background-stars-2" />
       <div className="background-stars background-stars-3" />
     </div>
-  );
+  )
 }
 
-export default Background;
+export default Background

@@ -1,9 +1,9 @@
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import "../styles/main.scss";
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import '../styles/main.scss'
 
 export default function App(appProps: AppProps) {
-  const { Component, pageProps } = appProps;
+  const { Component, pageProps } = appProps
   return (
     <>
       <Head>
@@ -16,5 +16,5 @@ export default function App(appProps: AppProps) {
       </Head>
       <Component {...pageProps} />
     </>
-  );
+  )
 }

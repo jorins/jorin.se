@@ -1,4 +1,4 @@
-@import "lib";
+@import 'lib';
 
 // Tab button container (outer)
 .collection-tabs > div:first-child {
@@ -15,8 +15,8 @@
 
   // FIXME: this should be handled by the component, not a CSS hack.
   &::before {
-    content: "Pages";
-    font-family: "Quicksand";
+    content: 'Pages';
+    font-family: 'Quicksand';
     flex-grow: 1;
     font-size: 1.5em;
     text-align: left;
@@ -36,10 +36,10 @@
   background: none;
   width: 6em;
 
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-size: 1.5em;
 
-  &[aria-selected="true"] {
+  &[aria-selected='true'] {
     border-bottom: 0.1em solid white;
   }
 
@@ -64,8 +64,8 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     grid-template-areas:
-      "img header"
-      "img content";
+      'img header'
+      'img content';
 
     img {
       grid-area: img;

@@ -1,10 +1,10 @@
-@import "lib";
+@import 'lib';
 
 #site-navigation {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-template-areas: "header header" "internal external";
+  grid-template-areas: 'header header' 'internal external';
 
   li {
     line-height: 2em;
@@ -36,7 +36,7 @@
   #site-navigation {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "header" "internal" "external";
+    grid-template-areas: 'header' 'internal' 'external';
   }
 
   #site-navigation-header {

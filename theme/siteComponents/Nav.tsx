@@ -1,31 +1,31 @@
-import type { PageOpts } from "nextra";
-import type { FullThemeConfig } from "../lib/config";
+import type { PageOpts } from 'nextra'
+import type { FullThemeConfig } from '../lib/config'
 
-import React from "react";
-import YgLogo from "./YgLogo";
-import { isFolder, isMdxFile, findIndex } from "../lib/pageMap";
+import React from 'react'
+import YgLogo from './YgLogo'
+import { isFolder, isMdxFile, findIndex } from '../lib/pageMap'
 
 export interface LinkSpec {
-  id: string;
-  title: string;
-  href: string;
+  id: string
+  title: string
+  href: string
 }
 
 export interface NavProps {
-  pageOpts: PageOpts;
-  themeConfig: FullThemeConfig;
+  pageOpts: PageOpts
+  themeConfig: FullThemeConfig
 }
 
 export interface MoreNavProps {}
 
 export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
-  const indexPage = pageOpts.pageMap.filter(isMdxFile).find(findIndex);
+  const indexPage = pageOpts.pageMap.filter(isMdxFile).find(findIndex)
 
   const collectionPages = pageOpts.pageMap
     .filter(isFolder)
-    .map((page) => page.children.filter(isMdxFile).find(findIndex));
+    .map(page => page.children.filter(isMdxFile).find(findIndex))
 
-  const internalPages = [indexPage, ...collectionPages];
+  const internalPages = [indexPage, ...collectionPages]
 
   return (
     <nav id="site-navigation" className="site-block">
@@ -37,7 +37,7 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
       <div id="site-navigation-internal">
         <h1>Site navigation</h1>
         <ul>
-          {internalPages.map((page) => (
+          {internalPages.map(page => (
             <li key={page.route}>
               <a href={page.route}>{page.frontMatter.shortTitle}</a>
             </li>
@@ -58,7 +58,7 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
         </ul>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

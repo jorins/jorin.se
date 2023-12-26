@@ -1,3 +1,3 @@
-export * from "./locale";
+export * from './locale'
 
-export type AnchorTarget = "_self" | "_blank" | "_parent" | "_top";
+export type AnchorTarget = '_self' | '_blank' | '_parent' | '_top'

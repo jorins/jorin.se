@@ -1,4 +1,4 @@
-@import "lib";
+@import 'lib';
 
 // Normalisation
 body,
@@ -32,14 +32,14 @@ html {
   // Mobile default layout
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "nav" "toc" "main";
+  grid-template-areas: 'nav' 'toc' 'main';
 
   @include desktop {
     grid-template-columns: 20rem 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
-      "nav main"
-      "toc main";
+      'nav main'
+      'toc main';
   }
 }
 
