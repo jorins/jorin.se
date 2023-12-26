@@ -1,3 +1,3 @@
-export * from './ExtLink'
-export * from './KatexFunction'
-export * from './PredefinedImage'
+export * from "./ExtLink";
+export * from "./KatexFunction";
+export * from "./PredefinedImage";

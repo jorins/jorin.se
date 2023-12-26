@@ -15,7 +15,8 @@ Check it out below.
 # Examples
 
 ## C example
-~~~c
+
+```c
 #include "ruby/ruby.h"
 
 static int
@@ -24,19 +25,21 @@ clone_method_i(st_data_t key, st_data_t value, st_data_t data)
     clone_method((VALUE)data, (ID)key, (const rb_method_entry_t *)value);
     return ST_CONTINUE;
 }
-~~~
+```
 
 ## Clojure example
-~~~clojure
+
+```clojure
 (defn make-adder [x]
   (let [y x]
     (fn [z] (+ y z))))
 (def add2 (make-adder 2))
 (add2 4)
-~~~
+```
 
 ## TypeScript example
-~~~typescript
+
+```typescript
 export interface Animal {
   legs: number
   tails: number
@@ -68,17 +71,18 @@ while (true) {
   yeet(mike.meow(target))
   count = count + 1
 }
-~~~
+```
 
 ## Zig example
-~~~zig
+
+```zig
 const std = @import("std");
 const warn = std.debug.warn;
 
 fn add_floats(x: f16, y: f16) f16 {
     return x + y;
 }
-~~~
+```
 
 # Porting process
 

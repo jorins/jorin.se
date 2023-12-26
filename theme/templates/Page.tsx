@@ -1,21 +1,23 @@
-import type { Template } from '.'
+import type { Template } from ".";
 
-import Head from 'next/head'
+import Head from "next/head";
 
-import { makeTitle } from '../lib/title'
+import { makeTitle } from "../lib/title";
 
-const Page: Template = ({children, pageOpts, themeConfig}) => {
-  const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title
-  const fullTitle = makeTitle([pageTitle], themeConfig)
+const Page: Template = ({ children, pageOpts, themeConfig }) => {
+  const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title;
+  const fullTitle = makeTitle([pageTitle], themeConfig);
 
-  return <>
-    <Head>
-      <title>{fullTitle}</title>
-    </Head>
+  return (
+    <>
+      <Head>
+        <title>{fullTitle}</title>
+      </Head>
 
-    <h1>{pageOpts.title}</h1>
-    {children}
-  </>
-}
+      <h1>{pageOpts.title}</h1>
+      {children}
+    </>
+  );
+};
 
-export default Page
+export default Page;

@@ -10,24 +10,26 @@ $medium-transparency: 0.25;
 $high-transparency: 0.1;
 
 $white: rgb(85%, 85%, 85%, $high-transparency);
-$grey:  rgb(15%, 15%, 15%, $high-transparency);
-$black: rgb( 0%,  0%,  0%, $high-transparency);
+$grey: rgb(15%, 15%, 15%, $high-transparency);
+$black: rgb(0%, 0%, 0%, $high-transparency);
 
 $border-width: 0.2rem;
 
 // Mixins
 
-@mixin glass (
+@mixin glass(
   $background: $grey,
   $radius: $border-radius,
   $panel-transparency: $medium-transparency,
-  $border-transparency: $high-transparency,
+  $border-transparency: $high-transparency
 ) {
   background-color: color.change($grey, $alpha: $panel-transparency);
   backdrop-filter: blur(4px);
 
-  $border-a: $border-width solid color.change($white, $alpha: $border-transparency);
-  $border-b: $border-width solid color.change($grey, $alpha: $border-transparency);
+  $border-a: $border-width solid
+    color.change($white, $alpha: $border-transparency);
+  $border-b: $border-width solid
+    color.change($grey, $alpha: $border-transparency);
 
   border-top: $border-a;
   border-left: $border-a;
@@ -53,14 +55,14 @@ $border-width: 0.2rem;
   // Use `not max` instead of `min` to exclude 3:4 devices (iPad) and less
   // but make sure to include large devices regardless
   @media only screen and not (max-aspect-ratio: 3 / 4),
-         only screen and (min-width: 70rem) {
-    @content
+    only screen and (min-width: 70rem) {
+    @content;
   }
 }
 
 // Block only in effect when user does not have prefers-reduced-motion
 @mixin animate {
   @media not (prefers-reduced-motion) {
-    @content
+    @content;
   }
 }

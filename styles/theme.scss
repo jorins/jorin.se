@@ -1,4 +1,4 @@
-@import 'lib';
+@import "lib";
 
 html {
   font-family: sans-serif;
@@ -7,7 +7,12 @@ html {
   line-height: 2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Quicksand";
   font-weight: bold;
 }
@@ -35,7 +40,8 @@ table {
   }
 
   // Adjust for readability
-  td, th {
+  td,
+  th {
     padding: 0.5rem;
   }
 
@@ -73,8 +79,14 @@ figure.inline-left {
   float: left;
 }
 
-#site-navigation, #table-of-contents {
-  h1, h2, h3, h4, h5, h6 {
+#site-navigation,
+#table-of-contents {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Quicksand";
     text-align: center;
   }

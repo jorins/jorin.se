@@ -1,4 +1,4 @@
-@import 'lib';
+@import "lib";
 
 $background-animation-length: 12s;
 
@@ -25,10 +25,10 @@ $background-animation-length: 12s;
 @include animate {
   // Layers
   //.background-layer {
-    //animation-duration: 240s;
-    //animation-timing-function: linear;
-    //animation-iteration-count: infinite;
-    //animation-direction: normal;
+  //animation-duration: 240s;
+  //animation-timing-function: linear;
+  //animation-iteration-count: infinite;
+  //animation-direction: normal;
   //}
 
   //.background-layer-1 { animation-name: layerAnim1; background: linear-gradient(#332266, #662233); }
@@ -48,54 +48,98 @@ $background-animation-length: 12s;
   }
 
   .background-stars-1 {
-    animation-delay:  0.0s;
-    background-image: url('/images/stars1.png');
+    animation-delay: 0s;
+    background-image: url("/images/stars1.png");
   }
 
   .background-stars-2 {
     animation-delay: $background-animation-length / 3;
-    background-image: url('/images/stars2.png');
+    background-image: url("/images/stars2.png");
   }
 
   .background-stars-3 {
-    animation-delay:  2 * $background-animation-length / 3;
-    background-image: url('/images/stars3.png');
+    animation-delay: 2 * $background-animation-length / 3;
+    background-image: url("/images/stars3.png");
   }
 }
 
 @keyframes layerAnim1 {
-    0% { opacity: 1.00; }
-   25% { opacity: 0.25; }
-   50% { opacity: 0.00; }
-   75% { opacity: 0.25; }
-  100% { opacity: 1.00; }
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes layerAnim2 {
-    0% { opacity: 0.25; }
-   25% { opacity: 1.00; }
-   50% { opacity: 0.00; }
-   75% { opacity: 0.00; }
-  100% { opacity: 0.25; }
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.25;
+  }
 }
 
 @keyframes layerAnim3 {
-    0% { opacity: 0.00; }
-   25% { opacity: 0.25; }
-   50% { opacity: 1.00; }
-   75% { opacity: 0.25; }
-  100% { opacity: 0.00; }
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes layerAnim4 {
-    0% { opacity: 0.25; }
-   25% { opacity: 0.00; }
-   50% { opacity: 0.25; }
-   75% { opacity: 1.00; }
-  100% { opacity: 0.25; }
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+  }
 }
 
 @keyframes starsAnim {
-  from { opacity: 0.00; }
-  to   { opacity: 0.25; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.25;
+  }
 }

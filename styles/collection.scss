@@ -1,4 +1,4 @@
-@import 'lib';
+@import "lib";
 
 // Tab button container (outer)
 .collection-tabs > div:first-child {
@@ -24,7 +24,6 @@
 
   // Inner
   > div {
-
   }
 }
 
@@ -39,7 +38,7 @@
 
   font-family: "Quicksand";
   font-size: 1.5em;
-  
+
   &[aria-selected="true"] {
     border-bottom: 0.1em solid white;
   }
@@ -82,7 +81,6 @@
       grid-area: content;
       place-self: end stretch;
     }
-
   }
 
   .collection-tab > div {

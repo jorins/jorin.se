@@ -1,4 +1,4 @@
-@import 'lib';
+@import "lib";
 
 #site-navigation {
   display: grid;
@@ -25,11 +25,11 @@
 }
 
 #site-navigation-internal {
-  grid-area: internal
+  grid-area: internal;
 }
 
 #site-navigation-external {
-  grid-area: external
+  grid-area: external;
 }
 
 @include desktop {
