@@ -1,3 +1,5 @@
+import React from 'react'
+
 /**
  * N.B.: the logo is kept as inline SVG to work better with styling.
  */

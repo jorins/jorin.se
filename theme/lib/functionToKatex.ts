@@ -222,18 +222,20 @@ function resolveMultiplicationExpression(left: Expression, right: Expression): s
 }
 
 function resolveCallExpression(e: CallExpression): string {
-  type Args = typeof e.arguments
-  type ReprFn = (args: Args) => string
-  type MathFn = typeof Math
+  type ReprFn = (args: Expression[]) => string
   type ReprTable = Record<string, ReprFn>
   type ResolveAndJoinArgs = {
-    args: Args,
+    args: Expression[],
     separator?: string,
     postProcess?: (i: string) => string,
   }
 
-  function makeDefaultReprFn(functionName: string): ReprFn {
+  function makeParensReprFn(functionName: string): ReprFn {
     return (args) => `${functionName}(${resolveAndJoin({args})})`
+  }
+
+  function makeBraceReprFn(functionName: string): ReprFn {
+    return (args) => `${functionName}{${resolveAndJoin({args})}}`
   }
 
   function resolveAndJoin({
@@ -241,12 +243,10 @@ function resolveCallExpression(e: CallExpression): string {
     separator = ',',
     postProcess = (i: string) => i,
   }: ResolveAndJoinArgs): string {
-    return args.map(arg => {
-      if (arg.type === 'SpreadElement') {
-        throw new Error('Unsupported spread arguments')
-      }
-      return postProcess(resolve(arg))
-    }).join(separator)
+    return args
+      .map(resolve)
+      .map(postProcess)
+      .join(separator)
   }
 
   /**
@@ -254,38 +254,50 @@ function resolveCallExpression(e: CallExpression): string {
    */
   const specialRepr: ReprTable = {
     'Math.abs':		(args) => `|${args.map(resolve).join(',')}|`,
-    'Math.acos':	makeDefaultReprFn('cos^-1'),
-    'Math.asin':	makeDefaultReprFn('sin^-1'),
-    'Math.asinh':	makeDefaultReprFn('sinh^-1'),
-    'Math.atan':	makeDefaultReprFn('tan^-1'),
-    'Math.atan2':	makeDefaultReprFn('cos^-1'),
-    'Math.atanh':	makeDefaultReprFn('tanh^-1'),
-    'Math.cbrt':	(args) => `\\sqrt[3]{${resolveAndJoin({args})}}`,
-    'Math.ceil':	makeDefaultReprFn('ceil'),
-    'Math.clz32':	makeDefaultReprFn('clz32'),
-    'Math.cos':		makeDefaultReprFn('cos'),
-    'Math.cosh':	makeDefaultReprFn('cosh'),
-    'Math.exp':	    (args) => `e^{${resolveAndJoin({args})}}`,
+    'Math.acos':	makeParensReprFn('cos^-1'),
+    'Math.asin':	makeParensReprFn('sin^-1'),
+    'Math.asinh':	makeParensReprFn('sinh^-1'),
+    'Math.atan':	makeParensReprFn('tan^-1'),
+    'Math.atan2':	makeParensReprFn('cos^-1'),
+    'Math.atanh':	makeParensReprFn('tanh^-1'),
+    'Math.cbrt':	makeBraceReprFn('\\sqrt[3]'),
+    'Math.ceil':	makeParensReprFn('ceil'),
+    'Math.clz32':	makeParensReprFn('clz32'),
+    'Math.cos':		makeParensReprFn('cos'),
+    'Math.cosh':	makeParensReprFn('cosh'),
+    'Math.exp':	    makeBraceReprFn('e^'),
     'Math.expm1':	(args) => `e^{${resolveAndJoin({args})}} - 1`,
-    'Math.floor':	makeDefaultReprFn('floor'),
-    'Math.fround':	makeDefaultReprFn('fround'),
-    'Math.hypot':	(args) => `\\sqrt{${resolveAndJoin({args, separator: ' + '})}}`,
-    'Math.imul':	makeDefaultReprFn('imul'),
-    'Math.log':		makeDefaultReprFn('ln'),
-    'Math.log10':	makeDefaultReprFn('log_10'),
+    'Math.floor':	makeParensReprFn('floor'),
+    'Math.fround':	makeParensReprFn('fround'),
+    'Math.hypot':	(args) => `\\sqrt{${resolveAndJoin({
+      args,
+      separator: ' + ',
+      postProcess: i => `${i}^2`,
+    })}}`,
+    'Math.imul':	makeParensReprFn('imul'),
+    'Math.log':		makeParensReprFn('ln'),
+    'Math.log10':	makeParensReprFn('log_10'),
     'Math.log1p':	(args) => `ln(1 + ${resolveAndJoin({args})})`,
-    'Math.log2':	makeDefaultReprFn('max'),
-    'Math.max':		makeDefaultReprFn('max'),
-    'Math.min':		makeDefaultReprFn('max'),
-    'Math.pow':		makeDefaultReprFn('max'),
-    'Math.random':	makeDefaultReprFn('max'),
-    'Math.sign':	makeDefaultReprFn('max'),
-    'Math.sin':		makeDefaultReprFn('max'),
-    'Math.sqrt':	makeDefaultReprFn('max'),
-    'Math.tan':		makeDefaultReprFn('max'),
-    'Math.tanh':	makeDefaultReprFn('max'),
-    'Math.trunc':	makeDefaultReprFn('max'),
+    'Math.log2':	makeParensReprFn('log_2'),
+    'Math.max':		makeParensReprFn('max'),
+    'Math.min':		makeParensReprFn('min'),
+    'Math.pow':		([a, b]) => `${resolve(a)}^{${resolve(b)}}`,
+    'Math.random':	makeParensReprFn('rand'),
+    'Math.sign':	makeParensReprFn('sign'),
+    'Math.sin':		makeParensReprFn('sin'),
+    'Math.sqrt':	makeBraceReprFn('\\sqrt'),
+    'Math.tan':		makeParensReprFn('tan'),
+    'Math.tanh':	makeParensReprFn('tanh'),
+    'Math.trunc':	makeParensReprFn('trunc'),
   }
+
+  function throwOnSpreadElement(arg: Expression | SpreadElement): arg is Expression {
+    if (arg.type === 'SpreadElement') {
+      throw new Error('Unsupported spread arguments')
+    }
+    return true
+  }
+  const args: Expression[] = e.arguments.filter(throwOnSpreadElement)
   
   function resolveFunctionRepr(subExpr: typeof e.callee): ReprFn {
     if (subExpr.type === 'Super') {
@@ -293,9 +305,9 @@ function resolveCallExpression(e: CallExpression): string {
     }
     const key = resolve(subExpr)
     const fn = specialRepr[key]
-    return fn ?? makeDefaultReprFn(key)
+    return fn ?? makeParensReprFn(key)
   }
 
   const fnRepr = resolveFunctionRepr(e.callee)
-  return fnRepr(e.arguments)
+  return fnRepr(args)
 }

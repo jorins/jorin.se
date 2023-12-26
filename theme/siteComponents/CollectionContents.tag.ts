@@ -39,7 +39,7 @@ const tagTabSpec: TabSpec = {
         sortKey: title
       }
 
-      const tags: string[] = Array.isArray(page.frontMatter.tags) && page.frontMatter.tags.length > 0
+      const tags: string[] = Array.isArray(page?.frontMatter?.tags) && page.frontMatter.tags.length > 0
         ? page.frontMatter.tags
         : [UNTAGGED]
 

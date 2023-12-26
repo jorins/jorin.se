@@ -1,5 +1,6 @@
 import type { Heading } from "nextra"
 
+import React from 'react'
 import { nest, NestedHeadings } from '../lib/nestHeadings'
 
 function TocEntry(heading: NestedHeadings[number]) {

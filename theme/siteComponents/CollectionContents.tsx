@@ -1,9 +1,16 @@
 import type { PageOpts, MdxFile } from "nextra"
 import type { FullThemeConfig } from "../lib/config"
 
+import React from 'react'
 import { Tabs } from 'nextra/components'
 
-import { locateFolder, isMdxFile, isNotIndex, getTitle } from "../lib/pageMap"
+import {
+  locateFolder,
+  isMdxFile,
+  isNotIndex,
+  isNotHidden,
+  getTitle
+} from "../lib/pageMap"
 
 import alphabeticTabSpec from './CollectionContents.alphabetic'
 import dateTabSpec from "./CollectionContents.date"
@@ -51,7 +58,11 @@ export interface CollectionContentsProps {
 }
 
 export function CollectionContents({ pageOpts }: CollectionContentsProps): JSX.Element {
-  const pages = locateFolder(pageOpts).children.filter(isMdxFile).filter(isNotIndex)
+  const pages = locateFolder(pageOpts)
+    .children
+    .filter(isMdxFile)
+    .filter(isNotHidden)
+    .filter(isNotIndex)
   const defaultIndex = tabSpecs.findIndex(findDefaultTab(pageOpts)) ?? 0
   const items = tabSpecs.map(tab => tab.title)
 

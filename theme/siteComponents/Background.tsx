@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface BackgroundProps {}
 export function Background({}: BackgroundProps): JSX.Element {
   return <div className="background-container">

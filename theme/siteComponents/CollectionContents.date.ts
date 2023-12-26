@@ -26,7 +26,7 @@ const dateTabSpec: TabSpec = {
     const categorised: Category[] = []
 
     for (const sourcePage of pages) {
-      const timestamp = new Date(sourcePage.frontMatter.date)
+      const timestamp = new Date(sourcePage?.frontMatter?.date)
       const timestampIsValid = !Number.isNaN(timestamp.getTime())
       const timestampNumber = timestampIsValid
         ? timestamp.getTime()

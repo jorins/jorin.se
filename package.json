@@ -1,13 +1,19 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "node ./scripts/gen-rss.js && next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "dependencies": {
     "@openfonts/quicksand_all": "^1.44.4",
+    "function-plot": "^1.24.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "nextra": "^2.0.0-beta.5",
@@ -17,6 +23,7 @@
     "rss": "^1.2.2"
   },
   "devDependencies": {
+    "@tsconfig/next": "^2.0.1",
     "@types/jest": "^29.5.11",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",

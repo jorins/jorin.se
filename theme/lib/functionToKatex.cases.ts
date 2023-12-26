@@ -42,14 +42,19 @@ export const cases: Case[] = [
     expected: 'f(x) = \\dfrac{3}{x}',
   },
   {
-    name: "Fraction",
+    name: "Complicated fraction",
     fn: function f(x: number) { return (3 * x) / (3.14 * 10**x)},
     expected: 'f(x) = \\dfrac{3x}{3.14 \\cdot 10^x}',
   },
   {
-    name: "Mathematical function with Math.max",
+    name: "Math.max",
     fn: function f(x: number) { return Math.max(x, 0) },
-    expected: 'f(x) = asdf',
+    expected: 'f(x) = max(x,0)',
+  },
+  {
+    name: "Function with domain",
+    fn: function f(x: number) { if (x != 0) return 1/x },
+    expected: 'f(x) = \\dfrac{1}{x}, x \\not = 0'
   }
 ]
 

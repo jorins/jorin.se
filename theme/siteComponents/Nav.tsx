@@ -1,6 +1,7 @@
 import type { PageOpts } from 'nextra'
 import type { FullThemeConfig } from '../lib/config'
 
+import React from 'react'
 import YgLogo from './YgLogo'
 import { isFolder, isMdxFile, findIndex } from '../lib/pageMap'
 

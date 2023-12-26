@@ -1,5 +1,6 @@
 import type { LanguageCode, Locale, AnchorTarget } from '../lib/types'
 
+import React from 'react'
 import { getFlag } from '../lib/flag'
 
 function linkTitle(href: string, lang: LanguageCode | Locale): string {

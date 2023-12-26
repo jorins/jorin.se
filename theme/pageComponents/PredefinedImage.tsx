@@ -1,3 +1,4 @@
+import React from 'react'
 import Image, { ImageProps } from 'next/image'
 
 const stub: ImageProps = {

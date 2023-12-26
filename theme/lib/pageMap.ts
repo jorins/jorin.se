@@ -1,11 +1,11 @@
 import type { Folder, PageMapItem, MdxFile, PageOpts } from 'nextra'
 
-/** Filter out Folders from PageMapItems */
+/** Filter to include only Folders from PageMapItems */
 export function isFolder(page: PageMapItem): page is Folder {
   return page.kind === 'Folder'
 }
 
-/** Filter out MdxFiles from PageMapItems */
+/** Filter to include only MdxFiles from PageMapItems */
 export function isMdxFile(page: PageMapItem): page is MdxFile {
   return page.kind === 'MdxPage'
 }
@@ -18,6 +18,10 @@ export function findIndex(page: MdxFile): boolean {
 /** Filter out index page */
 export function isNotIndex(page: MdxFile): boolean {
   return page.name !== 'index'
+}
+
+export function isNotHidden(page: MdxFile): boolean {
+  return page.frontMatter?.hidden !== true
 }
 
 /** From a given page, locate its folder in the page map */
@@ -42,5 +46,5 @@ export function locateFolder(pageOpts: PageOpts): Folder {
 }
 
 export function getTitle(page: MdxFile): string {
-  return page.frontMatter.title ?? page.frontMatter.shortTitle ?? page.name
+  return page.frontMatter?.title ?? page.frontMatter?.shortTitle ?? page.name
 }
