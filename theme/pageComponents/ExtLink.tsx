@@ -13,7 +13,7 @@ export interface ExtLinkProps {
   children: React.ReactNode;
   href: string;
   lang: Locale;
-  target: AnchorTarget;
+  target?: AnchorTarget;
 }
 
 export function ExtLink(props: ExtLinkProps): JSX.Element {

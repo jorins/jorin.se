@@ -1,5 +1,10 @@
+import type { ImageProps } from 'next/image';
 import React from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
+
+type StrictImageProps = {
+  alt: string
+} & ImageProps
 
 const stub: ImageProps = {
   alt: "Stub image",
@@ -8,7 +13,7 @@ const stub: ImageProps = {
   height: 500,
 };
 
-const images: Record<string, ImageProps> = {
+const images: Record<string, StrictImageProps> = {
   grimoire: {
     alt: "A grimoire floating above a glowing purple pentagram",
     src: "/images/grimoire.png",
@@ -22,7 +27,7 @@ const images: Record<string, ImageProps> = {
 export interface PredefinedImageProps {
   imgId: keyof typeof images | string;
   asFigure?: boolean;
-  override?: Partial<ImageProps>;
+  override?: Partial<StrictImageProps>;
 }
 
 export function PredefinedImage({
@@ -30,17 +35,17 @@ export function PredefinedImage({
   asFigure,
   override,
 }: PredefinedImageProps): JSX.Element {
-  const attributes = {
+  const attributes: StrictImageProps = {
     ...images[imgId],
     ...(override ?? {}),
   };
   return asFigure ?? true ? (
     <figure>
-      <Image {...attributes} />
+      <Image {...attributes} alt={attributes.alt} />
       <figcaption>{attributes.alt}</figcaption>
     </figure>
   ) : (
-    <Image {...attributes} />
+    <Image {...attributes} alt={attributes.alt} />
   );
 }
 

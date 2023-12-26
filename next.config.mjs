@@ -3,7 +3,9 @@ import nextra from "nextra";
 /**
  * @type { import('next').NextConfig }
  */
-const nextConfig = {};
+const nextConfig = {
+  
+};
 
 /**
  * @type { import('nextra').NextraConfig }
