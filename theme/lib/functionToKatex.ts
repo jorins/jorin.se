@@ -90,7 +90,7 @@ export default function functionToKatex(code: Function): string {
 
   // Assert that the return statement has arguments
   const returnExpression = returnStatement.argument
-  if (returnExpression === undefined) {
+  if (returnExpression === undefined || returnExpression === null) {
     throw new SyntaxError(`Function ${name} returns void. Expected a value.`)
   }
 
@@ -109,10 +109,19 @@ function resolve(e: Expression): string {
       return e.name
 
     case 'Literal':
+      if (e.value === undefined || e.value === null) {
+        throw new Error(`Literal ${json(e)} has no value`)
+      }
       return e.value.toString()
 
     case 'ArrayExpression':
-      const values = e.elements.map(resolve).join(' & ')
+      const elements = e.elements.filter((element): element is Expression => {
+        if (element === null || element.type === 'SpreadElement') {
+          throw new Error('Unhandled')
+        }
+        return true
+      })
+      const values = elements.map(resolve).join(' & ')
       return `
         \\begin{bmatrix}
         ${values}

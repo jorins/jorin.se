@@ -4,9 +4,12 @@ import { minimatch } from 'minimatch'
 import { findCategoryByHeading } from './CollectionContents'
 import { getTitle } from '../lib/pageMap'
 
-type TabSpec = Generic.TabSpec<string, string>
-type Category = Generic.Category<string, string>
-type Page = Generic.Page<string>
+type CategorySortKey = string
+type PageSortKey = string
+
+type TabSpec = Generic.TabSpec<CategorySortKey, PageSortKey>
+type Category = Generic.Category<CategorySortKey, PageSortKey>
+type Page = Generic.Page<PageSortKey>
 
 interface AlphabeticMatcher {
   heading: string
@@ -34,12 +37,7 @@ const alphabeticTabSpec: TabSpec = {
   sortCategories: (a, b) => a.sortKey.localeCompare(b.sortKey),
   sortPages: (a, b) => getTitle(a).localeCompare(getTitle(b)),
   categorise: pages => {
-    function matchTitle(page: Page, matcher: AlphabeticMatcher) {
-      return minimatch(getTitle(page), matcher.matchPattern)
-    }
-
     const categorised: Category[] = []
-
     for (const sourcePage of pages) {
       const title = getTitle(sourcePage)
       const page: Page = {
@@ -47,10 +45,18 @@ const alphabeticTabSpec: TabSpec = {
         sortKey: title.toLocaleLowerCase(),
       }
 
-      // Find the heading of the first category that matches
-      const { heading } = alphabeticCategories.find(category =>
-        matchTitle(page, category),
-      )
+      // Find the first category that matches
+      function matchTitle(matcher: AlphabeticMatcher) {
+        return minimatch(getTitle(page), matcher.matchPattern)
+      }
+
+      const category = alphabeticCategories.find(matchTitle)
+      if (category === undefined) {
+        throw new Error(`Page ${page.route} does not match any alphabetic categories.`)
+      }
+
+
+      const { heading } = category
 
       // Find the pre-existing entry in categorised, if any
       const preExisting = categorised.find(findCategoryByHeading(heading))

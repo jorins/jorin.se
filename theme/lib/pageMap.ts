@@ -37,7 +37,14 @@ export function locateFolder(pageOpts: PageOpts): Folder {
   }
 
   function r(current: Folder, fragment: string): Folder {
-    return current.children.filter(isFolder).find(f => f.name === fragment)
+    const found = current.children
+      .filter(isFolder)
+      .find(f => f.name === fragment)
+
+    if (found === undefined) {
+      throw new Error(`Cannot find fragment '${fragment}' in folder ${current}`)
+    }
+    return found
   }
 
   return path.reduce(r, rootFolder)

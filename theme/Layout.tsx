@@ -16,10 +16,11 @@ export default function Layout(props: NextraThemeLayoutProps) {
     ...props.themeConfig,
   }
 
-  const Template = resolveTemplate(pageOpts, themeConfig)
+  if (pageOpts.filePath.includes('[collection]')) {
+    console.log("Template path:", props)
+  }
 
-  // FIXME: why is it empty >:(
-  console.debug(`Headings (${pageOpts.headings.length}):`, pageOpts.headings)
+  const Template = resolveTemplate(pageOpts, themeConfig)
 
   return (
     <>

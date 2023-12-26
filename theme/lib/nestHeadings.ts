@@ -55,7 +55,7 @@ export function nest(headings: Heading[], targetDepth = 2): NestedHeadings {
       // subChunkEndIndex didn't get a match, so we set it to undefined instead
       // to make Array.slice use the full remainder of the array.
       if (subChunkEndIndex === -1) {
-        subChunkEndIndex = undefined
+        subChunkEndIndex = headings.length
       }
 
       // Slice, recurse with added depth, and push results

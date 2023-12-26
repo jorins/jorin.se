@@ -4,10 +4,11 @@ import { getTitle } from '../lib/pageMap'
 import { toTitle, toLower } from '../lib/case'
 
 type CategorySortKey = string
+type PageSortKey = string
 
-type TabSpec = Generic.TabSpec<CategorySortKey, string>
-type Category = Generic.Category<CategorySortKey, string>
-type Page = Generic.Page<string>
+type TabSpec = Generic.TabSpec<CategorySortKey, PageSortKey>
+type Category = Generic.Category<CategorySortKey, PageSortKey>
+type Page = Generic.Page<PageSortKey>
 
 /** For hard-coding untagged content handling */
 const UNTAGGED = 'Untagged'

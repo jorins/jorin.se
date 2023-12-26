@@ -2,11 +2,19 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true
+    "strict": true,
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true
   },
-
-  "include": ["next-end.d.ts", "**/*.ts", "**/*.tsx", "./next/types/**/*.ts"]
+  "include": [
+    "next-end.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "./next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

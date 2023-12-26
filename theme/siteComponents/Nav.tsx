@@ -20,10 +20,23 @@ export interface MoreNavProps {}
 
 export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
   const indexPage = pageOpts.pageMap.filter(isMdxFile).find(findIndex)
+  if (indexPage === undefined) {
+    throw new Error('Cannot find index page')
+  }
 
   const collectionPages = pageOpts.pageMap
     .filter(isFolder)
-    .map(page => page.children.filter(isMdxFile).find(findIndex))
+    .map(page => {
+      const collectionIndex = page.children
+        .filter(isMdxFile)
+        .find(findIndex)
+
+      if (collectionIndex === undefined) {
+        throw new Error(`Failed to find index of collection folder '${page.route}'`)
+      }
+
+      return collectionIndex
+    })
 
   const internalPages = [indexPage, ...collectionPages]
 
@@ -31,7 +44,7 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
     <nav id="site-navigation" className="site-block">
       <header id="site-navigation-header">
         <YgLogo />
-        <h1>Jorin's website</h1>
+        <h1>Jorin&apos;s website</h1>
       </header>
 
       <div id="site-navigation-internal">
@@ -39,7 +52,7 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
         <ul>
           {internalPages.map(page => (
             <li key={page.route}>
-              <a href={page.route}>{page.frontMatter.shortTitle}</a>
+              <a href={page.route}>{page?.frontMatter?.shortTitle}</a>
             </li>
           ))}
         </ul>

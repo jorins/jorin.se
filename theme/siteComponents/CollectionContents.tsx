@@ -20,15 +20,22 @@ export interface Page<SortKey> extends MdxFile {
   sortKey: SortKey
 }
 
+type CategorySorter<CategorySortKey, PageSortKey> = (
+  a: Category<CategorySortKey, PageSortKey>,
+  b: typeof a
+) => number
+
+type PageSorter<PageSortKey> = (
+  a: Page<PageSortKey>,
+  b: typeof a
+) => number
+
 export interface TabSpec<CategorySortKey, PageSortKey> {
   id: string
   title: string
   categorise: (pages: MdxFile[]) => Category<CategorySortKey, PageSortKey>[]
-  sortCategories: (
-    a: Category<CategorySortKey, PageSortKey>,
-    b: Category<CategorySortKey, PageSortKey>,
-  ) => number
-  sortPages: (a: Page<PageSortKey>, b: Page<PageSortKey>) => number
+  sortCategories: CategorySorter<CategorySortKey, PageSortKey>
+  sortPages: PageSorter<PageSortKey>
 }
 
 export interface Category<CategorySortKey, PageSortKey> {
@@ -44,7 +51,7 @@ export function findCategoryByHeading(
   return category => category.heading === name
 }
 
-const tabSpecs = [alphabeticTabSpec, dateTabSpec, tagTabSpec]
+const tabSpecs: Array<TabSpec<any, any>> = [alphabeticTabSpec, dateTabSpec, tagTabSpec]
 
 function findDefaultTab(
   pageOpts: PageOpts,
@@ -64,22 +71,29 @@ export function CollectionContents({
     .children.filter(isMdxFile)
     .filter(isNotHidden)
     .filter(isNotIndex)
-  const defaultIndex = tabSpecs.findIndex(findDefaultTab(pageOpts)) ?? 0
+
+  // Use Math.max to set default index to 0 if the find fails and returns -1
+  const defaultIndex = Math.max(0, tabSpecs.findIndex(findDefaultTab(pageOpts)))
   const items = tabSpecs.map(tab => tab.title)
+
+  // Create categories from a tab spec, grabbing pages from this outside scope.
+  function buildCategories<CSK, PSK>(tabSpec: TabSpec<CSK, PSK>): Array<Category<CSK, PSK>> {
+    return tabSpec
+      .categorise(pages)
+      .map(({ heading, sortKey, contents }) => ({
+        heading,
+        sortKey,
+        contents: contents.sort(tabSpec.sortPages),
+      }))
+      .sort(tabSpec.sortCategories)
+  }
 
   return (
     <div className="collection-tabs">
       <Tabs items={items} defaultIndex={defaultIndex}>
         {tabSpecs.map(tabSpec => {
-          const categories = tabSpec
-            .categorise(pages)
-            .map(({ heading, sortKey, contents }) => ({
-              heading,
-              sortKey,
-              contents: contents.sort(tabSpec.sortPages),
-            }))
-            .sort(tabSpec.sortCategories)
-          return <Tab categories={categories} />
+          const categories = buildCategories(tabSpec)
+          return <Tab key={tabSpec.id} categories={categories} />
         })}
       </Tabs>
     </div>

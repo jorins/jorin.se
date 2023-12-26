@@ -2,14 +2,16 @@ import type * as Generic from './CollectionContents'
 
 import { getTitle } from '../lib/pageMap'
 
-type TabSpec = Generic.TabSpec<number, PageSortKey>
-type Category = Generic.Category<number, PageSortKey>
-type Page = Generic.Page<PageSortKey>
+type CategorySortKey = number
 
 interface PageSortKey {
   timestamp: number
   title: string
 }
+
+type TabSpec = Generic.TabSpec<CategorySortKey, PageSortKey>
+type Category = Generic.Category<CategorySortKey, PageSortKey>
+type Page = Generic.Page<PageSortKey>
 
 const dateTabSpec: TabSpec = {
   id: 'date',

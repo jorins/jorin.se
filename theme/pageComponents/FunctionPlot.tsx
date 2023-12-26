@@ -1,5 +1,5 @@
 import React from 'react'
-import functionToKatex from '../lib/functionToKatex.ts'
+// import functionToKatex from '../lib/functionToKatex'
 import functionPlot from 'function-plot'
 
 let idCounter = 1
@@ -20,12 +20,14 @@ export function FunctionPlot({ entries }: FunctionPlotProps): JSX.Element {
   const id = getId()
   const out = <div id={id}></div>
 
+  /*
   functionPlot({
     target: `#${id}`,
     data: entries.map(entry => ({
       fn: functionToKatex(entry.fn),
     })),
   })
+  */
 
   return out
 }
