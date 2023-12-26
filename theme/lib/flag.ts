@@ -1,6 +1,6 @@
-import { CountryCode, Locale } from './types'
+import { CountryCode } from './types'
 
-export const flagEmoji: Record<CountryCode, string> = {
+export const flagEmoji: Record<string, string>  = {
   AD: '🇦🇩',
   AE: '🇦🇪',
   AF: '🇦🇫',
@@ -250,12 +250,13 @@ export const flagEmoji: Record<CountryCode, string> = {
   ZA: '🇿🇦',
   ZM: '🇿🇲',
   ZW: '🇿🇼',
-}
+} satisfies Record<CountryCode, string>
 
-export function getFlag(country: CountryCode | Locale): string {
-  if (country.length > 2) {
-    return flagEmoji[country.substring(3)]
+export function getFlag(key: string): string | undefined {
+  if (key.length === 2) {
+    return flagEmoji[key]
   }
 
-  return flagEmoji[country]
+  const shortKey = key.substring(key.length - 2)
+  return flagEmoji[shortKey]
 }

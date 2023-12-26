@@ -1,5 +1,5 @@
 import type { Locale } from './types/locale'
-import type { LinkSpec } from '../components/Nav'
+import type { LinkSpec } from '../siteComponents/Nav.tsx'
 import type { TemplatePattern } from '../templates'
 
 /** A complete theme config. This is to be used internally by the theme. */

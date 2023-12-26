@@ -1,5 +1,5 @@
 import type { NextraThemeLayoutProps, PageOpts } from 'nextra'
-import type { ThemeConfig } from '../lib/config'
+import type { FullThemeConfig } from '../lib/config'
 
 import { minimatch } from 'minimatch'
 
@@ -8,12 +8,15 @@ import Page from './Page'
 import Tag from './Tag'
 import Tags from './Tags'
 
-export interface TemplateProps extends NextraThemeLayoutProps {
-  children: React.ReactNode
-}
+type TemplateProps = NextraThemeLayoutProps
+// export interface TemplateProps extends NextraThemeLayoutProps {
+  // children: React.ReactNode
+// }
 
 /** Shared template specification */
-export type Template = ({ children }: TemplateProps) => React.ReactElement
+export type Template = ({
+  children
+}: TemplateProps) => React.ReactElement
 
 /** Template patterns for specification in config */
 export interface TemplatePattern {
@@ -22,7 +25,14 @@ export interface TemplatePattern {
 }
 
 /** Template lookup table for manually picked templates */
-const templates = {
+const templateNames = [
+  'collection',
+  'page',
+  'tag',
+  'tags',
+]
+
+const templates: Record<typeof templateNames[number], Template> = {
   collection: Collection,
   page: Page,
   tag: Tag,
@@ -35,10 +45,10 @@ const templates = {
  */
 export function resolveTemplate(
   page: PageOpts,
-  themeConfig: ThemeConfig,
+  themeConfig: FullThemeConfig,
 ): Template {
   const route = page.route
-  const specified = page.frontMatter.template
+  const specified: string | undefined = page?.frontMatter?.template
 
   // First check for a specified template
   if (specified !== undefined) {
