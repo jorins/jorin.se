@@ -10,13 +10,11 @@ import Tags from './Tags'
 
 type TemplateProps = NextraThemeLayoutProps
 // export interface TemplateProps extends NextraThemeLayoutProps {
-  // children: React.ReactNode
+// children: React.ReactNode
 // }
 
 /** Shared template specification */
-export type Template = ({
-  children
-}: TemplateProps) => React.ReactElement
+export type Template = ({ children }: TemplateProps) => React.ReactElement
 
 /** Template patterns for specification in config */
 export interface TemplatePattern {
@@ -25,14 +23,9 @@ export interface TemplatePattern {
 }
 
 /** Template lookup table for manually picked templates */
-const templateNames = [
-  'collection',
-  'page',
-  'tag',
-  'tags',
-]
+const templateNames = ['collection', 'page', 'tag', 'tags']
 
-const templates: Record<typeof templateNames[number], Template> = {
+const templates: Record<(typeof templateNames)[number], Template> = {
   collection: Collection,
   page: Page,
   tag: Tag,

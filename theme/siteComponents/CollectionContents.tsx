@@ -22,13 +22,10 @@ export interface Page<SortKey> extends MdxFile {
 
 type CategorySorter<CategorySortKey, PageSortKey> = (
   a: Category<CategorySortKey, PageSortKey>,
-  b: typeof a
+  b: typeof a,
 ) => number
 
-type PageSorter<PageSortKey> = (
-  a: Page<PageSortKey>,
-  b: typeof a
-) => number
+type PageSorter<PageSortKey> = (a: Page<PageSortKey>, b: typeof a) => number
 
 export interface TabSpec<CategorySortKey, PageSortKey> {
   id: string
@@ -51,7 +48,11 @@ export function findCategoryByHeading(
   return category => category.heading === name
 }
 
-const tabSpecs: Array<TabSpec<any, any>> = [alphabeticTabSpec, dateTabSpec, tagTabSpec]
+const tabSpecs: Array<TabSpec<any, any>> = [
+  alphabeticTabSpec,
+  dateTabSpec,
+  tagTabSpec,
+]
 
 function findDefaultTab(
   pageOpts: PageOpts,
@@ -77,7 +78,9 @@ export function CollectionContents({
   const items = tabSpecs.map(tab => tab.title)
 
   // Create categories from a tab spec, grabbing pages from this outside scope.
-  function buildCategories<CSK, PSK>(tabSpec: TabSpec<CSK, PSK>): Array<Category<CSK, PSK>> {
+  function buildCategories<CSK, PSK>(
+    tabSpec: TabSpec<CSK, PSK>,
+  ): Array<Category<CSK, PSK>> {
     return tabSpec
       .categorise(pages)
       .map(({ heading, sortKey, contents }) => ({

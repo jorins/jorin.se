@@ -8,13 +8,6 @@
     "moduleResolution": "bundler",
     "noEmit": true
   },
-  "include": [
-    "next-end.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "./next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-end.d.ts", "**/*.ts", "**/*.tsx", "./next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

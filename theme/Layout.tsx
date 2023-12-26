@@ -17,7 +17,7 @@ export default function Layout(props: NextraThemeLayoutProps) {
   }
 
   if (pageOpts.filePath.includes('[collection]')) {
-    console.log("Template path:", props)
+    console.log('Template path:', props)
   }
 
   const Template = resolveTemplate(pageOpts, themeConfig)

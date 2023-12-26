@@ -1,6 +1,6 @@
 import { CountryCode } from './types'
 
-export const flagEmoji: Record<string, string>  = {
+export const flagEmoji: Record<string, string> = {
   AD: '🇦🇩',
   AE: '🇦🇪',
   AF: '🇦🇫',

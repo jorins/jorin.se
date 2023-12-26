@@ -52,9 +52,10 @@ const alphabeticTabSpec: TabSpec = {
 
       const category = alphabeticCategories.find(matchTitle)
       if (category === undefined) {
-        throw new Error(`Page ${page.route} does not match any alphabetic categories.`)
+        throw new Error(
+          `Page ${page.route} does not match any alphabetic categories.`,
+        )
       }
-
 
       const { heading } = category
 

@@ -24,19 +24,17 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
     throw new Error('Cannot find index page')
   }
 
-  const collectionPages = pageOpts.pageMap
-    .filter(isFolder)
-    .map(page => {
-      const collectionIndex = page.children
-        .filter(isMdxFile)
-        .find(findIndex)
+  const collectionPages = pageOpts.pageMap.filter(isFolder).map(page => {
+    const collectionIndex = page.children.filter(isMdxFile).find(findIndex)
 
-      if (collectionIndex === undefined) {
-        throw new Error(`Failed to find index of collection folder '${page.route}'`)
-      }
+    if (collectionIndex === undefined) {
+      throw new Error(
+        `Failed to find index of collection folder '${page.route}'`,
+      )
+    }
 
-      return collectionIndex
-    })
+    return collectionIndex
+  })
 
   const internalPages = [indexPage, ...collectionPages]
 

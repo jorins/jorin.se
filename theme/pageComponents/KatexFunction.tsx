@@ -18,7 +18,9 @@ export function KatexFunction({ fn, inline }: KatexFunctionProps): JSX.Element {
     return (
       <span className="katex-error">
         Failed to convert JS function to KaTeX, reason:
-        <code className="katex-error-reason">{e?.toString() ?? 'Cannot convert error to string'}</code>
+        <code className="katex-error-reason">
+          {e?.toString() ?? 'Cannot convert error to string'}
+        </code>
       </span>
     )
   }
