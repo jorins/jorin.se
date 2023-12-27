@@ -104,13 +104,14 @@ export function CollectionContents({
 }
 
 interface TabProps {
+  key: React.Key
   categories: Category<unknown, unknown>[]
 }
 
-function Tab({ categories }: TabProps): JSX.Element {
+function Tab({ key, categories }: TabProps): JSX.Element {
   return (
     <div className="collection-tab">
-      <Tabs.Tab>{categories.map(CategorySection)}</Tabs.Tab>
+      <Tabs.Tab key={key}>{categories.map(CategorySection)}</Tabs.Tab>
     </div>
   )
 }
