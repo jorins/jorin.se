@@ -10,14 +10,10 @@ import { resolveTemplate } from './templates'
 import { defaultConfig } from './lib/config'
 
 export default function Layout(props: NextraThemeLayoutProps) {
-  const { pageOpts, children } = props
+  const { pageOpts, pageProps, children } = props
   const themeConfig: FullThemeConfig = {
     ...defaultConfig,
     ...props.themeConfig,
-  }
-
-  if (pageOpts.filePath.includes('[collection]')) {
-    console.log('Template path:', props)
   }
 
   const Template = resolveTemplate(pageOpts, themeConfig)
@@ -27,7 +23,13 @@ export default function Layout(props: NextraThemeLayoutProps) {
       <Nav pageOpts={pageOpts} themeConfig={themeConfig} />
       <Toc headings={pageOpts.headings} />
       <main className="site-block">
-        <Template {...props}>{children}</Template>
+        <Template
+          pageOpts={pageOpts}
+          pageProps={pageProps}
+          themeConfig={themeConfig}
+        >
+          {children}
+        </Template>
       </main>
     </>
   )

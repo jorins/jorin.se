@@ -3,7 +3,7 @@ import type { FullThemeConfig } from '../lib/config'
 
 import React from 'react'
 import YgLogo from './YgLogo'
-import { isFolder, isMdxFile, findIndex } from '../lib/pageMap'
+import { isFolder, isMdxFile, isIndex } from '../lib/pageMap'
 
 export interface LinkSpec {
   id: string
@@ -19,13 +19,13 @@ export interface NavProps {
 export interface MoreNavProps {}
 
 export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
-  const indexPage = pageOpts.pageMap.filter(isMdxFile).find(findIndex)
+  const indexPage = pageOpts.pageMap.filter(isMdxFile).find(isIndex)
   if (indexPage === undefined) {
     throw new Error('Cannot find index page')
   }
 
   const collectionPages = pageOpts.pageMap.filter(isFolder).map(page => {
-    const collectionIndex = page.children.filter(isMdxFile).find(findIndex)
+    const collectionIndex = page.children.filter(isMdxFile).find(isIndex)
 
     if (collectionIndex === undefined) {
       throw new Error(

@@ -6,6 +6,9 @@ function keepStrings(i: TitleComponent): i is string {
   return typeof i === 'string'
 }
 
+/**
+ * Make a title for a <title> tag
+ */
 export function makeTitle(
   components: TitleComponent[],
   themeConfig: FullThemeConfig,

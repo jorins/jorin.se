@@ -3,31 +3,9 @@ import type { ThemeConfig } from './theme/lib/config'
 const config: ThemeConfig = {
   lang: 'en-GB',
   title: {
-    postfix: 'Jorin',
+    postfix: "Jorin's website",
     separator: ' · ',
   },
-  templates: [
-    {
-      pattern: '/',
-      template: 'page',
-    },
-    {
-      pattern: '/*',
-      template: 'collection',
-    },
-    {
-      pattern: '/*/tags',
-      template: 'tags',
-    },
-    {
-      pattern: '/*/tags/*',
-      template: 'tag',
-    },
-    {
-      pattern: '/*/*',
-      template: 'page',
-    },
-  ],
   externalLinks: [
     {
       id: 'soundcloud',

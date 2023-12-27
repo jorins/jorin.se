@@ -2,9 +2,12 @@ import type { ImageProps } from 'next/image'
 import React from 'react'
 import Image from 'next/image'
 
-type StrictImageProps = {
+/**
+ * Image props that require alt text
+ */
+interface StrictImageProps extends ImageProps {
   alt: string
-} & ImageProps
+}
 
 const stub: ImageProps = {
   alt: 'Stub image',
@@ -25,28 +28,54 @@ const images: Record<string, StrictImageProps> = {
 }
 
 export interface PredefinedImageProps {
-  imgId: keyof typeof images | string
+  /**
+   * Class name to apply to the image. If `asFigure`, it will be applied to the
+   * `<figure>` element. Otherwise. It will be applied to the wrapped `Image`
+   * component
+   */
+  className?: string
+
+  /**
+   * ID of the pre-defined image.
+   */
+  imgId: string
+
+  /**
+   * If true, the image will be wrapped in a `<figure>` element and followed by
+   * a `<figcaption>` containing the image's alt text.
+   */
   asFigure?: boolean
+
+  /**
+   * Override any attributes of the predefined image.
+   */
   override?: Partial<StrictImageProps>
 }
 
 export function PredefinedImage({
+  className,
   imgId,
   asFigure,
   override,
 }: PredefinedImageProps): JSX.Element {
   const attributes: StrictImageProps = {
     ...images[imgId],
-    ...(override ?? {}),
+    ...override,
   }
-  return asFigure ?? true ? (
-    <figure>
-      <Image {...attributes} alt={attributes.alt} />
-      <figcaption>{attributes.alt}</figcaption>
-    </figure>
-  ) : (
-    <Image {...attributes} alt={attributes.alt} />
-  )
+
+  // N.B.: we manually set the alt attribute instead of relying on the
+  // `{...attributes}` spread to satisfy the accessibility linter.
+
+  if (asFigure ?? true) {
+    return (
+      <figure className={className}>
+        <Image {...attributes} alt={attributes.alt} />
+        <figcaption>{attributes.alt}</figcaption>
+      </figure>
+    )
+  }
+
+  return <Image className={className} {...attributes} alt={attributes.alt} />
 }
 
 export default PredefinedImage

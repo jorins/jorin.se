@@ -25,7 +25,7 @@ export const defaultConfig: FullThemeConfig = {
   templates: [
     {
       pattern: '/',
-      template: 'page',
+      template: 'index',
     },
     {
       pattern: '/*',
@@ -47,7 +47,7 @@ export const defaultConfig: FullThemeConfig = {
   externalLinks: [
     {
       id: 'theme',
-      title: 'Theme by Jorin',
+      title: 'Nextra theme by Jorin',
       href: 'https://github.com/jorins',
     },
   ],

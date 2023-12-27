@@ -1,5 +1,34 @@
 @import 'lib';
 
+.collection-header-wrapper {
+  text-decoration: none;
+  color: initial;
+  display: block;
+}
+
+.collection-header {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.collection-image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.collection-title {
+  font-size: 3em;
+  line-height: 1.25em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.collection-description {
+  text-align: center;
+}
+
 // Tab button container (outer)
 .collection-tabs > div:first-child {
   position: sticky;
@@ -59,28 +88,43 @@
 }
 
 @include desktop {
+  .collection-listing {
+    @include glass;
+    background-color: none;
+  }
+
   .collection-header {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     grid-template-areas:
       'img header'
-      'img content';
+      'img description';
+  }
 
-    img {
-      grid-area: img;
-      place-self: stretch;
-    }
+  .collection-header-wrapper:nth-child(even) {
+    background-color: $black;
 
-    h1 {
-      grid-area: header;
-      place-self: end stretch;
+    .collection-header {
+      grid-template-areas:
+        'header img'
+        'description img';
     }
+  }
 
-    .collection-description {
-      grid-area: content;
-      place-self: end stretch;
-    }
+  .collection-image {
+    grid-area: img;
+    place-self: stretch;
+  }
+
+  .collection-title {
+    grid-area: header;
+    place-self: end stretch;
+  }
+
+  .collection-description {
+    grid-area: description;
+    place-self: start center;
   }
 
   .collection-tab > div {
@@ -92,9 +136,5 @@
     width: calc(100% / 3);
     flex-grow: 1;
     min-width: 20rem;
-  }
-
-  img {
-    display: inline-block;
   }
 }

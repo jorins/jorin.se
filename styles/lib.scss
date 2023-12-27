@@ -23,7 +23,7 @@ $border-width: 0.2rem;
   $panel-transparency: $medium-transparency,
   $border-transparency: $high-transparency
 ) {
-  background-color: color.change($grey, $alpha: $panel-transparency);
+  background-color: color.change($background, $alpha: $panel-transparency);
   backdrop-filter: blur(4px);
 
   $border-a: $border-width solid

@@ -1,0 +1,9 @@
+@import 'lib';
+
+.page-title {
+  text-align: left;
+  width: 100%;
+  font-size: 3em;
+  border-bottom: $border-width solid $white;
+  padding-bottom: 0.5em;
+}

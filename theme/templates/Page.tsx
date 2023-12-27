@@ -3,6 +3,7 @@ import type { Template } from '.'
 import Head from 'next/head'
 
 import { makeTitle } from '../lib/title'
+import { PageTitle } from '../siteComponents'
 
 const Page: Template = ({ children, pageOpts, themeConfig }) => {
   const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title
@@ -14,7 +15,7 @@ const Page: Template = ({ children, pageOpts, themeConfig }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <h1>{pageOpts.title}</h1>
+      <PageTitle>{pageOpts.title}</PageTitle>
       {children}
     </>
   )

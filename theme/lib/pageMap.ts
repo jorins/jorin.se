@@ -10,12 +10,12 @@ export function isMdxFile(page: PageMapItem): page is MdxFile {
   return page.kind === 'MdxPage'
 }
 
-/** Find a page with the name 'index' */
-export function findIndex(page: MdxFile): boolean {
+/** Filter to include only MdxFiles with the name 'index' */
+export function isIndex(page: MdxFile): boolean {
   return page.name === 'index'
 }
 
-/** Filter out index page */
+/** Filter to include only MdxFiles whose names are not 'index' */
 export function isNotIndex(page: MdxFile): boolean {
   return page.name !== 'index'
 }

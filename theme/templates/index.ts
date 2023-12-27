@@ -1,20 +1,22 @@
 import type { NextraThemeLayoutProps, PageOpts } from 'nextra'
 import type { FullThemeConfig } from '../lib/config'
+import type { FrontMatter } from '../lib/types'
 
 import { minimatch } from 'minimatch'
 
+import Index from './Index'
 import Collection from './Collection'
 import Page from './Page'
 import Tag from './Tag'
 import Tags from './Tags'
 
-type TemplateProps = NextraThemeLayoutProps
-// export interface TemplateProps extends NextraThemeLayoutProps {
-// children: React.ReactNode
-// }
+interface TemplateProps extends NextraThemeLayoutProps {
+  pageOpts: PageOpts<FrontMatter>
+  themeConfig: FullThemeConfig
+}
 
 /** Shared template specification */
-export type Template = ({ children }: TemplateProps) => React.ReactElement
+export type Template = (props: TemplateProps) => React.ReactElement
 
 /** Template patterns for specification in config */
 export interface TemplatePattern {
@@ -23,14 +25,16 @@ export interface TemplatePattern {
 }
 
 /** Template lookup table for manually picked templates */
-const templateNames = ['collection', 'page', 'tag', 'tags']
-
-const templates: Record<(typeof templateNames)[number], Template> = {
+const templates = {
+  index: Index,
   collection: Collection,
   page: Page,
   tag: Tag,
   tags: Tags,
 } satisfies Record<string, Template>
+
+/** Name of a pre-defined template */
+export type TemplateName = keyof typeof templates
 
 /**
  * Resolve which template to use for a page, based on its specification or by
@@ -41,7 +45,7 @@ export function resolveTemplate(
   themeConfig: FullThemeConfig,
 ): Template {
   const route = page.route
-  const specified: string | undefined = page?.frontMatter?.template
+  const specified: TemplateName | undefined = page?.frontMatter?.template
 
   // First check for a specified template
   if (specified !== undefined) {
