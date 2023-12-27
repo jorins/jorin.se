@@ -16,16 +16,16 @@ A filter is a process that removes frequencies from a signal.
 
 ---
 
-# In audio
+## In audio
 
-## Filter or equaliser?
+### Filter or equaliser?
 
 An important thing to remember about filtering a signal is that once something
 is removed, it cannot be re-added. In recording, it is therefore often
 preferable to record without any filters cutting into the content of the audio
 source. Attenuating EQ is a milder choice that can be undone.
 
-## Envelope filter
+### Envelope filter
 
 A common effect especially used for synthesisers and pornographic film
 soundtracks is a resonant low-pass filter of which the frequency follows the
@@ -40,9 +40,9 @@ envelopes.
 
 ---
 
-# Types
+## Types
 
-## Low-pass filter
+### Low-pass filter
 
 Frequencies below the cutoff point pass, frequencies above the cutoff point are
 removed.
@@ -50,14 +50,14 @@ removed.
 A low pass filter may be used to remove AC, oftentimes with the purpose of
 removing noise from DC power.
 
-## High-pass filter
+### High-pass filter
 
 Frequencies above the cutoff point pass, frequencies below the cutoff point are
 removed.
 
 A high pass filter may be used to remove DC, as it is effectively a 0Hz signal.
 
-## Band-pass filter
+### Band-pass filter
 
 Frequencies within a certain band pass, frequencies outside the band are
 removed. A band pass filter can be constructed by combining a low-pass filter
@@ -66,32 +66,32 @@ and a high-pass filter.
 A common application for band-pass filters is the [wah](/grimoire/wah), which
 sweeps a resonant band-pass filter.
 
-## Band-reject filter
+### Band-reject filter
 
 Frequencies outside a certain band pass, frequencies inside the band are
 removed.
 
-## All-pass filter
+### All-pass filter
 
 No frequencies are removed. However, [phase](/grimoire/phase) is altered around
 a target frequency.
 
 ---
 
-# Implementations
+## Implementations
 
-## Passive filter
+### Passive filter
 
 Passive filters are most commonly constructed using capacitors and resistors.
 Inductors can be used too, though they are less commonly used due to cost and
 size.
 
-## Active filter
+### Active filter
 
 An active filter combines filters with active electronics, which can boost a
 signal. This lets one create EQ, shelves, etc.
 
-## Digital filter
+### Digital filter
 
 Filters can be created digitally and can achieve things not easily done with
 electronic processing. They are also perfectly consistent, which cannot be said
