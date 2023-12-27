@@ -4,6 +4,7 @@ $background-animation-length: 12s;
 
 .background-container {
   background: linear-gradient(#332266, #662233);
+  z-index: -1;
 }
 
 // Common, no animations
