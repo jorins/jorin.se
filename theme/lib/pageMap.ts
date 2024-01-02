@@ -3,10 +3,10 @@
  * Functions for working with the page map in the theme.
  */
 import type { Folder, PageMapItem, MdxFile, PageOpts } from './types'
-/**
 
 import * as regExp from './regExp'
 
+/**
  * Filter to include only Folders from PageMapItems
  */
 export function isFolder(page: PageMapItem): page is Folder {
