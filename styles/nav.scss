@@ -8,7 +8,15 @@
 
   li {
     line-height: 2em;
-    font-size: 1.25em;
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
   }
 }
 
@@ -19,9 +27,6 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-
-  font-size: 2em;
-  line-height: 2em;
 }
 
 #site-navigation-internal {
@@ -41,7 +46,6 @@
 
   #site-navigation-header {
     flex-direction: column;
-    font-size: 1.5em;
     line-height: 1.5em;
   }
 }

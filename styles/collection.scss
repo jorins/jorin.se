@@ -19,9 +19,6 @@
 }
 
 .collection-title {
-  font-size: 3em;
-  line-height: 1.25em;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -47,7 +44,7 @@
     content: 'Pages';
     font-family: 'Quicksand';
     flex-grow: 1;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-align: left;
   }
 
@@ -66,7 +63,7 @@
   width: 6em;
 
   font-family: 'Quicksand';
-  font-size: 1.5em;
+  font-size: 1.5rem;
 
   &[aria-selected='true'] {
     border-bottom: 0.1em solid white;
