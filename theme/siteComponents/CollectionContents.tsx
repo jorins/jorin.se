@@ -119,7 +119,7 @@ function Tab({ key, categories }: TabProps): JSX.Element {
 function CategorySection(category: Category<unknown, unknown>): JSX.Element {
   return (
     <section className="collection-category">
-      <h1>{category.heading}</h1>
+      <h2>{category.heading}</h2>
       <ul>
         {category.contents.map(page => {
           const title = getTitle(page)

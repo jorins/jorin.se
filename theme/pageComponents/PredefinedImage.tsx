@@ -49,14 +49,14 @@ export interface PredefinedImageProps {
   /**
    * Override any attributes of the predefined image.
    */
-  override?: Partial<StrictImageProps>
+  override: Partial<StrictImageProps>
 }
 
 export function PredefinedImage({
   className,
   imgId,
-  asFigure,
-  override,
+  asFigure = false,
+  override = {},
 }: PredefinedImageProps): JSX.Element {
   const attributes: StrictImageProps = {
     ...images[imgId],
@@ -66,7 +66,7 @@ export function PredefinedImage({
   // N.B.: we manually set the alt attribute instead of relying on the
   // `{...attributes}` spread to satisfy the accessibility linter.
 
-  if (asFigure ?? true) {
+  if (asFigure) {
     return (
       <figure className={className}>
         <Image {...attributes} alt={attributes.alt} />

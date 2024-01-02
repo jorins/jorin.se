@@ -16,8 +16,6 @@ export interface NavProps {
   themeConfig: FullThemeConfig
 }
 
-export interface MoreNavProps {}
-
 /**
  * The common nav block shown on every page including insignia, site
  * navigation, and external links.
@@ -46,11 +44,11 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
     <nav id="site-navigation" className="site-block">
       <header id="site-navigation-header">
         <YgLogo />
-        <h1>Jorin&apos;s website</h1>
+        <h1>{themeConfig.title.postfix}</h1>
       </header>
 
-      <div id="site-navigation-internal">
-        <h1>Site navigation</h1>
+      <section id="site-navigation-internal">
+        <h2>Site navigation</h2>
         <ul>
           {internalPages.map(page => (
             <li key={page.route}>
@@ -58,10 +56,10 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
-      <div id="site-navigation-external">
-        <h1>External links</h1>
+      <section id="site-navigation-external">
+        <h2>External links</h2>
         <ul>
           {themeConfig.externalLinks.map(({ id, title, href }) => (
             <li key={id}>
@@ -71,7 +69,7 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     </nav>
   )
 }

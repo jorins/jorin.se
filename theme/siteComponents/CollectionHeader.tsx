@@ -4,8 +4,8 @@ import PredefinedImage from '../pageComponents/PredefinedImage'
 export interface CollectionHeaderProps {
   imgId: string
   imgOverride?: PredefinedImageProps['override']
-  title: string
-  children: React.ReactNode
+  title: React.ReactNode
+  description: React.ReactNode
 }
 
 /**
@@ -14,9 +14,9 @@ export interface CollectionHeaderProps {
  */
 export function CollectionHeader({
   imgId,
-  imgOverride,
+  imgOverride = {},
   title,
-  children,
+  description,
 }: CollectionHeaderProps): JSX.Element {
   return (
     <section className="collection-header">
@@ -26,8 +26,8 @@ export function CollectionHeader({
         asFigure={false}
         override={imgOverride}
       />
-      <h1 className="collection-title">{title}</h1>
-      <span className="collection-description">{children}</span>
+      <span className="collection-title">{title}</span>
+      <span className="collection-description">{description}</span>
     </section>
   )
 }
