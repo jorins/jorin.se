@@ -6,6 +6,26 @@ const config: ThemeConfig = {
     postfix: "Jorin's website",
     separator: ' · ',
   },
+  images: {
+    grimoire: {
+      alt: 'A grimoire floating above a glowing purple pentagram',
+      src: '/images/grimoire.png',
+      width: 500,
+      height: 500,
+    },
+    machination: {
+      alt: 'On a printed circuit board, a blue glowing orb is suspended in a brass icosahedron. Above, two gears surrounded purple neon parentheses float.',
+      src: '/images/machination.png',
+      width: 500,
+      height: 500,
+    },
+    ramble: {
+      alt: 'A megaphone spits fire and feces.',
+      src: '/images/ramble.png',
+      width: 500,
+      height: 500,
+    },
+  },
   externalLinks: [
     {
       id: 'soundcloud',

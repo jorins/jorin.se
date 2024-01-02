@@ -3,38 +3,22 @@ import React from 'react'
 import Image from 'next/image'
 
 /**
+ * Predefined image container. Add using `registerImage`
+ */
+const images: Record<string, StrictImageProps> = {}
+
+/**
  * Image props that require alt text
  */
-interface StrictImageProps extends ImageProps {
+export interface StrictImageProps extends ImageProps {
   alt: string
 }
 
-const stub: ImageProps = {
-  alt: 'Stub image',
-  src: '',
-  width: 500,
-  height: 500,
-}
-
-const images: Record<string, StrictImageProps> = {
-  grimoire: {
-    alt: 'A grimoire floating above a glowing purple pentagram',
-    src: '/images/grimoire.png',
-    width: 500,
-    height: 500,
-  },
-  machination: {
-    alt: 'On a printed circuit board, a blue glowing orb is suspended in a brass icosahedron. Above, two gears surrounded purple neon parentheses float.',
-    src: '/images/machination.png',
-    width: 500,
-    height: 500,
-  },
-  ramble: {
-    alt: 'A megaphone spits fire and feces.',
-    src: '/images/ramble.png',
-    width: 500,
-    height: 500,
-  },
+/**
+ * Register an image to be used per its ID
+ */
+export function registerImage(key: string, image: StrictImageProps): void {
+  images[key] = image
 }
 
 export interface PredefinedImageProps {

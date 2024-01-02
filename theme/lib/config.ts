@@ -1,3 +1,4 @@
+import type { StrictImageProps } from '../pageComponents'
 import type { Locale } from './types/locale'
 import type { LinkSpec } from '../siteComponents/Nav.tsx'
 import type { TemplatePattern } from '../templates'
@@ -9,6 +10,7 @@ export interface FullThemeConfig {
     postfix: string | null
     separator: string
   }
+  images: Record<string, StrictImageProps>
   templates: TemplatePattern[]
   externalLinks: LinkSpec[]
 }
@@ -22,6 +24,7 @@ export const defaultConfig: FullThemeConfig = {
     separator: ' | ',
     postfix: null,
   },
+  images: {},
   templates: [
     {
       pattern: '/',

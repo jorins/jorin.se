@@ -8,14 +8,23 @@ import Toc from './siteComponents/Toc'
 
 import { resolveTemplate } from './templates'
 import { defaultConfig } from './lib/config'
+import { registerImage } from './pageComponents'
 
 export default function Layout(props: NextraThemeLayoutProps) {
   const { pageOpts, pageProps, children } = props
+
+  // Build theme config including defaults
   const themeConfig: FullThemeConfig = {
     ...defaultConfig,
     ...props.themeConfig,
   }
 
+  // Register pre-defined images
+  Object.entries(themeConfig.images).forEach(([key, image]) =>
+    registerImage(key, image),
+  )
+
+  // Get the target template
   const Template = resolveTemplate(pageOpts, themeConfig)
 
   return (
