@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
- * N.B.: the logo is kept as inline SVG to work better with styling.
+ * My insignia. The logo is kept as inline SVG to work better with CSS styling.
  */
 export function YgLogo(): JSX.Element {
   return (

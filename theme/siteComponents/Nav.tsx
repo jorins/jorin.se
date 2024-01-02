@@ -18,6 +18,10 @@ export interface NavProps {
 
 export interface MoreNavProps {}
 
+/**
+ * The common nav block shown on every page including insignia, site
+ * navigation, and external links.
+ */
 export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
   const indexPage = pageOpts.pageMap.filter(isMdxFile).find(isIndex)
   if (indexPage === undefined) {

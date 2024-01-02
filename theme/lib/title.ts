@@ -7,7 +7,7 @@ function keepStrings(i: TitleComponent): i is string {
 }
 
 /**
- * Make a title for a <title> tag
+ * Make a title for a <title> tag using a given list of components
  */
 export function makeTitle(
   components: TitleComponent[],

@@ -3,6 +3,9 @@ import type { Heading } from 'nextra'
 import React from 'react'
 import { nest, NestedHeadings } from '../lib/nestHeadings'
 
+/**
+ * Entry in the ToC.
+ */
 function TocEntry(heading: NestedHeadings[number]) {
   if (Array.isArray(heading)) {
     return <ol>{heading.map(TocEntry)}</ol>
@@ -19,6 +22,9 @@ export interface TocProps {
   headings: Heading[]
 }
 
+/**
+ * A page's table of contents
+ */
 export function Toc({ headings }: TocProps): JSX.Element {
   if (headings.length === 0) {
     return <></>
