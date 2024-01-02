@@ -1,4 +1,6 @@
+import { PageOpts } from 'nextra'
 import type { FullThemeConfig } from './config'
+import { asMdxFile, getShortTitle, pagesInHierarchy } from './pageMap'
 
 type TitleComponent = string | null | undefined
 
@@ -16,4 +18,19 @@ export function makeTitle(
   const { postfix, separator } = themeConfig.title
   const calculatedComponents = [...components, postfix].filter(keepStrings)
   return calculatedComponents.join(separator)
+}
+
+/**
+ * Make a title for a <title> tag based on the page hierarchy.
+ */
+export function makeHierarchicalTitle(
+  pageOpts: PageOpts,
+  themeConfig: FullThemeConfig,
+): string {
+  const pageTitles = pagesInHierarchy(pageOpts)
+    .map(asMdxFile)
+    .map(getShortTitle)
+    .slice(1) // Discard index; the site name is used in its place
+    .reverse()
+  return makeTitle(pageTitles, themeConfig)
 }

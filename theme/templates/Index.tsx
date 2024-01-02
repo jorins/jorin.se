@@ -6,7 +6,6 @@ import { isFolder, isIndex, isMdxFile } from '../lib/pageMap'
 import { CollectionHeader, PageTitle } from '../siteComponents'
 
 const Index: Template = ({ children, pageOpts, themeConfig }) => {
-  const headTitle = pageOpts?.frontMatter?.shortTitle ?? pageOpts.title
   const pageTitle = pageOpts.title
 
   const collections = pageOpts.pageMap

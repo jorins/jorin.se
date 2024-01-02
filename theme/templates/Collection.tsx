@@ -3,12 +3,11 @@ import type { Template } from '.'
 import Head from 'next/head'
 
 import { CollectionContents, CollectionHeader } from '../siteComponents'
-import { makeTitle } from '../lib/title'
+import { makeHierarchicalTitle } from '../lib/title'
 
 const Collection: Template = ({ children, pageOpts, themeConfig }) => {
   const imgId = pageOpts.route.split('/')[1]
-  const pageTitle = pageOpts.frontMatter.shortTitle ?? pageOpts.title
-  const fullTitle = makeTitle([pageTitle], themeConfig)
+  const fullTitle = makeHierarchicalTitle(pageOpts, themeConfig)
 
   return (
     <>
