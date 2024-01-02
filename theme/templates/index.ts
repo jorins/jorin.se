@@ -1,6 +1,5 @@
-import type { NextraThemeLayoutProps, PageOpts } from 'nextra'
+import type { ThemeLayoutProps, PageOpts } from '../lib/types'
 import type { FullThemeConfig } from '../lib/config'
-import type { FrontMatter } from '../lib/types'
 
 import { minimatch } from 'minimatch'
 
@@ -10,13 +9,8 @@ import Page from './Page'
 import Tag from './Tag'
 import Tags from './Tags'
 
-interface TemplateProps extends NextraThemeLayoutProps {
-  pageOpts: PageOpts<FrontMatter>
-  themeConfig: FullThemeConfig
-}
-
 /** Shared template specification */
-export type Template = (props: TemplateProps) => React.ReactElement
+export type Template = (props: ThemeLayoutProps) => React.ReactElement
 
 /** Template patterns for specification in config */
 export interface TemplatePattern {

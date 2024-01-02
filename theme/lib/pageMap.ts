@@ -1,6 +1,7 @@
-import type { Folder, PageMapItem, MdxFile, PageOpts } from 'nextra'
-
-/** Filter to include only Folders from PageMapItems */
+import type { Folder, PageMapItem, MdxFile, PageOpts } from './types'
+/**
+ * Filter to include only Folders from PageMapItems
+ */
 export function isFolder(page: PageMapItem): page is Folder {
   return page.kind === 'Folder'
 }
