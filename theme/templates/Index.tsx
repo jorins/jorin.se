@@ -35,15 +35,16 @@ const Index: Template = ({ children, pageOpts, themeConfig }) => {
               key={collection.route}
             >
               <CollectionHeader
-                title={collection?.frontMatter?.title}
+                title={<h1>
+                  {collection?.frontMatter?.title}
+                </h1>}
+                description={collection?.frontMatter?.description}
                 imgId={imgId}
                 imgOverride={{
                   width: 350,
                   height: 350,
                 }}
-              >
-                {collection?.frontMatter?.description}
-              </CollectionHeader>
+              />
             </a>
           )
         })}

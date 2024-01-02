@@ -15,9 +15,14 @@ const Collection: Template = ({ children, pageOpts, themeConfig }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <CollectionHeader title={pageOpts.title} imgId={imgId}>
-        {children}
-      </CollectionHeader>
+      <CollectionHeader
+        title={<>
+          <PageHierarchyNav pageOpts={pageOpts} />
+          <PageTitle>{pageOpts.title}</PageTitle>
+        </>}
+        description={children}
+        imgId={imgId}
+      />
 
       <CollectionContents pageOpts={pageOpts} themeConfig={themeConfig} />
     </>
