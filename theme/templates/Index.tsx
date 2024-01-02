@@ -3,7 +3,11 @@ import type { Template } from '.'
 import Head from 'next/head'
 
 import { isFolder, isIndex, isMdxFile } from '../lib/pageMap'
-import { CollectionHeader, PageTitle } from '../siteComponents'
+import {
+  CollectionHeader,
+  PageTitle,
+  PageHierarchyNav,
+} from '../siteComponents'
 
 const Index: Template = ({ children, pageOpts, themeConfig }) => {
   const pageTitle = pageOpts.title
@@ -20,6 +24,8 @@ const Index: Template = ({ children, pageOpts, themeConfig }) => {
       <Head>
         <title>{themeConfig.title.postfix}</title>
       </Head>
+
+      <PageHierarchyNav pageOpts={pageOpts} />
       <PageTitle>{pageTitle}</PageTitle>
 
       {children}
@@ -35,9 +41,7 @@ const Index: Template = ({ children, pageOpts, themeConfig }) => {
               key={collection.route}
             >
               <CollectionHeader
-                title={<h1>
-                  {collection?.frontMatter?.title}
-                </h1>}
+                title={<h1>{collection?.frontMatter?.title}</h1>}
                 description={collection?.frontMatter?.description}
                 imgId={imgId}
                 imgOverride={{

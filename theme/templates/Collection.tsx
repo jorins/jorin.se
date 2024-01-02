@@ -2,7 +2,12 @@ import type { Template } from '.'
 
 import Head from 'next/head'
 
-import { CollectionContents, CollectionHeader } from '../siteComponents'
+import {
+  CollectionContents,
+  CollectionHeader,
+  PageHierarchyNav,
+  PageTitle,
+} from '../siteComponents'
 import { makeHierarchicalTitle } from '../lib/title'
 
 const Collection: Template = ({ children, pageOpts, themeConfig }) => {
@@ -16,10 +21,12 @@ const Collection: Template = ({ children, pageOpts, themeConfig }) => {
       </Head>
 
       <CollectionHeader
-        title={<>
-          <PageHierarchyNav pageOpts={pageOpts} />
-          <PageTitle>{pageOpts.title}</PageTitle>
-        </>}
+        title={
+          <>
+            <PageHierarchyNav pageOpts={pageOpts} />
+            <PageTitle>{pageOpts.title}</PageTitle>
+          </>
+        }
         description={children}
         imgId={imgId}
       />
