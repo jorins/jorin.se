@@ -55,8 +55,11 @@ main {
 #table-of-contents {
   grid-area: toc;
   align-self: start;
-  position: sticky;
-  top: $gap;
+
+  @include desktop {
+    position: sticky;
+    top: $gap;
+  }
 }
 
 .site-block {
