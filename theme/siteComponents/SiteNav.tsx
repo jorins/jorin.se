@@ -11,7 +11,7 @@ export interface LinkSpec {
   href: string
 }
 
-export interface NavProps {
+export interface SiteNavProps {
   pageOpts: PageOpts
   themeConfig: FullThemeConfig
 }
@@ -20,7 +20,7 @@ export interface NavProps {
  * The common nav block shown on every page including insignia, site
  * navigation, and external links.
  */
-export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
+export function SiteNav({ pageOpts, themeConfig }: SiteNavProps): JSX.Element {
   const indexPage = pageOpts.pageMap.filter(isMdxFile).find(isIndex)
   if (indexPage === undefined) {
     throw new Error('Cannot find index page')
@@ -74,4 +74,4 @@ export function Nav({ pageOpts, themeConfig }: NavProps): JSX.Element {
   )
 }
 
-export default Nav
+export default SiteNav

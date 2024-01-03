@@ -1,6 +1,6 @@
 import type { StrictImageProps } from '../pageComponents'
 import type { Locale } from './types/locale'
-import type { LinkSpec } from '../siteComponents/Nav.tsx'
+import type { LinkSpec } from '../siteComponents'
 import type { TemplatePattern } from '../templates'
 
 /** A complete theme config. This is to be used internally by the theme. */

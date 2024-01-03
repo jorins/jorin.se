@@ -5,7 +5,7 @@ import Head from 'next/head'
 import {
   CollectionContents,
   CollectionHeader,
-  PageHierarchyNav,
+  HierarchyNav,
   PageTitle,
 } from '../siteComponents'
 import { makeHierarchicalTitle } from '../lib/title'
@@ -23,7 +23,7 @@ const Collection: Template = ({ children, pageOpts, themeConfig }) => {
       <CollectionHeader
         title={
           <>
-            <PageHierarchyNav pageOpts={pageOpts} />
+            <HierarchyNav pageOpts={pageOpts} />
             <PageTitle>{pageOpts.title}</PageTitle>
           </>
         }

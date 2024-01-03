@@ -3,8 +3,7 @@ import type { FullThemeConfig } from './lib/config'
 
 import '@openfonts/quicksand_all'
 
-import Nav from './siteComponents/Nav'
-import Toc from './siteComponents/Toc'
+import { SiteNav, Toc } from './siteComponents'
 
 import { resolveTemplate } from './templates'
 import { defaultConfig } from './lib/config'
@@ -29,7 +28,7 @@ export default function Layout(props: NextraThemeLayoutProps) {
 
   return (
     <>
-      <Nav pageOpts={pageOpts} themeConfig={themeConfig} />
+      <SiteNav pageOpts={pageOpts} themeConfig={themeConfig} />
       <Toc headings={pageOpts.headings} />
       <main className="site-block">
         <Template
