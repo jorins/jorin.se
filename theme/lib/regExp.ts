@@ -1,1 +1,1 @@
-export const routeSegments = /\/(\w*)/g
+export const routeSegments = /\/([^\/]*)/g

@@ -28,6 +28,10 @@ const cases: Case[] = [
         testString: '/a/b/',
         expected: ['/a', '/b', '/'],
       },
+      {
+        testString: '/dashed-segment/underscored_segment',
+        expected: ['/dashed-segment', '/underscored_segment'],
+      },
     ],
   },
 ]
