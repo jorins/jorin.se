@@ -119,8 +119,7 @@ type PathList = Array<MdxFile | Folder>
  * Gets each page from the page map from index to current page per `pageOpts`.
  */
 export function pagesInHierarchy(pageOpts: PageOpts): PathList {
-  const allPages = getAllPages(pageOpts.pageMap)
-  const index = allPages.filter(page => page.route === '/')
+  const index = pageOpts.pages.filter(page => page.route === '/')
 
   // Index page is a bit of a special case with the route splitting method, so
   // we hard-check for it first
@@ -142,7 +141,7 @@ export function pagesInHierarchy(pageOpts: PageOpts): PathList {
   const routes = ['/', ...subRoutes]
 
   return routes.map(targetPath => {
-    const found = allPages.find(page => page.route === targetPath)
+    const found = pageOpts.pages.find(page => page.route === targetPath)
 
     if (found === undefined) {
       throw new Error(`No MdxFile matches path ${targetPath}`)

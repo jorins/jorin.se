@@ -1,22 +1,16 @@
 import type { NextraThemeLayoutProps } from 'nextra'
-import type { FullThemeConfig } from './lib/config'
 
 import '@openfonts/quicksand_all'
 
 import { SiteNav, Toc } from './siteComponents'
 
 import { resolveTemplate } from './templates'
-import { defaultConfig } from './lib/config'
+import { expandLayoutProps } from './lib/expandLayoutProps'
 import { registerImage } from './pageComponents'
 
-export default function Layout(props: NextraThemeLayoutProps) {
-  const { pageOpts, pageProps, children } = props
-
-  // Build theme config including defaults
-  const themeConfig: FullThemeConfig = {
-    ...defaultConfig,
-    ...props.themeConfig,
-  }
+export default function Layout(rawProps: NextraThemeLayoutProps) {
+  const { children, pageOpts, pageProps, themeConfig } =
+    expandLayoutProps(rawProps)
 
   // Register pre-defined images
   Object.entries(themeConfig.images).forEach(([key, image]) =>

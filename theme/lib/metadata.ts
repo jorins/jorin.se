@@ -7,7 +7,6 @@ import type { AnchorHTMLAttributes } from 'react'
 import type { PageOpts, MdxFile } from './types'
 import type { ExtLinkProps } from '../pageComponents/'
 
-import { getAllPages } from './pageMap'
 import { finalSegment } from './regExp'
 import { toTitle } from './case'
 
@@ -36,7 +35,6 @@ export function resolveMetadata(pageOpts: PageOpts): ResolvedMetadata {
 }
 
 function resolveRelatedPages(pageOpts: PageOpts): MdxFile[] {
-  const allPages = getAllPages(pageOpts.pageMap)
   const rawRoutes = pageOpts.frontMatter?.related ?? []
 
   const absoluteRoutes = rawRoutes.map(route => {
@@ -50,7 +48,7 @@ function resolveRelatedPages(pageOpts: PageOpts): MdxFile[] {
   })
 
   return absoluteRoutes.map(route => {
-    const found = allPages.find(page => page.route === route)
+    const found = pageOpts.pages.find(page => page.route === route)
 
     if (found === undefined) {
       throw new Error(

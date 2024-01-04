@@ -66,10 +66,22 @@ export type FrontMatter = Partial<{
    * External links for further reading
    */
   furtherReading: FurtherReadingLink[]
+
+  /**
+   * Workaround to inform the theme whether the page uses footnotes.
+   * If set to true, Footnotes will be added to the ToC
+   */
+  footnotes: boolean
 }>
 
+/**
+ * Page opts with baked FrontMatter type and added flat page structure.
+ */
+export type PageOpts = Nextra.PageOpts<FrontMatter> & {
+  pages: MdxFile[]
+}
+
 // Re-exports
-export type PageOpts = Nextra.PageOpts<FrontMatter>
 export type MdxFile = Nextra.MdxFile<FrontMatter>
 export type Folder = Nextra.Folder<PageMapItem>
 export type MetaJsonFile = Nextra.MetaJsonFile
