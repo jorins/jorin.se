@@ -34,6 +34,20 @@ const cases: Case[] = [
       },
     ],
   },
+
+  {
+    pattern: regExp.finalSegment,
+    matches: [
+      {
+        testString: '/a',
+        expected: ['/a'],
+      },
+      {
+        testString: '/a/b',
+        expected: ['/b'],
+      },
+    ],
+  },
 ]
 
 export default cases
