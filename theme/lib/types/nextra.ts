@@ -6,8 +6,16 @@
 import type * as Nextra from 'nextra'
 import type { TemplateName } from '../../templates'
 import type { FullThemeConfig } from '../config'
+import { ExtLinkProps } from '../../pageComponents'
 
 type Tab = 'alphabetic' | 'date' | 'tags'
+
+/**
+ * An ext link with `children` renamed to `name` for readability in front matters.
+ */
+type FurtherReadingLink = Omit<ExtLinkProps, 'children'> & {
+  name: string
+}
 
 /**
  * This is how a front matter should look. Partial enforces double-checking
@@ -43,6 +51,21 @@ export type FrontMatter = Partial<{
    * Whether the page should be hidden from listings.
    */
   hidden: boolean
+
+  /**
+   * Page tags
+   */
+  tags: string[]
+
+  /**
+   * Related pages on the site. Use absolute routes.
+   */
+  related: string[]
+
+  /**
+   * External links for further reading
+   */
+  furtherReading: FurtherReadingLink[]
 }>
 
 // Re-exports
