@@ -14,9 +14,9 @@ const Page: Template = ({ children, pageOpts, themeConfig }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <PageMetadata />
       <HierarchyNav pageOpts={pageOpts} />
       <PageTitle>{pageOpts.title}</PageTitle>
+      <PageMetadata pageOpts={pageOpts} />
       {children}
     </>
   )
