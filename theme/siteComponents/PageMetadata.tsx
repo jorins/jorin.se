@@ -16,71 +16,53 @@ export function PageMetadata({ pageOpts }: PageMetadataProps): JSX.Element {
     return <></>
   }
 
-  function RelatedPages(): JSX.Element {
+  function RelatedPages(): React.ReactNode {
     if (relatedPages.length === 0) {
       return <></>
     }
 
-    return (
-      <>
-        <h2>Related pages</h2>
-        <ul>
-          {relatedPages.map(relatedPage => {
-            const title = getTitle(relatedPage)
-            return (
-              <li key={relatedPage.route}>
-                <a href={relatedPage.route}>{title}</a>
-              </li>
-            )
-          })}
-        </ul>
-      </>
-    )
+    return relatedPages.map(relatedPage => {
+      const title = getTitle(relatedPage)
+      return (
+        <li key={relatedPage.route}>
+          <a href={relatedPage.route}>{title}</a>
+        </li>
+      )
+    })
   }
 
-  function TagLinks(): JSX.Element {
+  function TagLinks(): React.ReactNode {
     if (tagLinks.length === 0) {
       return <></>
     }
 
-    return (
-      <>
-        <h2>Tags</h2>
-        <ul>
-          {tagLinks.map(props => (
-            <li key={props.href}>
-              <a {...props} />
-            </li>
-          ))}
-        </ul>
-      </>
-    )
+    return tagLinks.map(props => (
+      <li key={props.href}>
+        <a {...props}>Pages with tag {props.children}</a>
+      </li>
+    ))
   }
 
-  function FurtherReading(): JSX.Element {
+  function FurtherReading(): React.ReactNode {
     if (furtherReading.length === 0) {
       return <></>
     }
 
-    return (
-      <>
-        <h2>Further reading</h2>
-        <ul>
-          {furtherReading.map(props => (
-            <li key={props.href}>
-              <ExtLink {...props} />
-            </li>
-          ))}
-        </ul>
-      </>
-    )
+    return furtherReading.map(props => (
+      <li key={props.href}>
+        <ExtLink {...props} />
+      </li>
+    ))
   }
 
   return (
-    <aside className="page-metadata">
-      <RelatedPages />
-      <TagLinks />
-      <FurtherReading />
-    </aside>
+    <section className="page-metadata">
+      <h2 id="metadata-label">See also</h2>
+      <ul>
+        <RelatedPages />
+        <TagLinks />
+        <FurtherReading />
+      </ul>
+    </section>
   )
 }
