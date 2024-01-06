@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import 'lib';
 
 html {
@@ -94,6 +96,16 @@ figure.inline-right {
 
 figure.inline-left {
   float: left;
+}
+
+blockquote {
+  $thickness: 0.2rem;
+  $color: color.change($white, $alpha: $low-transparency);
+
+  border-left: $thickness solid $color;
+  border-radius: $thickness / 2;
+  margin-left: 2rem;
+  padding-left: 0.8rem;
 }
 
 #site-navigation,
