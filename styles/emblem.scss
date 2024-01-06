@@ -2,12 +2,12 @@
 
 #emblem {
   box-sizing: border-box;
-  margin: 1em;
-  width: 5em;
+  margin: 1rem;
+  width: 5rem;
 
   @include desktop {
     width: 90%;
-    margin: 0.5em;
+    margin: 0.5rem;
   }
 }
 

@@ -60,13 +60,13 @@
 
   padding: $gap;
   background: none;
-  width: 6em;
+  width: 10rem;
 
   font-family: 'Quicksand';
   font-size: 1.5rem;
 
   &[aria-selected='true'] {
-    border-bottom: 0.1em solid white;
+    border-bottom: 0.1rem solid white;
   }
 
   &:hover {
