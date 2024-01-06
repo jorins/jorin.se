@@ -1,6 +1,12 @@
 @import 'lib';
 
-.page-title {
-  width: 100%;
-  @include softUnderline;
+main {
+  h1,
+  h2 {
+    @include softUnderline;
+  }
+
+  h2 {
+    margin-top: 2em;
+  }
 }

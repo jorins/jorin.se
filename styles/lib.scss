@@ -52,7 +52,7 @@ $border-width: 0.2rem;
 
 @mixin softUnderline {
   border-bottom: $border-width solid $white;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5em;
 }
 
 // Desktop media query
