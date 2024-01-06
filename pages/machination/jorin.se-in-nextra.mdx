@@ -1,0 +1,123 @@
+---
+title: Jorin.se in Nextra
+date: 2024-01-05
+tags:
+  - software
+---
+
+import { ExtLink, FunctionPlot } from '../../theme/pageComponents'
+
+I've been working on rewriting my website in a Nextra-based stack. If you're
+reading this, it's on the nextra-based website.
+
+## Rationale
+
+The previous iteration of jorin.se was written in Jekyll. It had some issues
+and the pastures of Node/Next/Nextra were predictably greener:
+
+- Jekyll, despite its attempts at genericisation in more recent releases, is
+  kind of married to the blog format. Some things, e.g. tags, are rather
+  inflexible. A lot of things became an uphill battle.
+
+- I'm far more skilled with TypeScript and the Node ecosystem than with Ruby,
+  allowing me to roll my own solutions where the tooling is lacking.
+
+- The React ecosystem is well developed and may in particular enable useful
+  features in pages.
+
+## Goals
+
+### Tech
+
+- Static website hosted on GitHub Pages.
+
+- As much as possible of the site is rendered statically.
+
+- JavaScript is optional and only required for interacting with some page
+  components that are enhanced by interactivity.
+
+### Theme
+
+- The theme is fully re-usable.
+
+- The pages are divided into collections:
+
+  - [x] Pages in different collections are fully separated.
+
+  - [x] Each collection can be browsed alphabetically, by date, or by tags.
+
+  - Collections have individual sets of tags that can be browsed.
+
+### Components in pages
+
+Most of these are pretty major projects:
+
+#### Mathematics.
+
+LaTeX expressions are luckily built-in in Nextra:
+
+```mdx
+$ f(x) = 3x + 4 $
+```
+
+Gives:
+
+> $ f(x) = 3x + 4 $
+
+However, I'd also like to be able to include function plots. The library
+
+<ExtLink href="https://www.npmjs.com/package/function-plot" lang="en-US">
+  function-plot
+</ExtLink> seems to do exactly what I want. It is not React based and I need to figure
+out how to best integrate it.
+
+#### Circuit diagrams
+
+There's some well-regarded existing tooling for circuits in web: Falstad
+CircuitJS and KiCanvas. CircuitJS functions as a simulator, and is not quite
+fit for displaying simpler diagrams. KiCanvas should work well, but for simpler
+illustrations (e.g. showing how a RC filter is constructed) I'd prefer raw SVG.
+There is no text based circuit language like LaTeX or Lilypond to my knowledge
+though. If KiCad can render SVGs using the command line, that's a good enough
+solution.
+
+#### Music
+
+The dream is embedded Lilypond, akin to how LaTeX can be embedded in `$ dollar
+signs $`, giving both the resulting notation and MIDI that can be played back
+in the browser. Unfortunately browsers do not play MIDI files, and they would
+have to be pre-rendered as waveform files. Lilypond can very easily be built
+from the command line, the challenge here is building something that interfaces
+between Nextra's build process and Lilypond.
+
+#### Color-coded code snippets
+
+I was surprised this wasn't built in, but I'm sure it's been done many times
+before.
+
+```typescript
+const i = 3
+function add(a: number, b: number): number {
+  return a + b
+}
+```
+
+## Log
+
+### 2024-01-05
+
+I started writing this page. I should probably be using an issue tracker but
+keeping this on the page lets me test the things I'm writing about. It's handy.
+
+The website has come a long way, most of the basics are done. The one site
+structural thing missing that really sticks out is pages for tags. That will
+require some digging into dynamic routes and if there's no support for it,
+getting the site generator to recognise which tag routes to render will be a
+pain.
+
+After that, I need to build the various page components to better serve what I
+want to keep on the site.
+
+Finally, cleaning up the theme and making a demo site for it would be neat. As
+far as I can tell, people pretty much only use the official Nextra themes
+presently.
