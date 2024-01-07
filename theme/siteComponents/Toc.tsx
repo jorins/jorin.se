@@ -35,7 +35,12 @@ export function Toc({ headings }: TocProps): JSX.Element {
   return (
     <nav id="table-of-contents" className="site-block">
       <h1>Table of Contents</h1>
-      <ol>{nested.map(TocEntry)}</ol>
+      <ol>
+        <a href="#__next" key="top">
+          (Top)
+        </a>
+        {nested.map(TocEntry)}
+      </ol>
     </nav>
   )
 }
