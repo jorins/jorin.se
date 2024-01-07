@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { asMdxFile, getShortTitle, pagesInHierarchy } from '../lib/pageMap'
 import type { PageOpts } from '../lib/types'
 
@@ -15,7 +16,7 @@ export function HierarchyNav({ pageOpts }: HierarchyNav): JSX.Element {
       {segments.map((segment, index, segments) => {
         const title = getShortTitle(segment)
         return (
-          <>
+          <Fragment key={index}>
             /&nbsp;
             {index === segments.length - 1 ? (
               // Don't use a link for current page
@@ -24,7 +25,7 @@ export function HierarchyNav({ pageOpts }: HierarchyNav): JSX.Element {
               <a href={segment.route}>{title}</a>
             )}
             &nbsp;
-          </>
+          </Fragment>
         )
       })}
     </nav>
