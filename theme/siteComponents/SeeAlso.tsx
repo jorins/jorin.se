@@ -1,14 +1,17 @@
 import type { PageOpts } from '../lib/types'
 
+import { H2 } from '../mdxComponents/Heading'
 import { resolveMetadata } from '../lib/metadata'
 import { getTitle } from '../lib/pageMap'
 import { ExtLink } from '../pageComponents'
 
-export interface PageMetadataProps {
+export const SEE_ALSO_ID = 'see-also-label'
+
+export interface SeeAlsoProps {
   pageOpts: PageOpts
 }
 
-export function PageMetadata({ pageOpts }: PageMetadataProps): JSX.Element {
+export function SeeAlso({ pageOpts }: SeeAlsoProps): JSX.Element {
   const { relatedPages, tagLinks, furtherReading, empty } =
     resolveMetadata(pageOpts)
 
@@ -57,7 +60,7 @@ export function PageMetadata({ pageOpts }: PageMetadataProps): JSX.Element {
 
   return (
     <section className="page-metadata">
-      <h2 id="metadata-label">See also</h2>
+      <H2 id={SEE_ALSO_ID}>See also</H2>
       <ul>
         <RelatedPages />
         <TagLinks />

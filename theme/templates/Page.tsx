@@ -3,7 +3,7 @@ import type { Template } from '.'
 import Head from 'next/head'
 
 import { makeHierarchicalTitle } from '../lib/title'
-import { HierarchyNav, PageMetadata, PageTitle } from '../siteComponents'
+import { HierarchyNav, SeeAlso, PageTitle } from '../siteComponents'
 
 const Page: Template = ({ children, pageOpts, themeConfig }) => {
   const fullTitle = makeHierarchicalTitle(pageOpts, themeConfig)
@@ -17,7 +17,7 @@ const Page: Template = ({ children, pageOpts, themeConfig }) => {
       <HierarchyNav pageOpts={pageOpts} />
       <PageTitle>{pageOpts.title}</PageTitle>
       {children}
-      <PageMetadata pageOpts={pageOpts} />
+      <SeeAlso pageOpts={pageOpts} />
     </>
   )
 }
