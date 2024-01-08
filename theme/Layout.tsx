@@ -1,12 +1,13 @@
 import type { NextraThemeLayoutProps } from 'nextra'
 
 import '@openfonts/quicksand_all'
+import { MDXProvider } from 'nextra/mdx'
 
-import { SiteNav, Toc } from './siteComponents'
-
-import { resolveTemplate } from './templates'
 import { expandLayoutProps } from './lib/expandLayoutProps'
 import { registerImage } from './pageComponents'
+import { SiteNav, Toc } from './siteComponents'
+import mdxComponents from './mdxComponents'
+import { resolveTemplate } from './templates'
 
 export default function Layout(rawProps: NextraThemeLayoutProps) {
   const { children, pageOpts, pageProps, themeConfig } =
@@ -25,13 +26,15 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
       <SiteNav pageOpts={pageOpts} themeConfig={themeConfig} />
       <Toc headings={pageOpts.headings} />
       <main className="site-block">
-        <Template
-          pageOpts={pageOpts}
-          pageProps={pageProps}
-          themeConfig={themeConfig}
-        >
-          {children}
-        </Template>
+        <MDXProvider components={mdxComponents}>
+          <Template
+            pageOpts={pageOpts}
+            pageProps={pageProps}
+            themeConfig={themeConfig}
+          >
+            {children}
+          </Template>
+        </MDXProvider>
       </main>
     </>
   )
