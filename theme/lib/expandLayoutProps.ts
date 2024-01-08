@@ -2,6 +2,7 @@ import type * as Nextra from 'nextra'
 import type { ThemeLayoutProps, PageOpts } from './types'
 import type { FullThemeConfig } from './config'
 
+import { SEE_ALSO_ID } from '../siteComponents'
 import { defaultConfig } from './config'
 import { getAllPages } from './pageMap'
 
@@ -62,7 +63,7 @@ export function expandPageOpts(pageOpts: Nextra.PageOpts): PageOpts {
     headings.push({
       value: 'See also',
       depth: 2,
-      id: 'metadata-label',
+      id: SEE_ALSO_ID,
     })
   }
 
