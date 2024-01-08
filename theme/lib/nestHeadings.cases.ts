@@ -1,7 +1,7 @@
 import type { Heading } from 'nextra'
 import type { NestedHeadings } from './nestHeadings'
 
-interface Case {
+export interface Case {
   name: string
   headings: Heading[]
   expected: NestedHeadings
