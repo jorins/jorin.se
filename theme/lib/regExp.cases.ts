@@ -4,7 +4,7 @@ interface Case {
   pattern: RegExp
   matches: Array<{
     testString: string
-    expected: string[]
+    expected: null | string[]
   }>
 }
 
@@ -45,6 +45,30 @@ const cases: Case[] = [
       {
         testString: '/a/b',
         expected: ['/b'],
+      },
+    ],
+  },
+
+  {
+    pattern: regExp.uriProtocol,
+    matches: [
+      {
+        testString: 'https://website.website',
+        expected: ['https://website.website', 'https', 'website.website'],
+      },
+      {
+        testString: 'website.website',
+        expected: null,
+      },
+    ],
+  },
+
+  {
+    pattern: regExp.keyValuePair,
+    matches: [
+      {
+        testString: 'key=value',
+        expected: ['key=value', 'key', 'value'],
       },
     ],
   },
