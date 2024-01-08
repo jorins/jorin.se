@@ -110,19 +110,26 @@ export function CollectionContents({
 }
 
 interface TabProps {
-  key: React.Key
   categories: Category<unknown, unknown>[]
 }
 
-function Tab({ key, categories }: TabProps): JSX.Element {
+function Tab({ categories }: TabProps): JSX.Element {
   return (
     <div className="collection-tab">
-      <Tabs.Tab key={key}>{categories.map(CategorySection)}</Tabs.Tab>
+      <Tabs.Tab>
+        {categories.map(category => (
+          <CategorySection key={category.heading} category={category} />
+        ))}
+      </Tabs.Tab>
     </div>
   )
 }
 
-function CategorySection(category: Category<unknown, unknown>): JSX.Element {
+interface CategoryProps {
+  category: Category<unknown, unknown>
+}
+
+function CategorySection({ category }: CategoryProps): JSX.Element {
   return (
     <section className="collection-category">
       <h2>{category.heading}</h2>
