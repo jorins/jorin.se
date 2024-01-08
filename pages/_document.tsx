@@ -14,6 +14,9 @@ export default function Document() {
     <Html lang={lang}>
       <Head>
         <meta name="description" content={meta.description} />
+        <link rel="icon" href="/images/emblem-256.png" sizes="256x256" />
+        <link rel="icon" href="/images/emblem-64.png" sizes="64x64" />
+        <link rel="icon" href="/images/emblem-32.png" sizes="32x32" />
       </Head>
       <body>
         <Background />
