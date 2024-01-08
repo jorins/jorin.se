@@ -1,4 +1,4 @@
-import type { PageOpts, MdxFile } from 'nextra'
+import type { PageOpts, MdxFile } from '../lib/types'
 import type { FullThemeConfig } from '../lib/config'
 
 import React from 'react'
@@ -57,7 +57,13 @@ const tabSpecs: Array<TabSpec<any, any>> = [
 function findDefaultTab(
   pageOpts: PageOpts,
 ): (tab: TabSpec<any, any>) => boolean {
-  return tab => [tab.id, tab.title].includes(pageOpts.frontMatter.defaultTab)
+  const defaultTab = pageOpts.frontMatter.defaultTab
+
+  if (defaultTab === undefined) {
+    return () => false
+  }
+
+  return tab => [tab.id, tab.title].includes(defaultTab)
 }
 
 export interface CollectionContentsProps {

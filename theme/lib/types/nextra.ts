@@ -38,6 +38,13 @@ export type FrontMatter = Partial<{
   description: string
 
   /**
+   * A timestamp for the page. It can for example be time of publication or
+   * time of writing. Format as anything that parses in `new Date()`, e.g.
+   * `2024-01-09`
+   */
+  date: string
+
+  /**
    * The template to use for the page
    */
   template: TemplateName

@@ -1,4 +1,4 @@
-import { PageOpts } from 'nextra'
+import { PageOpts } from './types'
 import type { FullThemeConfig } from './config'
 import { asMdxFile, getShortTitle, pagesInHierarchy } from './pageMap'
 
