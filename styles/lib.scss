@@ -16,7 +16,6 @@ $black: rgb(0%, 0%, 0%, $high-transparency);
 $border-width: 0.2rem;
 
 // Mixins
-
 @mixin glass(
   $background: $grey,
   $radius: $border-radius,
