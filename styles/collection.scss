@@ -78,6 +78,7 @@
 .collection-tab > div {
   display: flex;
   flex-flow: column nowrap;
+  gap: 1rem;
 }
 
 .collection-category {
@@ -129,7 +130,7 @@
   }
 
   .collection-category {
-    width: calc(100% / 3);
+    width: calc(100% / 3 - 2rem);
     flex-grow: 1;
     min-width: 20rem;
   }
