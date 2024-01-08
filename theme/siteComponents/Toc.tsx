@@ -3,12 +3,13 @@ import type { Heading } from 'nextra'
 import React from 'react'
 import { nest, NestedHeadings } from '../lib/nestHeadings'
 
+let nestedOlIndex = 0
 /**
  * Entry in the ToC.
  */
 function TocEntry(heading: NestedHeadings[number]) {
   if (Array.isArray(heading)) {
-    return <ol>{heading.map(TocEntry)}</ol>
+    return <ol key={`nested-ol-${nestedOlIndex++}`}>{heading.map(TocEntry)}</ol>
   }
 
   return (
@@ -26,6 +27,7 @@ export interface TocProps {
  * A page's table of contents
  */
 export function Toc({ headings }: TocProps): JSX.Element {
+  nestedOlIndex = 0
   if (headings.length === 0) {
     return <></>
   }
