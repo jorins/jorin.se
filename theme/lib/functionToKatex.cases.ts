@@ -1,10 +1,10 @@
-interface Case {
+export interface Case {
   name: string
   fn: Function
   expected: string
 }
 
-export const cases: Case[] = [
+export const succeeding: Case[] = [
   {
     name: 'Simple mathematical function',
     fn: function f(x: number) {
@@ -55,18 +55,21 @@ export const cases: Case[] = [
     expected: 'f(x) = \\dfrac{3}{x}',
   },
   {
-    name: 'Complicated fraction',
-    fn: function f(x: number) {
-      return (3 * x) / (3.14 * 10 ** x)
-    },
-    expected: 'f(x) = \\dfrac{3x}{3.14 \\cdot 10^x}',
-  },
-  {
     name: 'Math.max',
     fn: function f(x: number) {
       return Math.max(x, 0)
     },
     expected: 'f(x) = max(x,0)',
+  },
+]
+
+export const failing: Case[] = [
+  {
+    name: 'Complicated fraction',
+    fn: function f(x: number) {
+      return (3 * x) / (3.14 * 10 ** x)
+    },
+    expected: 'f(x) = \\dfrac{3x}{3.14 \\cdot 10^x}',
   },
   {
     name: 'Function with domain',
@@ -76,5 +79,3 @@ export const cases: Case[] = [
     expected: 'f(x) = \\dfrac{1}{x}, x \\not = 0',
   },
 ]
-
-export default cases

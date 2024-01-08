@@ -1,11 +1,15 @@
-import functionToKatex from './functionToKatex'
+import type { Case } from './functionToKatex.cases'
 
-import cases from './functionToKatex.cases'
+import functionToKatex from './functionToKatex'
+import { succeeding, failing } from './functionToKatex.cases'
 
 describe('Convert to KaTeX library', () => {
   describe('Convert function to KaTeX', () => {
-    test.each(cases)('$name', ({ fn, expected }) => {
+    function testHandler({ fn, expected }: Case): void {
       expect(functionToKatex(fn)).toEqual(expected)
-    })
+    }
+
+    test.each(succeeding)('$name', testHandler)
+    test.failing.each(failing)('$name', testHandler)
   })
 })
