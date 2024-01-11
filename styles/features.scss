@@ -28,3 +28,11 @@
 .mdx-heading-link:hover .mdx-heading-link-indicator {
   opacity: $medium-transparency;
 }
+
+section:has(> :target) {
+  color: $highlight;
+
+  border-left: $border-width solid $highlight;
+  border-radius: $border-width;
+  padding-left: 1rem;
+}

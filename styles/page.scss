@@ -6,7 +6,7 @@ main {
     @include softUnderline;
   }
 
-  h2 {
-    margin-top: 2em;
+  section:has(> h2) {
+    margin-top: 4rem;
   }
 }
