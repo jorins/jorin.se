@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'lib';
 
 .collection-header-wrapper {
@@ -70,7 +71,7 @@
   }
 
   &:hover {
-    background-color: $white;
+    background-color: color.change($white, $alpha: $high-transparency);
   }
 }
 
@@ -100,7 +101,7 @@
   }
 
   .collection-header-wrapper:nth-child(even) {
-    background-color: $black;
+    background-color: color.change($black, $alpha: $high-transparency);
 
     .collection-header {
       grid-template-areas:

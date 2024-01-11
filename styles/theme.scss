@@ -55,7 +55,7 @@ table {
 
   // Heavier background on every other row
   tbody tr:nth-child(odd) {
-    background-color: $black;
+    background-color: color.change($black, $alpha: $high-transparency);
   }
 
   // Adjust for readability

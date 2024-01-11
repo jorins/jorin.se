@@ -9,9 +9,9 @@ $low-transparency: 0.5;
 $medium-transparency: 0.25;
 $high-transparency: 0.1;
 
-$white: rgb(85%, 85%, 85%, $high-transparency);
-$grey: rgb(15%, 15%, 15%, $high-transparency);
-$black: rgb(0%, 0%, 0%, $high-transparency);
+$white: rgb(85%, 85%, 85%);
+$grey: rgb(15%, 15%, 15%);
+$black: rgb(0%, 0%, 0%);
 
 $border-width: 0.2rem;
 
@@ -36,7 +36,8 @@ $border-width: 0.2rem;
   border-bottom: $border-b;
   border-radius: $radius;
 
-  box-shadow: 0.5rem 0.5rem 0.75rem $black;
+  box-shadow: 0.5rem 0.5rem 0.75rem
+    color.change($black, $alpha: $medium-transparency);
 }
 
 @mixin normaliseButton {
@@ -50,7 +51,8 @@ $border-width: 0.2rem;
 }
 
 @mixin softUnderline {
-  border-bottom: $border-width solid $white;
+  border-bottom: $border-width solid
+    color.change($white, $alpha: $high-transparency);
   padding-bottom: 0.5em;
 }
 
