@@ -4,7 +4,7 @@
 
 html {
   font-family: sans-serif;
-  color: white;
+  color: $primary;
   // background: linear-gradient(15deg, #613, #426) no-repeat fixed center;
   line-height: 2em;
 }
@@ -37,11 +37,7 @@ h6 {
 }
 
 a {
-  color: #79f;
-
-  &:visited {
-    color: #d9d;
-  }
+  @include linkColors();
 }
 
 hr {
@@ -55,7 +51,7 @@ table {
 
   // Heavier background on every other row
   tbody tr:nth-child(odd) {
-    background-color: color.change($black, $alpha: $high-transparency);
+    background-color: color.change($lowlight, $alpha: $high-transparency);
   }
 
   // Adjust for readability
@@ -100,7 +96,7 @@ figure.inline-left {
 
 blockquote {
   $thickness: 0.2rem;
-  $color: color.change($white, $alpha: $low-transparency);
+  $color: color.change($primary, $alpha: $low-transparency);
 
   border-left: $thickness solid $color;
   border-radius: $thickness / 2;

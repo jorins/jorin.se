@@ -1,12 +1,13 @@
 @import 'lib';
 
 .mdx-heading-link {
-  color: inherit;
   text-decoration: inherit;
 
-  &:visited {
-    color: inherit;
+  @include animate {
+    transition: color $fast-animation;
   }
+
+  @include linkColors(inherit, $highlight, inherit, $highlight);
 }
 
 .mdx-heading-link-indicator {

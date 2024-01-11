@@ -4,20 +4,33 @@
 $border-radius: 2rem;
 $border-radius-small: 1rem;
 $gap: 1rem;
+$border-width: 0.2rem;
+
+$highlight: rgb(100%, 100%, 100%);
+$primary: rgb(85%, 85%, 85%);
+$background: rgb(15%, 15%, 15%);
+$lowlight: rgb(0%, 0%, 0%);
 
 $low-transparency: 0.5;
 $medium-transparency: 0.25;
 $high-transparency: 0.1;
 
-$white: rgb(85%, 85%, 85%);
-$grey: rgb(15%, 15%, 15%);
-$black: rgb(0%, 0%, 0%);
+$instant-animation: 0.05s;
+$fast-animation: 0.1s;
+$medium-animation: 0.25s;
+$slow-animation: 0.5s;
 
-$border-width: 0.2rem;
+$link-color: #7799ff;
+$link-color-highlight: color.adjust($link-color, $lightness: 10%);
+$visited-link-color: #dd99dd;
+$visited-link-color-highlight: color.adjust(
+  $visited-link-color,
+  $lightness: 10%
+);
 
 // Mixins
 @mixin glass(
-  $background: $grey,
+  $background: $background,
   $radius: $border-radius,
   $panel-transparency: $medium-transparency,
   $border-transparency: $high-transparency
@@ -26,9 +39,9 @@ $border-width: 0.2rem;
   backdrop-filter: blur(4px);
 
   $border-a: $border-width solid
-    color.change($white, $alpha: $border-transparency);
+    color.change($primary, $alpha: $border-transparency);
   $border-b: $border-width solid
-    color.change($grey, $alpha: $border-transparency);
+    color.change($background, $alpha: $border-transparency);
 
   border-top: $border-a;
   border-left: $border-a;
@@ -37,7 +50,7 @@ $border-width: 0.2rem;
   border-radius: $radius;
 
   box-shadow: 0.5rem 0.5rem 0.75rem
-    color.change($black, $alpha: $medium-transparency);
+    color.change($lowlight, $alpha: $medium-transparency);
 }
 
 @mixin normaliseButton {
@@ -52,7 +65,7 @@ $border-width: 0.2rem;
 
 @mixin softUnderline {
   border-bottom: $border-width solid
-    color.change($white, $alpha: $high-transparency);
+    color.change($primary, $alpha: $high-transparency);
   padding-bottom: 0.5em;
 }
 
@@ -70,5 +83,26 @@ $border-width: 0.2rem;
 @mixin animate {
   @media not (prefers-reduced-motion) {
     @content;
+  }
+}
+
+@mixin linkColors(
+  $base: $link-color,
+  $hover: $link-color-highlight,
+  $visited: $visited-link-color,
+  $visited-hover: $visited-link-color-highlight
+) {
+  color: $base;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &:visited {
+    color: $visited;
+
+    &:hover {
+      color: $visited-hover;
+    }
   }
 }

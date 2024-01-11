@@ -71,7 +71,7 @@
   }
 
   &:hover {
-    background-color: color.change($white, $alpha: $high-transparency);
+    background-color: color.change($primary, $alpha: $high-transparency);
   }
 }
 
@@ -101,7 +101,7 @@
   }
 
   .collection-header-wrapper:nth-child(even) {
-    background-color: color.change($black, $alpha: $high-transparency);
+    background-color: color.change($lowlight, $alpha: $high-transparency);
 
     .collection-header {
       grid-template-areas:
