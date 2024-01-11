@@ -13,9 +13,9 @@ function TocEntry(heading: NestedHeadings[number]) {
   }
 
   return (
-    <li key={heading.id}>
-      <a href={`#${heading.id}`}>{heading.value}</a>
-    </li>
+    <a key={heading.id} href={`#${heading.id}`}>
+      <li>{heading.value}</li>
+    </a>
   )
 }
 

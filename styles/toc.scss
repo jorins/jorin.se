@@ -5,7 +5,7 @@
     padding-inline-start: 2rem;
   }
 
-  ol > li::marker {
+  ol > a > li::marker {
     content: counters(list-item, '.') '. ';
   }
 
