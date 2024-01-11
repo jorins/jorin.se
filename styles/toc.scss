@@ -1,5 +1,17 @@
+@import 'lib';
+
 #table-of-contents {
   ol {
     padding-inline-start: 2rem;
+  }
+
+  ol > li::marker {
+    content: counters(list-item, '.') '. ';
+  }
+
+  a {
+    text-decoration: inherit;
+
+    @include linkColors($primary, $highlight, $primary, $highlight);
   }
 }
