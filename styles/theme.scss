@@ -50,7 +50,7 @@ hr {
 }
 
 table {
-  @include glass($grey, $border-radius-small);
+  @include glass($radius: $border-radius-small);
   border-spacing: 0;
 
   // Heavier background on every other row
