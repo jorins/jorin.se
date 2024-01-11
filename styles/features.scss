@@ -11,10 +11,11 @@
 }
 
 .mdx-heading-link-indicator {
+  font-weight: normal;
   opacity: 0;
 
   @include animate {
-    transition: 0.1s;
+    transition: opacity $fast-animation;
   }
 }
 
