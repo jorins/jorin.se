@@ -1,12 +1,60 @@
+// Page content-specific styling
+
+@use 'sass:color';
 @import 'lib';
 
-main {
+main.site-block {
+  padding: 2rem;
+
   h1,
   h2 {
     @include softUnderline;
   }
 
-  section:has(> h2) {
-    margin-top: 4rem;
+  section {
+    box-sizing: border-box;
+
+    &:has(h2) {
+    }
+
+    &:has(> :target) {
+      color: $highlight;
+
+      // Give the border space without affecting overall size
+      border-left: $border-width solid $highlight;
+      padding-left: $border-width * 2;
+      margin-left: -3 * $border-width;
+
+      background-color: color.change($lowlight, $alpha: $low-transparency);
+    }
+  }
+
+  .mdx-heading-counter {
+    color: $primary;
+    opacity: $low-transparency;
+    font-weight: normal;
+  }
+
+  .mdx-heading-link {
+    text-decoration: inherit;
+
+    @include animate {
+      transition: color $fast-animation;
+    }
+
+    @include linkColors(inherit, $highlight, inherit, $highlight);
+  }
+
+  .mdx-heading-link-indicator {
+    font-weight: normal;
+    opacity: 0;
+
+    @include animate {
+      transition: opacity $fast-animation;
+    }
+  }
+
+  .mdx-heading-link:hover .mdx-heading-link-indicator {
+    opacity: $medium-transparency;
   }
 }
