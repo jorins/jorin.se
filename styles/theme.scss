@@ -8,12 +8,7 @@ html {
   line-height: 2em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+@include headings {
   font-family: 'Quicksand';
   font-weight: bold;
 }
@@ -105,12 +100,7 @@ blockquote {
 
 #site-navigation,
 #table-of-contents {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  @include headings {
     text-align: center;
   }
 

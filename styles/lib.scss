@@ -106,3 +106,15 @@ $visited-link-color-highlight: color.adjust(
     }
   }
 }
+
+// Selector for all heading levels
+@mixin headings() {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @content;
+  }
+}
