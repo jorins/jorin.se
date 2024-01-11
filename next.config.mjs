@@ -1,5 +1,6 @@
 import nextra from 'nextra'
 import sectionize from 'remark-sectionize'
+import behead from 'remark-behead'
 
 /**
  * @type { import('next').NextConfig }
@@ -14,7 +15,15 @@ const nextraConfig = {
   themeConfig: './theme.config.tsx',
   latex: true,
   mdxOptions: {
-    remarkPlugins: [sectionize],
+    remarkPlugins: [
+      [
+        behead,
+        {
+          minDepth: 2,
+        },
+      ],
+      sectionize,
+    ],
   },
 }
 

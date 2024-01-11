@@ -10,7 +10,7 @@ import { ExtLink, FunctionPlot } from '../../theme/pageComponents'
 I've been working on rewriting my website in a Nextra-based stack. If you're
 reading this, it's on the nextra-based website.
 
-## Rationale
+# Rationale
 
 The previous iteration of jorin.se was written in Jekyll. It had some issues
 and the pastures of Node/Next/Nextra were predictably greener:
@@ -25,9 +25,9 @@ and the pastures of Node/Next/Nextra were predictably greener:
 - The React ecosystem is well developed and may in particular enable useful
   features in pages.
 
-## Goals
+# Goals
 
-### Tech
+## Tech
 
 - Static website hosted on GitHub Pages.
 
@@ -36,7 +36,7 @@ and the pastures of Node/Next/Nextra were predictably greener:
 - JavaScript is optional and only required for interacting with some page
   components that are enhanced by interactivity.
 
-### Theme
+## Theme
 
 - The theme is fully re-usable.
 
@@ -48,11 +48,11 @@ and the pastures of Node/Next/Nextra were predictably greener:
 
   - Collections have individual sets of tags that can be browsed.
 
-### Components in pages
+## Components in pages
 
 Most of these are pretty major projects:
 
-#### Mathematics
+### Mathematics
 
 LaTeX expressions are luckily built-in in Nextra:
 
@@ -72,7 +72,7 @@ However, I'd also like to be able to include function plots. The library
 seems to do exactly what I want. It is not React based and I need to figure out how
 to best integrate it.
 
-#### Circuit diagrams
+### Circuit diagrams
 
 There's some well-regarded existing tooling for circuits in web: Falstad
 CircuitJS and KiCanvas. CircuitJS functions as a simulator, and is not quite
@@ -82,7 +82,7 @@ There is no text based circuit language like LaTeX or Lilypond to my knowledge
 though. If KiCad can render SVGs using the command line, that's a good enough
 solution.
 
-#### Music
+### Music
 
 The dream is embedded Lilypond, akin to how LaTeX can be embedded in `$ dollar
 signs $`, giving both the resulting notation and MIDI that can be played back
@@ -91,7 +91,7 @@ have to be pre-rendered as waveform files. Lilypond can very easily be built
 from the command line, the challenge here is building something that interfaces
 between Nextra's build process and Lilypond.
 
-#### Color-coded code snippets
+### Color-coded code snippets
 
 I was surprised this wasn't built in, but I'm sure it's been done many times
 before.
@@ -103,9 +103,9 @@ function add(a: number, b: number): number {
 }
 ```
 
-## Log
+# Log
 
-### 2024-01-05
+## 2024-01-05
 
 I started writing this page. I should probably be using an issue tracker but
 keeping this on the page lets me test the things I'm writing about. It's handy.
