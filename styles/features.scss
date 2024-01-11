@@ -1,5 +1,11 @@
 @import 'lib';
 
+.mdx-heading-counter {
+  color: $primary;
+  opacity: $low-transparency;
+  font-weight: normal;
+}
+
 .mdx-heading-link {
   text-decoration: inherit;
 

@@ -8,6 +8,7 @@ import { registerImage } from './pageComponents'
 import { SiteNav, Toc } from './siteComponents'
 import mdxComponents from './mdxComponents'
 import { resolveTemplate } from './templates'
+import { HeadingCounterProvider } from './contexts'
 
 export default function Layout(rawProps: NextraThemeLayoutProps) {
   const { children, pageOpts, pageProps, themeConfig } =
@@ -26,15 +27,17 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
       <SiteNav pageOpts={pageOpts} themeConfig={themeConfig} />
       <Toc headings={pageOpts.headings} />
       <main className="site-block">
-        <MDXProvider components={mdxComponents}>
-          <Template
-            pageOpts={pageOpts}
-            pageProps={pageProps}
-            themeConfig={themeConfig}
-          >
-            {children}
-          </Template>
-        </MDXProvider>
+        <HeadingCounterProvider>
+          <MDXProvider components={mdxComponents}>
+            <Template
+              pageOpts={pageOpts}
+              pageProps={pageProps}
+              themeConfig={themeConfig}
+            >
+              {children}
+            </Template>
+          </MDXProvider>
+        </HeadingCounterProvider>
       </main>
     </>
   )
