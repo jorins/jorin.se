@@ -39,10 +39,6 @@ main.site-block {
   .mdx-heading-link {
     text-decoration: inherit;
 
-    @include animate {
-      transition: color $fast-animation;
-    }
-
     @include linkColors(inherit, $highlight, inherit, $highlight);
   }
 

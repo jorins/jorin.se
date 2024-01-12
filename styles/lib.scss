@@ -110,6 +110,14 @@ $visited-link-color-highlight: color.adjust(
       color: $visited-hover;
     }
   }
+
+  // Transition can glitch out with :visited:hover so we only use it if the
+  // neutral and visited colours are the same
+  @if $base == $visited and $hover == $visited-hover {
+    @include animate {
+      transition: color $fast-animation;
+    }
+  }
 }
 
 // Selector for all heading levels

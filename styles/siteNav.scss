@@ -5,6 +5,16 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: 'header header' 'internal external';
+
+  a {
+    text-decoration: none;
+    @include linkColors(
+      $link-color,
+      $link-color-highlight,
+      $link-color,
+      $link-color-highlight
+    );
+  }
 }
 
 #site-navigation-header {
