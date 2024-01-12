@@ -1,8 +1,7 @@
 import { keyValuePair, uriProtocol } from '../lib/regExp'
 import { ExtLink } from '../pageComponents'
 
-export interface AnchorProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+type AnchorProps = React.ComponentProps<'a'>
 
 export function Anchor(props: AnchorProps): React.ReactNode {
   const { children, href } = props

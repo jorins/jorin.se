@@ -1,7 +1,6 @@
 import { useHeadingCounter } from '../contexts'
 
-export interface HeadingProps extends React.HTMLProps<HTMLHeadingElement> {}
-
+type HeadingProps = React.ComponentProps<'h1'>
 type HeadingComponent = (props: HeadingProps) => React.ReactNode
 
 const plainHeadings: HeadingComponent[] = [

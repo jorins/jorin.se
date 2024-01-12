@@ -17,8 +17,12 @@ Check it out below.
 
 ## C example
 
-```c
-include "ruby/ruby.h"
+Inline C like this `int x = 4;{:c}`
+
+Code block like zis
+
+```c showLineNumbers
+#include "ruby/ruby.h"
 
 static int
 clone_method_i(st_data_t key, st_data_t value, st_data_t data)
@@ -30,7 +34,7 @@ clone_method_i(st_data_t key, st_data_t value, st_data_t data)
 
 ## Clojure example
 
-```clojure
+```clojure filename="make-adder.clj" /make-adder/
 (defn make-adder [x]
   (let [y x]
     (fn [z] (+ y z))))
@@ -40,7 +44,7 @@ clone_method_i(st_data_t key, st_data_t value, st_data_t data)
 
 ## TypeScript example
 
-```typescript
+```typescript showLineNumbers {6-10} /count/ copy filename="animals.ts"
 export interface Animal {
   legs: number
   tails: number
@@ -76,7 +80,7 @@ while (true) {
 
 ## Zig example
 
-```zig
+```zig {1, 4-5}
 const std = @import("std");
 const warn = std.debug.warn;
 

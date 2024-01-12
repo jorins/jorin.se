@@ -8,6 +8,10 @@ $border-radius-small: 1rem;
 $gap: 1rem;
 $border-width: 0.2rem;
 
+$font-heading: 'Quicksand';
+$font-body: sans-serif;
+$font-monospace: monospace;
+
 $highlight: rgb(100%, 100%, 100%);
 $primary: rgb(85%, 85%, 85%);
 $background: rgb(15%, 15%, 15%);
@@ -51,8 +55,7 @@ $visited-link-color-highlight: color.adjust(
   border-bottom: $border-b;
   border-radius: $radius;
 
-  box-shadow: 0.5rem 0.5rem 0.75rem
-    color.change($lowlight, $alpha: $medium-transparency);
+  @include shadow;
 }
 
 @mixin normaliseButton {
@@ -119,4 +122,10 @@ $visited-link-color-highlight: color.adjust(
   h6 {
     @content;
   }
+}
+
+// Common shadow design
+@mixin shadow() {
+  box-shadow: 0.5rem 0.5rem 0.75rem
+    color.change($lowlight, $alpha: $medium-transparency);
 }

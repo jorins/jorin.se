@@ -29,6 +29,7 @@ main.site-block {
     }
   }
 
+  // Headings
   .mdx-heading-counter {
     color: $primary;
     opacity: $low-transparency;
@@ -56,5 +57,82 @@ main.site-block {
 
   .mdx-heading-link:hover .mdx-heading-link-indicator {
     opacity: $medium-transparency;
+  }
+
+  // Inline code
+  :not(pre) > code {
+    background-color: var(--shiki-color-background);
+    font-size: 1.5em;
+  }
+
+  // Code blocks
+  .mdx-code-block {
+    $padding: 1em;
+    font-size: 1rem;
+    line-height: 1.5em;
+
+    border-radius: $border-radius-small;
+    background-color: var(--shiki-color-background);
+    @include shadow;
+
+    .mdx-code-block-filename {
+      font-family: $font-monospace;
+      color: var(--shiki-color-text);
+      background-color: var(--shiki-color-highlight);
+      border-radius: $border-radius-small $border-radius-small 0 0;
+      padding: 0.5rem;
+      padding-left: 1rem;
+    }
+
+    &:has(.mdx-code-line-numbers) .mdx-code-block-filename {
+      padding-left: 4rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 0;
+    }
+
+    code {
+      display: block;
+      padding: $padding 0;
+
+      &.mdx-code-line-numbers {
+        counter-reset: line;
+
+        .line::before {
+          display: inline-block;
+          width: 2rem;
+          margin-right: 1rem;
+
+          counter-increment: line;
+          content: counter(line, numeric);
+
+          color: var(--shiki-color-line-number);
+          text-align: right;
+        }
+      }
+    }
+
+    .line {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 $padding;
+    }
+
+    .highlighted {
+      background-color: var(--shiki-color-highlight);
+    }
+
+    .line.highlighted {
+      border-left: $border-width solid var(--shiki-color-text);
+      padding-left: calc($padding - $border-width);
+    }
+
+    ::selection {
+      color: inherit;
+      background-color: var(--shiki-color-selected);
+    }
   }
 }
