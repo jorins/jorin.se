@@ -10,8 +10,6 @@
   }
 
   a {
-    text-decoration: inherit;
-
-    @include linkColors($primary, $highlight, $primary, $highlight);
+    @include linkColors(inherit, $highlight);
   }
 }

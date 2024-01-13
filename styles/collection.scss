@@ -3,10 +3,11 @@
 @use 'sass:color';
 @import 'lib';
 
-.collection-header-wrapper {
-  text-decoration: none;
-  color: initial;
+// This anchor wrapper is used in the Index template
+a.collection-header-wrapper {
   display: block;
+
+  @include linkColors(inherit, $highlight);
 }
 
 .collection-header {

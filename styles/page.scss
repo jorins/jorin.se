@@ -37,9 +37,7 @@ main.site-block {
   }
 
   .mdx-heading-link {
-    text-decoration: inherit;
-
-    @include linkColors(inherit, $highlight, inherit, $highlight);
+    @include linkColors(inherit, $highlight);
   }
 
   .mdx-heading-link-indicator {

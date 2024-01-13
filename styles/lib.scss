@@ -91,32 +91,15 @@ $visited-link-color-highlight: color.adjust(
   }
 }
 
-@mixin linkColors(
-  $base: $link-color,
-  $hover: $link-color-highlight,
-  $visited: $visited-link-color,
-  $visited-hover: $visited-link-color-highlight
-) {
+@mixin linkColors($base: $link-color, $hover: $link-color-highlight) {
   color: $base;
 
   &:hover {
     color: $hover;
   }
 
-  &:visited {
-    color: $visited;
-
-    &:hover {
-      color: $visited-hover;
-    }
-  }
-
-  // Transition can glitch out with :visited:hover so we only use it if the
-  // neutral and visited colours are the same
-  @if $base == $visited and $hover == $visited-hover {
-    @include animate {
-      transition: color $fast-animation;
-    }
+  @include animate {
+    transition: color $fast-animation;
   }
 }
 
