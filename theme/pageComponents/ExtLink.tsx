@@ -40,7 +40,7 @@ export function ExtLink(props: ExtLinkProps): JSX.Element {
       target={target}
       title={title}
     >
-      🔗 {flag} {children}
+      {children} 🔗 {flag}
     </a>
   )
 }
