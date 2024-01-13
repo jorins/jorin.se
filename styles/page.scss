@@ -14,18 +14,15 @@ main.site-block {
   section {
     box-sizing: border-box;
 
-    &:has(h2) {
-    }
-
     &:has(> :target) {
       color: $highlight;
 
       // Give the border space without affecting overall size
-      border-left: $border-width solid $highlight;
+      border-left: $border-width solid
+        color.change($primary, $alpha: $low-transparency);
+      border-radius: $border-width 0 0 $border-width;
       padding-left: $border-width * 2;
       margin-left: -3 * $border-width;
-
-      background-color: color.change($lowlight, $alpha: $low-transparency);
     }
   }
 
