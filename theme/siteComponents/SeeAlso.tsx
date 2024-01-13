@@ -1,17 +1,15 @@
-import type { PageOpts } from '../lib/types'
-
 import { H2 } from '../mdxComponents/Heading'
+import { useLayoutProps } from '../contexts'
 import { resolveMetadata } from '../lib/metadata'
 import { getTitle } from '../lib/pageMap'
 import { ExtLink } from '../pageComponents'
 
 export const SEE_ALSO_ID = 'see-also-label'
 
-export interface SeeAlsoProps {
-  pageOpts: PageOpts
-}
+export interface SeeAlsoProps {}
 
-export function SeeAlso({ pageOpts }: SeeAlsoProps): JSX.Element {
+export function SeeAlso({}: SeeAlsoProps): JSX.Element {
+  const { pageOpts } = useLayoutProps()
   const { relatedPages, tagLinks, furtherReading, empty } =
     resolveMetadata(pageOpts)
 

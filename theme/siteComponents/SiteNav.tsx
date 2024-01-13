@@ -1,9 +1,7 @@
-import type { PageOpts } from 'nextra'
-import type { FullThemeConfig } from '../lib/config'
-
 import React from 'react'
 import YgLogo from './YgLogo'
 import { isFolder, isMdxFile, isIndex } from '../lib/pageMap'
+import { useLayoutProps } from '../contexts'
 
 export interface LinkSpec {
   id: string
@@ -11,16 +9,14 @@ export interface LinkSpec {
   href: string
 }
 
-export interface SiteNavProps {
-  pageOpts: PageOpts
-  themeConfig: FullThemeConfig
-}
+export interface SiteNavProps {}
 
 /**
  * The common nav block shown on every page including insignia, site
  * navigation, and external links.
  */
-export function SiteNav({ pageOpts, themeConfig }: SiteNavProps): JSX.Element {
+export function SiteNav({}: SiteNavProps): JSX.Element {
+  const { pageOpts, themeConfig } = useLayoutProps()
   const indexPage = pageOpts.pageMap.filter(isMdxFile).find(isIndex)
   if (indexPage === undefined) {
     throw new Error('Cannot find index page')

@@ -8,37 +8,34 @@ import { registerImage } from './pageComponents'
 import { SiteNav, Toc } from './siteComponents'
 import mdxComponents from './mdxComponents'
 import { resolveTemplate } from './templates'
-import { HeadingCounterProvider } from './contexts'
+import { HeadingCounterProvider, LayoutPropsProvider } from './contexts'
 
 export default function Layout(rawProps: NextraThemeLayoutProps) {
-  const { children, pageOpts, pageProps, themeConfig } =
-    expandLayoutProps(rawProps)
+  const expandedProps = expandLayoutProps(rawProps)
+  const { children } = expandedProps
 
   // Register pre-defined images
-  Object.entries(themeConfig.images).forEach(([key, image]) =>
+  Object.entries(expandedProps.themeConfig.images).forEach(([key, image]) =>
     registerImage(key, image),
   )
 
   // Get the target template
-  const Template = resolveTemplate(pageOpts, themeConfig)
+  const Template = resolveTemplate(
+    expandedProps.pageOpts,
+    expandedProps.themeConfig,
+  )
 
   return (
-    <>
-      <SiteNav pageOpts={pageOpts} themeConfig={themeConfig} />
-      <Toc headings={pageOpts.headings} />
+    <LayoutPropsProvider layoutProps={expandedProps}>
+      <SiteNav />
+      <Toc />
       <main className="site-block">
         <HeadingCounterProvider>
           <MDXProvider components={mdxComponents}>
-            <Template
-              pageOpts={pageOpts}
-              pageProps={pageProps}
-              themeConfig={themeConfig}
-            >
-              {children}
-            </Template>
+            <Template>{children}</Template>
           </MDXProvider>
         </HeadingCounterProvider>
       </main>
-    </>
+    </LayoutPropsProvider>
   )
 }

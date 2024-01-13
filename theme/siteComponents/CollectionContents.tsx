@@ -11,6 +11,7 @@ import {
   isNotHidden,
   getTitle,
 } from '../lib/pageMap'
+import { useLayoutProps } from '../contexts'
 
 import alphabeticTabSpec from './CollectionContents.alphabetic'
 import dateTabSpec from './CollectionContents.date'
@@ -71,9 +72,9 @@ export interface CollectionContentsProps {
   themeConfig: FullThemeConfig
 }
 
-export function CollectionContents({
-  pageOpts,
-}: CollectionContentsProps): JSX.Element {
+export function CollectionContents({}: CollectionContentsProps): JSX.Element {
+  const { pageOpts } = useLayoutProps()
+
   const pages = locateFolder(pageOpts)
     .children.filter(isMdxFile)
     .filter(isNotHidden)

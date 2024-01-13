@@ -9,8 +9,10 @@ import {
   PageTitle,
 } from '../siteComponents'
 import { makeHierarchicalTitle } from '../lib/title'
+import { useLayoutProps } from '../contexts'
 
-const Collection: Template = ({ children, pageOpts, themeConfig }) => {
+const Collection: Template = ({ children }) => {
+  const { pageOpts, themeConfig } = useLayoutProps()
   const imgId = pageOpts.route.split('/')[1]
   const fullTitle = makeHierarchicalTitle(pageOpts, themeConfig)
 
@@ -23,7 +25,7 @@ const Collection: Template = ({ children, pageOpts, themeConfig }) => {
       <CollectionHeader
         title={
           <>
-            <HierarchyNav pageOpts={pageOpts} />
+            <HierarchyNav />
             <PageTitle>{pageOpts.title}</PageTitle>
           </>
         }

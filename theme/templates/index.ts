@@ -1,4 +1,4 @@
-import type { ThemeLayoutProps, PageOpts } from '../lib/types'
+import type { PageOpts } from '../lib/types'
 import type { FullThemeConfig } from '../lib/config'
 
 import { minimatch } from 'minimatch'
@@ -10,7 +10,9 @@ import Tag from './Tag'
 import Tags from './Tags'
 
 /** Shared template specification */
-export type Template = (props: ThemeLayoutProps) => React.ReactElement
+export type Template = (props: {
+  children: React.ReactNode
+}) => React.ReactElement
 
 /** Template patterns for specification in config */
 export interface TemplatePattern {

@@ -4,8 +4,10 @@ import Head from 'next/head'
 
 import { isFolder, isIndex, isMdxFile } from '../lib/pageMap'
 import { CollectionHeader, PageTitle, HierarchyNav } from '../siteComponents'
+import { useLayoutProps } from '../contexts'
 
-const Index: Template = ({ children, pageOpts, themeConfig }) => {
+const Index: Template = ({ children }) => {
+  const { pageOpts, themeConfig } = useLayoutProps()
   const pageTitle = pageOpts.title
 
   const collections = pageOpts.pageMap
@@ -21,7 +23,7 @@ const Index: Template = ({ children, pageOpts, themeConfig }) => {
         <title>{themeConfig.title.postfix}</title>
       </Head>
 
-      <HierarchyNav pageOpts={pageOpts} />
+      <HierarchyNav />
       <PageTitle>{pageTitle}</PageTitle>
 
       {children}

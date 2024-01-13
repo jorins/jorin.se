@@ -4,8 +4,10 @@ import Head from 'next/head'
 
 import { makeHierarchicalTitle } from '../lib/title'
 import { HierarchyNav, SeeAlso, PageTitle } from '../siteComponents'
+import { useLayoutProps } from '../contexts'
 
-const Page: Template = ({ children, pageOpts, themeConfig }) => {
+const Page: Template = ({ children }) => {
+  const { pageOpts, themeConfig } = useLayoutProps()
   const fullTitle = makeHierarchicalTitle(pageOpts, themeConfig)
 
   return (
@@ -14,10 +16,10 @@ const Page: Template = ({ children, pageOpts, themeConfig }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <HierarchyNav pageOpts={pageOpts} />
+      <HierarchyNav />
       <PageTitle>{pageOpts.title}</PageTitle>
       {children}
-      <SeeAlso pageOpts={pageOpts} />
+      <SeeAlso />
     </>
   )
 }

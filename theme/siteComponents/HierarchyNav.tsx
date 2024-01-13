@@ -1,15 +1,14 @@
 import { Fragment } from 'react'
 import { asMdxFile, getShortTitle, pagesInHierarchy } from '../lib/pageMap'
-import type { PageOpts } from '../lib/types'
+import { useLayoutProps } from '../contexts'
 
-export interface HierarchyNav {
-  pageOpts: PageOpts
-}
+export interface HierarchyNavProps {}
 
 /**
  * A nav for ascending the site hierarchy.
  */
-export function HierarchyNav({ pageOpts }: HierarchyNav): JSX.Element {
+export function HierarchyNav({}: HierarchyNavProps): JSX.Element {
+  const { pageOpts } = useLayoutProps()
   const segments = pagesInHierarchy(pageOpts).map(asMdxFile)
   return (
     <nav className="page-hierarchy-nav">
