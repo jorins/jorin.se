@@ -11,18 +11,29 @@ main.site-block {
     @include softUnderline;
   }
 
-  section {
-    box-sizing: border-box;
+  // Target styling
+  section:has(> :target),
+  .footnotes li:target {
+    color: $highlight;
 
-    &:has(> :target) {
-      color: $highlight;
+    // Give the border space without affecting overall size
+    border-left: $border-width solid
+      color.change($primary, $alpha: $low-transparency);
+    border-radius: $border-width 0 0 $border-width;
+    padding-left: $border-width * 2;
+    margin-left: -3 * $border-width;
+  }
 
-      // Give the border space without affecting overall size
-      border-left: $border-width solid
-        color.change($primary, $alpha: $low-transparency);
-      border-radius: $border-width 0 0 $border-width;
-      padding-left: $border-width * 2;
-      margin-left: -3 * $border-width;
+  // Footnote list items require some special treatment for target highlighting
+  .footnotes li {
+    list-style-position: inside;
+
+    p {
+      display: inline;
+    }
+
+    &:target {
+      font-weight: bold;
     }
   }
 
