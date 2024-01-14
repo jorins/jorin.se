@@ -9,6 +9,7 @@ import type { ExtLinkProps } from '../pageComponents/'
 
 import { finalSegment } from './regExp'
 import { toTitle } from './case'
+import { absoluteRoute } from './route'
 
 type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>
 
@@ -37,15 +38,9 @@ export function resolveMetadata(pageOpts: PageOpts): ResolvedMetadata {
 function resolveRelatedPages(pageOpts: PageOpts): MdxFile[] {
   const rawRoutes = pageOpts.frontMatter?.related ?? []
 
-  const absoluteRoutes = rawRoutes.map(route => {
-    if (route.startsWith('/')) {
-      return route
-    }
-
-    // Resolve relative route
-    const prefix = pageOpts.route.replace(finalSegment, '')
-    return `${prefix}/${route}`
-  })
+  const absoluteRoutes = rawRoutes.map(route =>
+    absoluteRoute(pageOpts.route, route),
+  )
 
   return absoluteRoutes.map(route => {
     const found = pageOpts.pages.find(page => page.route === route)

@@ -72,6 +72,16 @@ const cases: Case[] = [
       },
     ],
   },
+
+  {
+    pattern: regExp.hash,
+    matches: [
+      {
+        testString: 'https://en.wikipedia.org/wiki/Bird#Ecology',
+        expected: ['https://en.wikipedia.org/wiki/Bird#Ecology', 'Ecology'],
+      },
+    ],
+  },
 ]
 
 export default cases

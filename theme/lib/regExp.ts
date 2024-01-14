@@ -33,3 +33,23 @@ export const uriProtocol = /^(\w+):\/{0,2}(.*)$/
  * ```
  */
 export const keyValuePair = /([^;=]*)[=:]([^;=]*)/
+
+/**
+ * Match the hash of a route or URL
+ *
+ * @example
+ * ```typescript
+ * 'https://en.wikipedia.org/wiki/Bird#Ecology'
+ *   .match(hash)
+ * ```
+ *
+ * gives
+ *
+ * ```typescript
+ * [
+ *   'https://en.wikipedia.org/wiki/Bird#Ecology',
+ *   'Ecology'
+ * ]
+ * ```
+ */
+export const hash = /.*#([^#]*)$/

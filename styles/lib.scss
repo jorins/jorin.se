@@ -33,6 +33,11 @@ $visited-link-color-highlight: color.adjust(
   $visited-link-color,
   $lightness: 10%
 );
+$invalid-link-color: #ff6688;
+$invalid-link-color-highlight: color.adjust(
+  $invalid-link-color,
+  $lightness: 10%
+);
 
 // Mixins
 @mixin glass(

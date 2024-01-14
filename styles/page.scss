@@ -26,6 +26,11 @@ main.site-block {
     }
   }
 
+  // Anchors
+  .mdx-anchor-invalid {
+    @include linkColors($invalid-link-color, $invalid-link-color-highlight);
+  }
+
   // Headings
   .mdx-heading-counter {
     color: $primary;
