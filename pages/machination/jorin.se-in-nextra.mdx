@@ -65,12 +65,9 @@ Gives:
 > $ f(x) = 3x + 4 $
 
 However, I'd also like to be able to include function plots. The library
-
-<ExtLink href="https://www.npmjs.com/package/function-plot" lang="en-US">
-  function-plot
-</ExtLink>
-seems to do exactly what I want. It is not React based and I need to figure out how
-to best integrate it.
+[function-plot](https://www.npmjs.com/package/function-plot 'lang=en-US')
+seems to do exactly what I want. It is not React based and I need to figure out
+how to best integrate it.
 
 ### Circuit diagrams
 
@@ -91,10 +88,11 @@ have to be pre-rendered as waveform files. Lilypond can very easily be built
 from the command line, the challenge here is building something that interfaces
 between Nextra's build process and Lilypond.
 
-### Color-coded code snippets
+### ✔ Color-coded code snippets
 
-I was surprised this wasn't built in, but I'm sure it's been done many times
-before.
+I was surprised this wasn't entirely built in, but the heavy lifting is. I just
+had to add CSS variables for colouring and a custom component to include some
+wrapping.
 
 ```typescript
 const i = 3
@@ -122,3 +120,16 @@ want to keep on the site.
 Finally, cleaning up the theme and making a demo site for it would be neat. As
 far as I can tell, people pretty much only use the official Nextra themes
 presently.
+
+## 2024-01-14
+
+I've spent some time refining various aspects of the front-end. Pages are
+starting to look good with pure markdown. I've implemented seoul256 for code
+highlighting. I've done a lot of refactoring to make the react side of things
+smoother. MDX has been a pleasure to work with and I feel pretty familiar with
+Nextra's features at this point.
+
+The next step should be to implement tags. I'd also like to get graphs into
+pages pretty soon. I've considered circuit diagrams a bit and I'm wondering if
+circuitjs wouldn't be a good choice anyway, as the animation is incredibly
+illustrative.
