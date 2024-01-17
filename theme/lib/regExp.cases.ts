@@ -1,5 +1,9 @@
 import * as regExp from './regExp'
 
+function multiline(...args: string[]): string {
+  return args.join('\n') + '\n'
+}
+
 interface Case {
   pattern: RegExp
   matches: Array<{
@@ -79,6 +83,31 @@ const cases: Case[] = [
       {
         testString: 'https://en.wikipedia.org/wiki/Bird#Ecology',
         expected: ['https://en.wikipedia.org/wiki/Bird#Ecology', 'Ecology'],
+      },
+    ],
+  },
+
+  {
+    pattern: regExp.frontMatter,
+    matches: [
+      {
+        testString: multiline('---', '---', '', '# Heading'),
+        expected: [multiline('---', '---'), ''],
+      },
+
+      {
+        testString: multiline(
+          '---',
+          'a: true',
+          'anything goes here',
+          '---',
+          '',
+          'Content',
+        ),
+        expected: [
+          multiline('---', 'a: true', 'anything goes here', '---'),
+          multiline('a: true', 'anything goes here'),
+        ],
       },
     ],
   },

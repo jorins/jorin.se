@@ -53,3 +53,8 @@ export const keyValuePair = /([^;=]*)[=:]([^;=]*)/
  * ```
  */
 export const hash = /.*#([^#]*)$/
+
+/**
+ * Matches the front-matter of a markdown file. Fences must be `---`
+ */
+export const frontMatter = /^---\n((?:.|\n)*)^---\n/m

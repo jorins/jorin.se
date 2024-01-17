@@ -5,7 +5,17 @@ import behead from 'remark-behead'
 /**
  * @type { import('next').NextConfig }
  */
-const nextConfig = {}
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+
+  webpack: config => {
+    config.resolve.fallback = { fs: false }
+    return config
+  },
+}
 
 /**
  * @type { import('nextra').NextraConfig }
