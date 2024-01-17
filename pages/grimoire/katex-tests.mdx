@@ -5,7 +5,7 @@ hidden: true
 
 import functionToKatex from '../../theme/lib/functionToKatex'
 import KatexFunction from '../../theme/pageComponents/KatexFunction'
-import cases from '../../theme/lib/functionToKatex.cases'
+import { succeeding, failing } from '../../theme/lib/functionToKatex.cases'
 
 This page is for visual testing of KaTeX expressions in Nextra.
 
@@ -21,7 +21,7 @@ This page is for visual testing of KaTeX expressions in Nextra.
   </thead>
   <tbody> 
   {
-    cases.map(({name, fn, expected}) => {
+    [...succeeding, ...failing].map(({name, fn, expected}) => {
       let match = ''
       try {
         const compiled = functionToKatex(fn)
