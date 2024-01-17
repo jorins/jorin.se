@@ -1,5 +1,6 @@
 ---
 title: Plain markdown page
+hidden: true
 ---
 
 No mdx here
