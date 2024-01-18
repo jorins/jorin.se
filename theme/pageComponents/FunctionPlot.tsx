@@ -1,6 +1,7 @@
-import React from 'react'
-// import functionToKatex from '../lib/functionToKatex'
 import functionPlot from 'function-plot'
+import React from 'react'
+
+// import functionToKatex from 'lib/functionToKatex'
 
 let idCounter = 1
 function getId(): string {

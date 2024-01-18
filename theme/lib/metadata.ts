@@ -3,12 +3,12 @@
  * Functions for processing metadata in the front matter.
  */
 
-import type { AnchorHTMLAttributes } from 'react'
 import type { PageOpts, MdxFile } from './types'
 import type { ExtLinkProps } from '../pageComponents/'
+import type { AnchorHTMLAttributes } from 'react'
 
-import { finalSegment } from './regExp'
 import { toTitle } from './case'
+import { finalSegment } from './regExp'
 import { absoluteRoute } from './route'
 
 type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>

@@ -1,7 +1,7 @@
 import type * as Generic from './CollectionContents'
 
-import { getTitle } from '../lib/pageMap'
-import { toTitle, toLower } from '../lib/case'
+import { toTitle, toLower } from 'lib/case'
+import { getTitle } from 'lib/pageMap'
 
 type CategorySortKey = string
 type PageSortKey = string

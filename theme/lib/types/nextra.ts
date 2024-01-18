@@ -3,10 +3,10 @@
  * Some types from `nextra` with baked-in `FrontMatter` typing.
  */
 
+import type { FullThemeConfig } from 'lib/config'
 import type * as Nextra from 'nextra'
-import type { TemplateName } from '../../templates'
-import type { FullThemeConfig } from '../config'
-import { ExtLinkProps } from '../../pageComponents'
+import type { ExtLinkProps } from 'pageComponents'
+import type { TemplateName } from 'templates'
 
 type Tab = 'alphabetic' | 'date' | 'tags'
 

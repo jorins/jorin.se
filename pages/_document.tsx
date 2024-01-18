@@ -1,7 +1,8 @@
 import type { Locale } from '../theme/lib/types'
 
 import { Html, Head, Main, NextScript } from 'next/document'
-import Background from '../theme/siteComponents/Background'
+
+import { Background } from 'siteComponents/Background'
 
 const lang: Locale = 'en-GB'
 

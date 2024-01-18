@@ -1,5 +1,5 @@
-import type { StrictImageProps } from '../pageComponents'
 import type { Locale } from './types/locale'
+import type { StrictImageProps } from '../pageComponents'
 import type { LinkSpec } from '../siteComponents'
 import type { TemplatePattern } from '../templates'
 

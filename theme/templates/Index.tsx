@@ -2,9 +2,9 @@ import type { Template } from '.'
 
 import Head from 'next/head'
 
-import { isFolder, isIndex, isMdxFile } from '../lib/pageMap'
-import { CollectionHeader, PageTitle, HierarchyNav } from '../siteComponents'
-import { useLayoutProps } from '../contexts'
+import { useLayoutProps } from 'contexts'
+import { isFolder, isIndex, isMdxFile } from 'lib/pageMap'
+import { CollectionHeader, PageTitle, Breadcrumbs } from 'siteComponents'
 
 const Index: Template = ({ children }) => {
   const { pageOpts, themeConfig } = useLayoutProps()
@@ -23,7 +23,7 @@ const Index: Template = ({ children }) => {
         <title>{themeConfig.title.postfix}</title>
       </Head>
 
-      <HierarchyNav />
+      <Breadcrumbs />
       <PageTitle>{pageTitle}</PageTitle>
 
       {children}

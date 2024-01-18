@@ -1,6 +1,7 @@
-import { PageOpts } from './types'
 import type { FullThemeConfig } from './config'
+
 import { asMdxFile, getShortTitle, pagesInHierarchy } from './pageMap'
+import { PageOpts } from './types'
 
 type TitleComponent = string | null | undefined
 

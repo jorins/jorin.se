@@ -1,8 +1,10 @@
 import type * as Generic from './CollectionContents'
 
 import { minimatch } from 'minimatch'
+
+import { getTitle } from 'lib/pageMap'
+
 import { findCategoryByHeading } from './CollectionContents'
-import { getTitle } from '../lib/pageMap'
 
 type CategorySortKey = string
 type PageSortKey = string

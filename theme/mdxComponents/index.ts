@@ -1,9 +1,9 @@
 import type { MDXProvider } from 'nextra/mdx'
 
 import anchor from './Anchor'
+import code from './Code'
 import headings from './Heading'
 import pre from './Pre'
-import code from './Code'
 
 type MDXComponents = Parameters<typeof MDXProvider>[0]['components']
 

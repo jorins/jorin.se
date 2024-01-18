@@ -2,8 +2,8 @@ import type { Template } from '.'
 
 import Head from 'next/head'
 
-import { makeHierarchicalTitle } from '../lib/title'
-import { useLayoutProps } from '../contexts'
+import { useLayoutProps } from 'contexts'
+import { makeHierarchicalTitle } from 'lib/title'
 
 const Tags: Template = ({ children }) => {
   const { pageOpts, themeConfig } = useLayoutProps()

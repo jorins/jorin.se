@@ -1,8 +1,8 @@
-import { H2 } from '../mdxComponents/Heading'
-import { useLayoutProps } from '../contexts'
-import { resolveMetadata } from '../lib/metadata'
-import { getTitle } from '../lib/pageMap'
-import { ExtLink } from '../pageComponents'
+import { useLayoutProps } from 'contexts'
+import { resolveMetadata } from 'lib/metadata'
+import { getTitle } from 'lib/pageMap'
+import { H2 } from 'mdxComponents/Heading'
+import { ExtLink } from 'pageComponents'
 
 export const SEE_ALSO_ID = 'see-also-label'
 

@@ -1,6 +1,7 @@
 import type { ImageProps } from 'next/image'
-import React from 'react'
+
 import Image from 'next/image'
+import React from 'react'
 
 /**
  * Predefined image container. Add using `registerImage`

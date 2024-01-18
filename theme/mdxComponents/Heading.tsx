@@ -1,4 +1,4 @@
-import { useHeadingCounter } from '../contexts'
+import { useHeadingCounter } from 'contexts'
 
 type HeadingProps = React.ComponentProps<'h1'>
 type HeadingComponent = (props: HeadingProps) => React.ReactNode

@@ -1,10 +1,10 @@
-import type { PageOpts } from '../lib/types'
-import type { FullThemeConfig } from '../lib/config'
+import type { FullThemeConfig } from 'lib/config'
+import type { PageOpts } from 'lib/types'
 
 import { minimatch } from 'minimatch'
 
-import Index from './Index'
 import Collection from './Collection'
+import Index from './Index'
 import Page from './Page'
 import Tag from './Tag'
 import Tags from './Tags'

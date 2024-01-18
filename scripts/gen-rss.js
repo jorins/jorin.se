@@ -1,7 +1,8 @@
 const { promises: fs } = require('fs')
 const path = require('path')
-const RSS = require('rss')
+
 const matter = require('gray-matter')
+const RSS = require('rss')
 
 async function generate() {
   const feed = new RSS({

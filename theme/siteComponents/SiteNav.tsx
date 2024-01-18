@@ -1,7 +1,9 @@
 import React from 'react'
-import YgLogo from './YgLogo'
-import { isFolder, isMdxFile, isIndex } from '../lib/pageMap'
-import { useLayoutProps } from '../contexts'
+
+import { useLayoutProps } from 'contexts'
+import { isFolder, isMdxFile, isIndex } from 'lib/pageMap'
+
+import { YgLogo } from './YgLogo'
 
 export interface LinkSpec {
   id: string

@@ -1,5 +1,6 @@
-import type { PredefinedImageProps } from '../pageComponents/PredefinedImage'
-import PredefinedImage from '../pageComponents/PredefinedImage'
+import type { PredefinedImageProps } from 'pageComponents/PredefinedImage'
+
+import { PredefinedImage } from 'pageComponents/PredefinedImage'
 
 export interface CollectionHeaderProps {
   imgId: string

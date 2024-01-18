@@ -3,12 +3,12 @@ import type { NextraThemeLayoutProps } from 'nextra'
 import '@openfonts/quicksand_all'
 import { MDXProvider } from 'nextra/mdx'
 
-import { expandLayoutProps } from './lib/expandLayoutProps'
-import { registerImage } from './pageComponents'
-import { SiteNav, Toc } from './siteComponents'
-import mdxComponents from './mdxComponents'
-import { resolveTemplate } from './templates'
-import { HeadingCounterProvider, LayoutPropsProvider } from './contexts'
+import { HeadingCounterProvider, LayoutPropsProvider } from 'contexts'
+import { expandLayoutProps } from 'lib/expandLayoutProps'
+import { mdxComponents } from 'mdxComponents'
+import { registerImage } from 'pageComponents'
+import { SiteNav, Toc } from 'siteComponents'
+import { resolveTemplate } from 'templates'
 
 export default function Layout(rawProps: NextraThemeLayoutProps) {
   const expandedProps = expandLayoutProps(rawProps)

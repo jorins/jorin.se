@@ -1,8 +1,8 @@
-import { keyValuePair, uriProtocol, hash } from '../lib/regExp'
-import { ExtLink } from '../pageComponents'
-import { useLayoutProps } from '../contexts'
-import { absoluteRoute } from '../lib/route'
-import { getTitle } from '../lib/pageMap'
+import { useLayoutProps } from 'contexts'
+import { getTitle } from 'lib/pageMap'
+import { keyValuePair, uriProtocol, hash } from 'lib/regExp'
+import { absoluteRoute } from 'lib/route'
+import { ExtLink } from 'pageComponents'
 
 const CLASSNAME_VALID = 'mdx-anchor-valid'
 const CLASSNAME_INVALID = 'mdx-anchor-invalid'

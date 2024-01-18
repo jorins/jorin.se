@@ -1,17 +1,17 @@
-import type { PageOpts, MdxFile } from '../lib/types'
-import type { FullThemeConfig } from '../lib/config'
+import type { FullThemeConfig } from 'lib/config'
+import type { PageOpts, MdxFile } from 'lib/types'
 
-import React from 'react'
 import { Tabs } from 'nextra/components'
+import React from 'react'
 
+import { useLayoutProps } from 'contexts'
 import {
   locateFolder,
   isMdxFile,
   isNotIndex,
   isNotHidden,
   getTitle,
-} from '../lib/pageMap'
-import { useLayoutProps } from '../contexts'
+} from 'lib/pageMap'
 
 import alphabeticTabSpec from './CollectionContents.alphabetic'
 import dateTabSpec from './CollectionContents.date'

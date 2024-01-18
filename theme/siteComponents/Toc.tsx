@@ -1,6 +1,7 @@
 import React from 'react'
-import { nest, NestedHeadings } from '../lib/nestHeadings'
-import { useLayoutProps } from '../contexts'
+
+import { useLayoutProps } from 'contexts'
+import { nest, NestedHeadings } from 'lib/nestHeadings'
 
 let nestedOlIndex = 0
 /**

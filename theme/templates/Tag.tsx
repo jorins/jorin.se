@@ -1,16 +1,18 @@
-import type { GetStaticPaths, GetStaticProps } from 'next'
 import type { Template } from '.'
+import type { MdxFile } from '../lib/types'
+import type { GetStaticPaths, GetStaticProps } from 'next'
+
+import { readdirSync } from 'fs'
 
 import Head from 'next/head'
 import { useSSG } from 'nextra/data'
-import { readdirSync } from 'fs'
 
-import { makeTitle } from '../lib/title'
-import { useLayoutProps } from '../contexts'
-import { toTitle } from '../lib/case'
-import { HierarchyNav, PageTitle } from '../siteComponents'
-import { getTitle } from '../lib/pageMap'
-import { getCollections, getFrontMatter } from '../lib/files'
+import { useLayoutProps } from 'contexts'
+import { toTitle } from 'lib/case'
+import { getCollections, getFrontMatter } from 'lib/files'
+import { getTitle } from 'lib/pageMap'
+import { makeTitle } from 'lib/title'
+import { Breadcrumbs, PageTitle } from 'siteComponents'
 
 interface Path {
   collection: string
@@ -78,6 +80,7 @@ export const getStaticProps: GetStaticProps<{ ssg: Path }> = async context => {
 export function MDXTag(): React.ReactNode {
   const { pageOpts, themeConfig } = useLayoutProps()
   const { collection, tag } = useSSG()
+
   const collectionTitle = toTitle(collection)
   const tagTitle = toTitle(tag)
 

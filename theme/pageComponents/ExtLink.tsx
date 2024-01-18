@@ -1,7 +1,8 @@
-import type { AnchorTarget } from '../lib/types'
+import type { AnchorTarget } from 'lib/types'
 
 import React from 'react'
-import { getFlag } from '../lib/flag'
+
+import { getFlag } from 'lib/flag'
 
 function linkTitle(href: string, lang?: string): string {
   const url = new URL(href)

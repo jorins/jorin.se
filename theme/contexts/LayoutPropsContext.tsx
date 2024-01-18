@@ -2,7 +2,7 @@
  * Context for wrapping LayoutProps.
  */
 
-import type { ThemeLayoutProps } from '../lib/types'
+import type { ThemeLayoutProps } from 'lib/types'
 
 import { createContext, useContext } from 'react'
 

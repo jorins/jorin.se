@@ -1,5 +1,5 @@
-import type { Heading } from 'nextra'
 import type { NestedHeadings } from './nestHeadings'
+import type { Heading } from 'nextra'
 
 export interface Case {
   name: string

@@ -5,11 +5,11 @@
  */
 
 export * from './Background'
+export * from './Breadcrumbs'
 export * from './CollectionContents'
 export * from './CollectionHeader'
-export * from './SiteNav'
-export * from './HierarchyNav'
 export * from './PageTitle'
 export * from './SeeAlso'
+export * from './SiteNav'
 export * from './Toc'
 export * from './YgLogo'

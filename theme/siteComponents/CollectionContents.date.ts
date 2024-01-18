@@ -1,6 +1,6 @@
 import type * as Generic from './CollectionContents'
 
-import { getTitle } from '../lib/pageMap'
+import { getTitle } from 'lib/pageMap'
 
 type CategorySortKey = number
 

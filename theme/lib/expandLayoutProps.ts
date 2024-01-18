@@ -1,10 +1,10 @@
-import type * as Nextra from 'nextra'
-import type { ThemeLayoutProps, PageOpts } from './types'
 import type { FullThemeConfig } from './config'
+import type { ThemeLayoutProps, PageOpts } from './types'
+import type * as Nextra from 'nextra'
 
-import { SEE_ALSO_ID } from '../siteComponents'
 import { defaultConfig } from './config'
 import { getAllPages } from './pageMap'
+import { SEE_ALSO_ID } from '../siteComponents'
 
 /**
  * Convert `NextraThemeLayoutProps` to `ThemeLayoutProps`, adding relevant
