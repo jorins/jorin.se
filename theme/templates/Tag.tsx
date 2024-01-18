@@ -86,10 +86,32 @@ export function MDXTag(): React.ReactNode {
 
   const fullTitle = makeTitle([tagTitle, 'Tags', collectionTitle], themeConfig)
 
-  const pages = pageOpts.pages
+  const taggedPages = pageOpts.pages
     .filter(page => page.route.startsWith(`/${collection}`))
     .filter(page => page.frontMatter?.tags?.includes(tag))
     .sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
+
+  const index = pageOpts.pages
+    .find(page => page.route === '/')
+  if (index === undefined) {
+    throw new Error('Failed to find index route')
+  }
+
+  const collectionPage = pageOpts.pages
+    .find(page => page.route === `/${collection}`)
+  if (collectionPage === undefined) {
+    throw new Error('Failed to find collection page')
+  }
+
+  const segments: MdxFile[] = [
+    index,
+    collectionPage,
+    {
+      kind: 'MdxPage',
+      name: `Pages tagged "${tagTitle}"`,
+      route: `/${collection}/tags/${tag}`,
+    }
+  ]
 
   return (
     <>
@@ -97,17 +119,12 @@ export function MDXTag(): React.ReactNode {
         <title>{fullTitle}</title>
       </Head>
 
-      {
-        // FIXME: hierarchy nav cannot be built without a route in pageOpts.
-        // Disregard for now.
-        // <HierarchyNav />
-      }
-
+      <Breadcrumbs segments={segments} />
       <PageTitle>
         Pages tagged &ldquo;{tagTitle}&rdquo; in {collectionTitle}
       </PageTitle>
       <ul>
-        {pages.map(page => {
+        {taggedPages.map(page => {
           const title = getTitle(page)
           const id = page.route
 

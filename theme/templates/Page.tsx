@@ -16,7 +16,7 @@ const Page: Template = ({ children }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <HierarchyNav />
+      <Breadcrumbs />
       <PageTitle>{pageOpts.title}</PageTitle>
       {children}
       <SeeAlso />

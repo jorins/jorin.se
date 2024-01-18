@@ -7,7 +7,7 @@ import { makeHierarchicalTitle } from 'lib/title'
 import {
   CollectionContents,
   CollectionHeader,
-  HierarchyNav,
+  Breadcrumbs,
   PageTitle,
 } from 'siteComponents'
 
@@ -25,7 +25,7 @@ const Collection: Template = ({ children }) => {
       <CollectionHeader
         title={
           <>
-            <HierarchyNav />
+            <Breadcrumbs />
             <PageTitle>{pageOpts.title}</PageTitle>
           </>
         }

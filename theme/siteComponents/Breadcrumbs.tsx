@@ -1,15 +1,22 @@
 import { Fragment } from 'react'
-import { asMdxFile, getShortTitle, pagesInHierarchy } from '../lib/pageMap'
-import { useLayoutProps } from '../contexts'
 
-export interface HierarchyNavProps {}
+import { useLayoutProps } from 'contexts'
+import { asMdxFile, getShortTitle, pagesInHierarchy } from 'lib/pageMap'
+import { MdxFile } from 'lib/types'
+
+export interface BreadcrumbsProps {
+  segments?: MdxFile[]
+}
 
 /**
  * A nav for ascending the site hierarchy.
  */
-export function HierarchyNav({}: HierarchyNavProps): JSX.Element {
+export function Breadcrumbs({segments}: BreadcrumbsProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
-  const segments = pagesInHierarchy(pageOpts).map(asMdxFile)
+  if (segments === undefined) {
+    segments = pagesInHierarchy(pageOpts).map(asMdxFile)
+  }
+
   return (
     <nav className="page-hierarchy-nav">
       {segments.map((segment, index, segments) => {
