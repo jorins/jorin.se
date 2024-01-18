@@ -11,7 +11,7 @@ export interface BreadcrumbsProps {
 /**
  * A nav for ascending the site hierarchy.
  */
-export function Breadcrumbs({segments}: BreadcrumbsProps): JSX.Element {
+export function Breadcrumbs({ segments }: BreadcrumbsProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
   if (segments === undefined) {
     segments = pagesInHierarchy(pageOpts).map(asMdxFile)

@@ -91,14 +91,14 @@ export function MDXTag(): React.ReactNode {
     .filter(page => page.frontMatter?.tags?.includes(tag))
     .sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
 
-  const index = pageOpts.pages
-    .find(page => page.route === '/')
+  const index = pageOpts.pages.find(page => page.route === '/')
   if (index === undefined) {
     throw new Error('Failed to find index route')
   }
 
-  const collectionPage = pageOpts.pages
-    .find(page => page.route === `/${collection}`)
+  const collectionPage = pageOpts.pages.find(
+    page => page.route === `/${collection}`,
+  )
   if (collectionPage === undefined) {
     throw new Error('Failed to find collection page')
   }
@@ -110,7 +110,7 @@ export function MDXTag(): React.ReactNode {
       kind: 'MdxPage',
       name: `Pages tagged "${tagTitle}"`,
       route: `/${collection}/tags/${tag}`,
-    }
+    },
   ]
 
   return (

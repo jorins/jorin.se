@@ -74,7 +74,7 @@ a.collection-header-wrapper {
   border-bottom-color: color.change($highlight, $alpha: 0);
 
   &[aria-selected='true'] {
-     border-bottom-color: $highlight;
+    border-bottom-color: $highlight;
   }
 
   &:hover {

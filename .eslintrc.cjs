@@ -17,14 +17,14 @@ module.exports = {
           'builtin',
           'external',
           'internal',
-          ['parent', 'sibling', 'index']
+          ['parent', 'sibling', 'index'],
         ],
         'newlines-between': 'always',
         'alphabetize': {
-          'order': 'asc',
-          'caseInsensitive': true
-        }
-      }
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
     ],
-  }
+  },
 }
