@@ -31,7 +31,7 @@ and the pastures of Node/Next/Nextra were predictably greener:
 
 - Static website hosted on GitHub Pages.
 
-- As much as possible of the site is rendered statically.
+- [x] As much as possible of the site is rendered statically.
 
 - JavaScript is optional and only required for interacting with some page
   components that are enhanced by interactivity.
@@ -40,7 +40,7 @@ and the pastures of Node/Next/Nextra were predictably greener:
 
 - The theme is fully re-usable.
 
-- The pages are divided into collections:
+- [x] The pages are divided into collections:
 
   - [x] Pages in different collections are fully separated.
 
@@ -139,12 +139,17 @@ illustrative.
 After trying many different methods, I managed to implement browsable tags.
 Nextra's features surrounding this have been quite lacking. There's no
 documentation for `useSSG` or `useData` in Nextra 2 and I had to implement
-enumeration of the files and parsing their front-matter myself. I'll not be
-implementing a `/[collection]/tags`. Maybe as a redirect to the *Tags* tab on
-`/collection` just to keep the hierarchy properly navigable.
+enumeration of the files and parsing their front-matter myself, which seems
+redundant as this is a huge part of what Nextra is meant to do for me. I'll not
+be implementing a `/[collection]/tags`. Maybe as a redirect to the *By tag* tab
+on `/collection` just to keep the hierarchy properly navigable. This, along
+with the desire to not require JS to browse, is another reason to implement my
+own Tab component using `<details>`
 
 It would probably serve me well to work towards publishing the site now. I've
 made some strides in the project infrastructure to help with this and the site
 statically generates properly, including pre-rendered components meaning it
-should function without JS. The packaged JS appears to be ~200kB per page
-though, which is 
+should function without JS. The first load JS is about 180kB per page though,
+which is alarmingly high considering how little the front-end JS actually does.
+I don't think any components even can be re-rendered presently. The
+pre-rendered pages are 8kB at most.
