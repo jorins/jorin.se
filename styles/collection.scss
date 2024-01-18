@@ -69,12 +69,22 @@ a.collection-header-wrapper {
   font-family: 'Quicksand';
   font-size: 1.5rem;
 
+  border-bottom-width: 0.1rem;
+  border-bottom-style: solid;
+  border-bottom-color: color.change($highlight, $alpha: 0);
+
   &[aria-selected='true'] {
-    border-bottom: 0.1rem solid white;
+     border-bottom-color: $highlight;
   }
 
   &:hover {
     background-color: color.change($primary, $alpha: $high-transparency);
+  }
+
+  @include animate {
+    transition:
+      background-color $fast-animation,
+      border-bottom $fast-animation;
   }
 }
 
