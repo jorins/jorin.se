@@ -15,4 +15,4 @@ jobs:
   cd:
     name: Deploy
     needs: ci
-    uses: './.github/workflows/cd.yml'
+    uses: './.github/workflows/cd-pages.yml'
