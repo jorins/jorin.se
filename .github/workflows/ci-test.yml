@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  workflow_call:
+
+jobs:
+  format:
+    name: Formatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up
+        uses: './.github/actions/setup'
+
+      - name: Run formatter
+        run: pnpm run format
+
+  lint:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up
+        uses: './.github/actions/setup'
+
+      - name: Run linter
+        run: pnpm run lint
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up
+        uses: './.github/actions/setup'
+
+      - name: Run tests
+        run: pnpm test

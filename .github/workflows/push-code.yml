@@ -1,0 +1,11 @@
+name: Push non-mdx files
+
+on:
+  push:
+    paths-ignore:
+      - '*.mdx'
+
+jobs:
+  ci:
+    name: Test
+    uses: './.github/workflows/ci-test.yml'
