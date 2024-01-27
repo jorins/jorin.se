@@ -8,7 +8,7 @@ const config = {
   '*.{ts,tsx}': [lint, format],
   '*.{js,jsx,mjs,cjs}': [lint, format],
   '.*rc.{js,mjs,cjs}': [lint, format],
-  '*.{md,mdx,html,css,scss}': [format],
+  '*.{md,mdx,html,css,scss,yml,yaml}': [format],
 }
 
 export default config
