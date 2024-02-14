@@ -1,36 +1,24 @@
-import functionPlot from 'function-plot'
-import React from 'react'
+import type { FunctionPlotOptions } from 'function-plot'
 
-// import functionToKatex from 'lib/functionToKatex'
-
-let idCounter = 1
-function getId(): string {
-  return `function-plot-${idCounter++}`
-}
+// import functionPlot from 'function-plot'
+import { memo, useEffect, useRef } from 'react'
 
 export interface FunctionPlotProps {
-  entries: FunctionPlotEntry[]
+  options?: FunctionPlotOptions
 }
 
-export interface FunctionPlotEntry {
-  fn: Function
-  derivative: Function
-}
+export const FunctionPlot: React.FC<FunctionPlotProps> = memo(({ options }) => {
+  const rootEl = useRef(null)
 
-export function FunctionPlot({ entries }: FunctionPlotProps): JSX.Element {
-  const id = getId()
-  const out = <div id={id}></div>
-
-  /*
-  functionPlot({
-    target: `#${id}`,
-    data: entries.map(entry => ({
-      fn: functionToKatex(entry.fn),
-    })),
+  useEffect(() => {
+    try {
+      // functionPlot(Object.assign({}, options, { target: rootEl.current }))
+    } catch (e) {}
   })
-  */
 
-  return out
-}
+  return (<div ref={rootEl} />)
+}, () => false)
+
+FunctionPlot.displayName = 'FunctionPlot'
 
 export default FunctionPlot

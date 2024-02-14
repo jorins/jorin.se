@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@openfonts/quicksand_all": "^1.44.4",
-    "function-plot": "^1.24.0",
+    "function-plot": "file:function-plot-1.24.0.tgz",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "nextra": "^2.13.2",
@@ -44,6 +44,7 @@
     "prettier": "^3.1.1",
     "react-katex": "^3.0.1",
     "remark-behead": "^3.1.0",
+    "remark-lilypond": "file:../remark-lilypond/remark-lilypond-0.1.0.tgz",
     "remark-sectionize": "^2.0.0",
     "sass": "^1.69.7",
     "ts-jest": "^29.1.1",

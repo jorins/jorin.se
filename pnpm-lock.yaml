@@ -14,8 +14,8 @@ dependencies:
     specifier: ^1.44.4
     version: 1.44.4
   function-plot:
-    specifier: ^1.24.0
-    version: 1.24.0
+    specifier: file:function-plot-1.24.0.tgz
+    version: file:function-plot-1.24.0.tgz
   gray-matter:
     specifier: ^4.0.3
     version: 4.0.3
@@ -93,6 +93,9 @@ devDependencies:
   remark-behead:
     specifier: ^3.1.0
     version: 3.1.0
+  remark-lilypond:
+    specifier: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
+    version: file:../remark-lilypond/remark-lilypond-0.1.0.tgz(react@18.2.0)
   remark-sectionize:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1273,7 +1276,6 @@ packages:
 
   /@types/unist@3.0.2:
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
-    dev: false
 
   /@types/yargs-parser@21.0.3:
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -3056,22 +3058,6 @@ packages:
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
     dev: true
-
-  /function-plot@1.24.0:
-    resolution: {integrity: sha512-xurR8bHYgLkf/ypRm8EdyqPCG9lGs+nWs+hVRChCTwi7RHEqpcoPPeOxiUVbhYtEiyRVe5m+pSAgTp35SukJrg==}
-    dependencies:
-      built-in-math-eval: 0.3.0
-      d3-axis: 3.0.0
-      d3-color: 3.1.0
-      d3-format: 3.1.0
-      d3-interpolate: 3.0.1
-      d3-scale: 4.0.2
-      d3-selection: 3.0.0
-      d3-shape: 3.2.0
-      d3-zoom: 3.0.0
-      events: 3.3.0
-      interval-arithmetic-eval: 0.5.1
-    dev: false
 
   /function.prototype.name@1.1.6:
     resolution: {integrity: sha512-Z5kx79swU5P27WEayXM1tBi5Ze/lbIyiNgU3qyXUOf9b2rgXYyF9Dy9Cx+IQv/Lc8WCG6L82zwUPpSS9hGehIg==}
@@ -6676,7 +6662,12 @@ packages:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
     dependencies:
       '@types/unist': 3.0.2
-    dev: false
+
+  /unist-util-map@4.0.0:
+    resolution: {integrity: sha512-HJs1tpkSmRJUzj6fskQrS5oYhBYlmtcvy4SepdDEEsL04FjBrgF0Mgggvxc1/qGBGgW7hRh9+UBK1aqTEnBpIA==}
+    dependencies:
+      '@types/unist': 3.0.2
+    dev: true
 
   /unist-util-position-from-estree@1.1.2:
     resolution: {integrity: sha512-poZa0eXpS+/XpoQwGwl79UUdea4ol2ZuCYguVaJS4qzIOMDzbqz8a3erUCOmubSZkaOuGamb3tX790iwOIROww==}
@@ -6755,7 +6746,6 @@ packages:
     dependencies:
       '@types/unist': 3.0.2
       unist-util-is: 6.0.0
-    dev: false
 
   /unist-util-visit@2.0.3:
     resolution: {integrity: sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==}
@@ -6786,7 +6776,6 @@ packages:
       '@types/unist': 3.0.2
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
-    dev: false
 
   /update-browserslist-db@1.0.13(browserslist@4.22.2):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
@@ -7051,4 +7040,37 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+    dev: false
+
+  file:../remark-lilypond/remark-lilypond-0.1.0.tgz(react@18.2.0):
+    resolution: {integrity: sha512-mh/8G22rwH9fIM+mMZKwpWezQpaiRYHZYC8y5f4PmikcEgY0k4iTes7KrnocMqBXPv9OqBTVD1VjYlQ6RbVkiw==, tarball: file:../remark-lilypond/remark-lilypond-0.1.0.tgz}
+    id: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
+    name: remark-lilypond
+    version: 0.1.0
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      unist-util-map: 4.0.0
+      unist-util-visit: 5.0.0
+      unist-util-visit-parents: 6.0.1
+    dev: true
+
+  file:function-plot-1.24.0.tgz:
+    resolution: {integrity: sha512-eAubXNqD8MYpi0tixMdM0xcI6LwyM6fF9n+6Ax6DZZ/hQvMsmM6OIxVPzRZf0pPExDU4xcDgLPQVlTMosv7klQ==, tarball: file:function-plot-1.24.0.tgz}
+    name: function-plot
+    version: 1.24.0
+    engines: {node: '>=12'}
+    dependencies:
+      built-in-math-eval: 0.3.0
+      d3-axis: 3.0.0
+      d3-color: 3.1.0
+      d3-format: 3.1.0
+      d3-interpolate: 3.0.1
+      d3-scale: 4.0.2
+      d3-selection: 3.0.0
+      d3-shape: 3.2.0
+      d3-zoom: 3.0.0
+      events: 3.3.0
+      interval-arithmetic-eval: 0.5.1
     dev: false

@@ -1,6 +1,7 @@
 import nextra from 'nextra'
-import sectionize from 'remark-sectionize'
 import behead from 'remark-behead'
+import lilypond from 'remark-lilypond'
+import sectionize from 'remark-sectionize'
 
 /**
  * @type { import('next').NextConfig }
@@ -33,6 +34,12 @@ const nextraConfig = {
         },
       ],
       sectionize,
+      [
+        lilypond,
+        {
+          strategy: 'img-png'
+        }
+      ]
     ],
   },
 }
