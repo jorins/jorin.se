@@ -95,7 +95,7 @@ devDependencies:
     version: 3.1.0
   remark-lilypond:
     specifier: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
-    version: file:../remark-lilypond/remark-lilypond-0.1.0.tgz(react@18.2.0)
+    version: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
   remark-sectionize:
     specifier: ^2.0.0
     version: 2.0.0
@@ -2982,6 +2982,13 @@ packages:
 
   /fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
+    dev: true
+
+  /fast-xml-parser@4.3.4:
+    resolution: {integrity: sha512-utnwm92SyozgA3hhH2I8qldf2lBqm6qHOICawRNRFu1qMe3+oqr+GcXjGqTmXTMGE5T4eC03kr/rlh5C1IRdZA==}
+    hasBin: true
+    dependencies:
+      strnum: 1.0.5
     dev: true
 
   /fastq@1.16.0:
@@ -6325,6 +6332,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /strnum@1.0.5:
+    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==}
+    dev: true
+
   /style-to-object@0.4.4:
     resolution: {integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg==}
     dependencies:
@@ -7042,15 +7053,12 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
 
-  file:../remark-lilypond/remark-lilypond-0.1.0.tgz(react@18.2.0):
-    resolution: {integrity: sha512-mh/8G22rwH9fIM+mMZKwpWezQpaiRYHZYC8y5f4PmikcEgY0k4iTes7KrnocMqBXPv9OqBTVD1VjYlQ6RbVkiw==, tarball: file:../remark-lilypond/remark-lilypond-0.1.0.tgz}
-    id: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
+  file:../remark-lilypond/remark-lilypond-0.1.0.tgz:
+    resolution: {integrity: sha512-FtjN+2Z024rseNyPVn29ib9IcvGVVb5xEkZFxl/RRyXzuE3W63yNmsNLJVGegGsfNpChPS7a/0ktP9WhdUmBFw==, tarball: file:../remark-lilypond/remark-lilypond-0.1.0.tgz}
     name: remark-lilypond
     version: 0.1.0
-    peerDependencies:
-      react: ^18.0.0
     dependencies:
-      react: 18.2.0
+      fast-xml-parser: 4.3.4
       unist-util-map: 4.0.0
       unist-util-visit: 5.0.0
       unist-util-visit-parents: 6.0.1
