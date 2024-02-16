@@ -4,14 +4,30 @@ import { keyValuePair, uriProtocol, hash } from 'lib/regExp'
 import { absoluteRoute } from 'lib/route'
 import { ExtLink } from 'pageComponents'
 
+import { useIsInSvg } from './Svg'
+
 const CLASSNAME_VALID = 'mdx-anchor-valid'
 const CLASSNAME_INVALID = 'mdx-anchor-invalid'
 
 type AnchorProps = React.ComponentProps<'a'>
 
+function SvgAnchor({ ...props }: AnchorProps) {
+  const { href } = props
+  if (href && href.match(uriProtocol)) {
+    // External link
+    return <a target="_blank" rel="noopener" {...props} />
+  }
+  return <a {...props} />
+}
+
 export function Anchor(props: AnchorProps): React.ReactNode {
   const { pageOpts } = useLayoutProps()
   const { children } = props
+  const isInSvg = useIsInSvg()
+
+  if (isInSvg) {
+    return <SvgAnchor {...props} />
+  }
 
   let className = 'mdx-anchor'
 
