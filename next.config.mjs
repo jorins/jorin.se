@@ -37,7 +37,7 @@ const nextraConfig = {
       [
         lilypond,
         {
-          strategy: 'img-png',
+          strategy: 'inline-svg',
         },
       ],
     ],

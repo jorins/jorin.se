@@ -94,8 +94,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   remark-lilypond:
-    specifier: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
-    version: file:../remark-lilypond/remark-lilypond-0.1.0.tgz
+    specifier: ^0.2.0
+    version: 0.2.0
   remark-sectionize:
     specifier: ^2.0.0
     version: 2.0.0
@@ -5856,6 +5856,15 @@ packages:
       - supports-color
     dev: false
 
+  /remark-lilypond@0.2.0:
+    resolution: {integrity: sha512-1rKIs467KhkSbr7ZLlTvB+R0S6dvoIyf6Eh77XbrE66VHvfU5+xzfBsikMHhqUhVs7IReHla3bVnQo2MESi/aA==}
+    dependencies:
+      fast-xml-parser: 4.3.4
+      unist-util-map: 4.0.0
+      unist-util-visit: 5.0.0
+      unist-util-visit-parents: 6.0.1
+    dev: true
+
   /remark-math@5.1.1:
     resolution: {integrity: sha512-cE5T2R/xLVtfFI4cCePtiRn+e6jKMtFDR3P8V3qpv8wpKjwvHoBA4eJzvX+nVrnlNy0911bdGmuspCSwetfYHw==}
     dependencies:
@@ -7052,17 +7061,6 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
-
-  file:../remark-lilypond/remark-lilypond-0.1.0.tgz:
-    resolution: {integrity: sha512-FtjN+2Z024rseNyPVn29ib9IcvGVVb5xEkZFxl/RRyXzuE3W63yNmsNLJVGegGsfNpChPS7a/0ktP9WhdUmBFw==, tarball: file:../remark-lilypond/remark-lilypond-0.1.0.tgz}
-    name: remark-lilypond
-    version: 0.1.0
-    dependencies:
-      fast-xml-parser: 4.3.4
-      unist-util-map: 4.0.0
-      unist-util-visit: 5.0.0
-      unist-util-visit-parents: 6.0.1
-    dev: true
 
   file:function-plot-1.24.0.tgz:
     resolution: {integrity: sha512-eAubXNqD8MYpi0tixMdM0xcI6LwyM6fF9n+6Ax6DZZ/hQvMsmM6OIxVPzRZf0pPExDU4xcDgLPQVlTMosv7klQ==, tarball: file:function-plot-1.24.0.tgz}

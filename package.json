@@ -44,7 +44,7 @@
     "prettier": "^3.1.1",
     "react-katex": "^3.0.1",
     "remark-behead": "^3.1.0",
-    "remark-lilypond": "file:../remark-lilypond/remark-lilypond-0.1.0.tgz",
+    "remark-lilypond": "^0.2.0",
     "remark-sectionize": "^2.0.0",
     "sass": "^1.69.7",
     "ts-jest": "^29.1.1",
