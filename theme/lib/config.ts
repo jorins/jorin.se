@@ -1,7 +1,7 @@
-import type { Locale } from './types/locale'
 import type { StrictImageProps } from '../pageComponents'
 import type { LinkSpec } from '../siteComponents'
 import type { TemplatePattern } from '../templates'
+import type { Locale } from './types/locale'
 
 /** A complete theme config. This is to be used internally by the theme. */
 export interface FullThemeConfig {

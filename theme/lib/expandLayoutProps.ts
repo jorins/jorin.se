@@ -1,7 +1,5 @@
 import type { FullThemeConfig } from './config'
 import type { ThemeLayoutProps, PageOpts } from './types'
-// ESLint fails to resolve, but language server works.
-// eslint-disable-next-line import/namespace
 import type * as Nextra from 'nextra'
 
 import { defaultConfig } from './config'

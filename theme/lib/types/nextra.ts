@@ -4,8 +4,6 @@
  */
 
 import type { FullThemeConfig } from 'lib/config'
-// ESLint fails to resolve, but language server works.
-// eslint-disable-next-line import/namespace
 import type * as Nextra from 'nextra'
 import type { ExtLinkProps } from 'pageComponents'
 import type { TemplateName } from 'templates'
