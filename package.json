@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@openfonts/quicksand_all": "^1.44.4",
-    "function-plot": "file:function-plot-1.24.0.tgz",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "nextra": "^2.13.2",
