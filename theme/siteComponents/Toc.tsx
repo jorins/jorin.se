@@ -1,6 +1,7 @@
+import type { Heading } from 'nextra'
+
 import React from 'react'
 
-import { useLayoutProps } from 'contexts'
 import { nest, NestedHeadings } from 'lib/nestHeadings'
 
 let nestedOlIndex = 0
@@ -19,15 +20,14 @@ function TocEntry(heading: NestedHeadings[number]) {
   )
 }
 
-export interface TocProps {}
+export interface TocProps {
+  headings: Heading[]
+}
 
 /**
  * A page's table of contents
  */
-export function Toc({}: TocProps): JSX.Element {
-  const { pageOpts } = useLayoutProps()
-  const headings = pageOpts.headings
-
+export function Toc({ headings }: TocProps): JSX.Element {
   nestedOlIndex = 0
   if (headings.length === 0) {
     return <></>
