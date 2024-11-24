@@ -16,6 +16,10 @@ const nextConfig = {
     config.resolve.fallback = { fs: false }
     return config
   },
+
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
+  },
 }
 
 /**
