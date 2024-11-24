@@ -1,3 +1,5 @@
+import { useRouter } from 'nextra/hooks'
+
 import { useLayoutProps } from 'contexts'
 import { getTitle } from 'lib/pageMap'
 import { keyValuePair, uriProtocol, hash } from 'lib/regExp'
@@ -22,6 +24,7 @@ function SvgAnchor({ ...props }: AnchorProps) {
 
 export function Anchor(props: AnchorProps): React.ReactNode {
   const { pageOpts } = useLayoutProps()
+  const { route } = useRouter()
   const { children } = props
   const isInSvg = useIsInSvg()
 
@@ -35,7 +38,7 @@ export function Anchor(props: AnchorProps): React.ReactNode {
   const href =
     props.href === undefined
       ? undefined
-      : absoluteRoute(pageOpts.route, props.href)
+      : absoluteRoute(route, props.href)
 
   // Parse markdown title as key-value pairs, if possible
   const override: Record<string, string> = {}
@@ -76,12 +79,12 @@ export function Anchor(props: AnchorProps): React.ReactNode {
         {children}
       </ExtLink>
     )
-  } else if (href.startsWith(pageOpts.route) && href.includes('#')) {
+  } else if (href.startsWith(route) && href.includes('#')) {
     // Link in page
     // Check whether the target is an existing heading to validate
     const match = href.match(hash)
     if (match === null) {
-      throw new Error(`Failed to match hash from route '${pageOpts.route}'`)
+      throw new Error(`Failed to match hash from route '${route}'`)
     }
     const hrefWithoutHash = match[1]
 

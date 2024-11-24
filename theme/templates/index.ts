@@ -38,9 +38,9 @@ export type TemplateName = keyof typeof templates
  */
 export function resolveTemplate(
   page: PageOpts,
+  route: string,
   themeConfig: FullThemeConfig,
 ): Template {
-  const route = page.route
   const specified: TemplateName | undefined = page?.frontMatter?.template
 
   // First check for a specified template

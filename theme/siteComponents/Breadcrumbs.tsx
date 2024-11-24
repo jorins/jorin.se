@@ -1,3 +1,4 @@
+import { useRouter } from 'nextra/hooks'
 import { Fragment } from 'react'
 
 import { useLayoutProps } from 'contexts'
@@ -13,8 +14,10 @@ export interface BreadcrumbsProps {
  */
 export function Breadcrumbs({ segments }: BreadcrumbsProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
+  const { route } = useRouter()
+
   if (segments === undefined) {
-    segments = pagesInHierarchy(pageOpts).map(asMdxFile)
+    segments = pagesInHierarchy(pageOpts.pages, route).map(asMdxFile)
   }
 
   return (

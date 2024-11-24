@@ -69,8 +69,8 @@ export function getAllPages(pageMap: PageMapItem[]): MdxFile[] {
 /**
  * From a given page, locate its folder in the page map
  */
-export function locateFolder(pageOpts: PageOpts): Folder {
-  const path = pageOpts.route.split('/').filter(s => s !== '')
+export function locateFolder(pageOpts: PageOpts, route: string): Folder {
+  const path = route.split('/').filter(s => s !== '')
 
   // Construct a fake index folder to simplify the reduce procedure
   const rootFolder: Folder = {
@@ -116,18 +116,18 @@ export function asMdxFile(pageMapItem: MdxFile | Folder): MdxFile {
 type PathList = Array<MdxFile | Folder>
 
 /**
- * Gets each page from the page map from index to current page per `pageOpts`.
+ * Gets each page in the page map from index up to the given route.
  */
-export function pagesInHierarchy(pageOpts: PageOpts): PathList {
-  const index = pageOpts.pages.filter(page => page.route === '/')
+export function pagesInHierarchy(pages: MdxFile[], route: string): PathList {
+  const index = pages.filter(page => page.route === '/')
 
   // Index page is a bit of a special case with the route splitting method, so
   // we hard-check for it first
-  if (pageOpts.route === '/') {
+  if (route === '/') {
     return index
   }
 
-  const segments = pageOpts.route.match(regExp.routeSegments)
+  const segments = route.match(regExp.routeSegments)
   if (segments === null) {
     throw new Error('Segments failed to match.')
   }
@@ -141,7 +141,7 @@ export function pagesInHierarchy(pageOpts: PageOpts): PathList {
   const routes = ['/', ...subRoutes]
 
   return routes.map(targetPath => {
-    const found = pageOpts.pages.find(page => page.route === targetPath)
+    const found = pages.find(page => page.route === targetPath)
 
     if (found === undefined) {
       throw new Error(`No MdxFile matches path ${targetPath}`)

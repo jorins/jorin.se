@@ -2,6 +2,7 @@ import type { NextraThemeLayoutProps } from 'nextra'
 
 import '@openfonts/quicksand_all'
 import { MDXProvider } from 'nextra/mdx'
+import { useRouter } from 'nextra/hooks'
 
 import { HeadingCounterProvider, LayoutPropsProvider } from 'contexts'
 import { expandLayoutProps } from 'lib/expandLayoutProps'
@@ -12,6 +13,7 @@ import { resolveTemplate } from 'templates'
 
 export default function Layout(rawProps: NextraThemeLayoutProps) {
   const expandedProps = expandLayoutProps(rawProps)
+  const { route } = useRouter()
   const { children } = expandedProps
 
   // Register pre-defined images
@@ -22,6 +24,7 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
   // Get the target template
   const Template = resolveTemplate(
     expandedProps.pageOpts,
+    route,
     expandedProps.themeConfig,
   )
 

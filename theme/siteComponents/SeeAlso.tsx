@@ -1,3 +1,5 @@
+import { useRouter } from 'nextra/hooks'
+
 import { useLayoutProps } from 'contexts'
 import { resolveMetadata } from 'lib/metadata'
 import { getTitle } from 'lib/pageMap'
@@ -10,7 +12,7 @@ export interface SeeAlsoProps {}
 
 export function SeeAlso({}: SeeAlsoProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
-  const { relatedPages, tagLinks, furtherReading, empty } =
+  const { route } = useRouter()
     resolveMetadata(pageOpts)
 
   if (empty) {

@@ -2,6 +2,7 @@ import type { FullThemeConfig } from 'lib/config'
 import type { PageOpts, MdxFile } from 'lib/types'
 
 import { Tabs } from 'nextra/components'
+import { useRouter } from 'nextra/hooks'
 import React from 'react'
 
 import { useLayoutProps } from 'contexts'
@@ -74,8 +75,9 @@ export interface CollectionContentsProps {
 
 export function CollectionContents({}: CollectionContentsProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
+  const { route } = useRouter()
 
-  const pages = locateFolder(pageOpts)
+  const pages = locateFolder(pageOpts, route)
     .children.filter(isMdxFile)
     .filter(isNotHidden)
     .filter(isNotIndex)
