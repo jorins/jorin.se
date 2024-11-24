@@ -36,9 +36,7 @@ export function Anchor(props: AnchorProps): React.ReactNode {
 
   // Make relative routes absolute
   const href =
-    props.href === undefined
-      ? undefined
-      : absoluteRoute(route, props.href)
+    props.href === undefined ? undefined : absoluteRoute(route, props.href)
 
   // Parse markdown title as key-value pairs, if possible
   const override: Record<string, string> = {}
