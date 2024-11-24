@@ -1,5 +1,7 @@
 // Background, stars, and their animation
 
+@use 'sass:math';
+
 @use 'lib';
 
 $background-animation-length: 12s;
@@ -41,12 +43,12 @@ $background-animation-length: 12s;
   }
 
   .background-stars-2 {
-    animation-delay: $background-animation-length / 3;
+    animation-delay: math.div($background-animation-length, 3);
     background-image: url('/images/stars2.png');
   }
 
   .background-stars-3 {
-    animation-delay: 2 * $background-animation-length / 3;
+    animation-delay: math.div(2 * $background-animation-length, 3);
     background-image: url('/images/stars3.png');
   }
 }

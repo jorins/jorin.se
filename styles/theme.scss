@@ -99,7 +99,7 @@ blockquote {
   $color: color.change(lib.$primary, $alpha: lib.$low-transparency);
 
   border-left: $thickness solid $color;
-  border-radius: $thickness / 2;
+  border-radius: $thickness * 0.5;
   margin-left: 2rem;
   padding-left: 0.8rem;
 }
