@@ -1,8 +1,8 @@
 import type { NextraThemeLayoutProps } from 'nextra'
 
 import '@openfonts/quicksand_all'
-import { MDXProvider } from 'nextra/mdx'
 import { useRouter } from 'nextra/hooks'
+import { MDXProvider } from 'nextra/mdx'
 
 import { HeadingCounterProvider, LayoutPropsProvider } from 'contexts'
 import { expandLayoutProps } from 'lib/expandLayoutProps'
