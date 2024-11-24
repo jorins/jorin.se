@@ -1,18 +1,18 @@
 // Emblem display
 
-@import 'lib';
+@use 'lib';
 
 #emblem {
   box-sizing: border-box;
   margin: 1rem;
   width: 5rem;
 
-  @include desktop {
+  @include lib.desktop {
     width: 90%;
     margin: 0.5rem;
   }
 }
 
 #emblem-path {
-  fill: $primary;
+  fill: lib.$primary;
 }

@@ -1,6 +1,6 @@
 // General site layout
 
-@import 'lib';
+@use 'lib';
 
 // Normalisation
 body,
@@ -23,11 +23,11 @@ html {
   min-height: 100vh;
   max-width: 100rem; // Cap overall site width
   margin: auto;
-  padding: $gap;
+  padding: lib.$gap;
 
   // Grid definition
   display: grid;
-  gap: $gap;
+  gap: lib.$gap;
   justify-content: stretch;
   align-items: stretch;
 
@@ -36,7 +36,7 @@ html {
   grid-template-rows: auto;
   grid-template-areas: 'nav' 'toc' 'main';
 
-  @include desktop {
+  @include lib.desktop {
     grid-template-columns: 20rem 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
@@ -58,15 +58,15 @@ main {
   grid-area: toc;
   align-self: start;
 
-  @include desktop {
+  @include lib.desktop {
     position: sticky;
-    top: $gap;
+    top: lib.$gap;
   }
 }
 
 .site-block {
-  @include glass($panel-transparency: $low-transparency);
-  border-radius: $border-radius;
-  padding: $gap;
+  @include lib.glass($panel-transparency: lib.$low-transparency);
+  border-radius: lib.$border-radius;
+  padding: lib.$gap;
   margin: 0;
 }

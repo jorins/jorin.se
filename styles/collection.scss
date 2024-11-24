@@ -1,13 +1,13 @@
 // Collections as seen on index and collection pages
 
 @use 'sass:color';
-@import 'lib';
+@use 'lib';
 
 // This anchor wrapper is used in the Index template
 a.collection-header-wrapper {
   display: block;
 
-  @include linkColors(inherit, $highlight);
+  @include lib.linkColors(inherit, lib.$highlight);
 }
 
 .collection-header {
@@ -35,13 +35,13 @@ a.collection-header-wrapper {
   position: sticky;
   top: 0;
 
-  @include glass($radius: $border-radius-small);
+  @include lib.glass($radius: lib.$border-radius-small);
 
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 $border-radius-small;
+  padding: 0 lib.$border-radius-small;
 
   // FIXME: this should be handled by the component, not a CSS hack.
   &::before {
@@ -59,10 +59,10 @@ a.collection-header-wrapper {
 
 // Tab button
 .collection-tabs button {
-  @include normaliseButton;
+  @include lib.normaliseButton;
   cursor: pointer;
 
-  padding: $gap;
+  padding: lib.$gap;
   background: none;
   width: 10rem;
 
@@ -71,20 +71,23 @@ a.collection-header-wrapper {
 
   border-bottom-width: 0.1rem;
   border-bottom-style: solid;
-  border-bottom-color: color.change($highlight, $alpha: 0);
+  border-bottom-color: color.change(lib.$highlight, $alpha: 0);
 
   &[aria-selected='true'] {
-    border-bottom-color: $highlight;
+    border-bottom-color: lib.$highlight;
   }
 
   &:hover {
-    background-color: color.change($primary, $alpha: $high-transparency);
+    background-color: color.change(
+      lib.$primary,
+      $alpha: lib.$high-transparency
+    );
   }
 
-  @include animate {
+  @include lib.animate {
     transition:
-      background-color $fast-animation,
-      border-bottom $fast-animation;
+      background-color lib.$fast-animation,
+      border-bottom lib.$fast-animation;
   }
 }
 
@@ -99,9 +102,9 @@ a.collection-header-wrapper {
   width: 100%;
 }
 
-@include desktop {
+@include lib.desktop {
   .collection-listing {
-    @include glass;
+    @include lib.glass;
   }
 
   .collection-header {
@@ -114,7 +117,10 @@ a.collection-header-wrapper {
   }
 
   .collection-header-wrapper:nth-child(even) {
-    background-color: color.change($lowlight, $alpha: $high-transparency);
+    background-color: color.change(
+      lib.$lowlight,
+      $alpha: lib.$high-transparency
+    );
 
     .collection-header {
       grid-template-areas:

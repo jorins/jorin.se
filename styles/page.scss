@@ -1,27 +1,27 @@
 // Page content-specific styling
 
 @use 'sass:color';
-@import 'lib';
+@use 'lib';
 
 main.site-block {
   padding: 2rem;
 
   h1,
   h2 {
-    @include softUnderline;
+    @include lib.softUnderline;
   }
 
   // Target styling
   section:has(> :target),
   .footnotes li:target {
-    color: $highlight;
+    color: lib.$highlight;
 
     // Give the border space without affecting overall size
-    border-left: $border-width solid
-      color.change($primary, $alpha: $low-transparency);
-    border-radius: $border-width 0 0 $border-width;
-    padding-left: $border-width * 2;
-    margin-left: -3 * $border-width;
+    border-left: lib.$border-width solid
+      color.change(lib.$primary, $alpha: lib.$low-transparency);
+    border-radius: lib.$border-width 0 0 lib.$border-width;
+    padding-left: lib.$border-width * 2;
+    margin-left: -3 * lib.$border-width;
   }
 
   // Footnote list items require some special treatment for target highlighting
@@ -39,31 +39,34 @@ main.site-block {
 
   // Anchors
   .mdx-anchor-invalid {
-    @include linkColors($invalid-link-color, $invalid-link-color-highlight);
+    @include lib.linkColors(
+      lib.$invalid-link-color,
+      lib.$invalid-link-color-highlight
+    );
   }
 
   // Headings
   .mdx-heading-counter {
-    color: $primary;
-    opacity: $low-transparency;
+    color: lib.$primary;
+    opacity: lib.$low-transparency;
     font-weight: normal;
   }
 
   .mdx-heading-link {
-    @include linkColors(inherit, $highlight);
+    @include lib.linkColors(inherit, lib.$highlight);
   }
 
   .mdx-heading-link-indicator {
     font-weight: normal;
     opacity: 0;
 
-    @include animate {
-      transition: opacity $fast-animation;
+    @include lib.animate {
+      transition: opacity lib.$fast-animation;
     }
   }
 
   .mdx-heading-link:hover .mdx-heading-link-indicator {
-    opacity: $medium-transparency;
+    opacity: lib.$medium-transparency;
   }
 
   // Inline code
@@ -78,15 +81,15 @@ main.site-block {
     font-size: 1rem;
     line-height: 1.5em;
 
-    border-radius: $border-radius-small;
+    border-radius: lib.$border-radius-small;
     background-color: var(--shiki-color-background);
-    @include shadow;
+    @include lib.shadow;
 
     .mdx-code-block-filename {
-      font-family: $font-monospace;
+      font-family: lib.$font-monospace;
       color: var(--shiki-color-text);
       background-color: var(--shiki-color-highlight);
-      border-radius: $border-radius-small $border-radius-small 0 0;
+      border-radius: lib.$border-radius-small lib.$border-radius-small 0 0;
       padding: 0.5rem;
       padding-left: 1rem;
     }
@@ -133,8 +136,8 @@ main.site-block {
     }
 
     .line.highlighted {
-      border-left: $border-width solid var(--shiki-color-text);
-      padding-left: calc($padding - $border-width);
+      border-left: lib.$border-width solid var(--shiki-color-text);
+      padding-left: calc($padding - lib.$border-width);
     }
 
     ::selection {

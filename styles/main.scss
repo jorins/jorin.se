@@ -1,13 +1,13 @@
 // CSS entrypoint
 
-@import 'layout';
-@import 'theme';
+@use 'layout';
+@use 'theme';
 
-@import 'siteNav';
-@import 'hierarchyNav';
-@import 'toc';
-@import 'emblem';
-@import 'collection';
-@import 'background';
-@import 'page';
-@import 'seoul256';
+@use 'siteNav';
+@use 'hierarchyNav';
+@use 'toc';
+@use 'emblem';
+@use 'collection';
+@use 'background';
+@use 'page';
+@use 'seoul256';

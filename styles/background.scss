@@ -1,6 +1,6 @@
 // Background, stars, and their animation
 
-@import 'lib';
+@use 'lib';
 
 $background-animation-length: 12s;
 
@@ -23,7 +23,7 @@ $background-animation-length: 12s;
   opacity: 0;
 }
 
-@include animate {
+@include lib.animate {
   // Stars
   .background-stars {
     animation-direction: alternate;
