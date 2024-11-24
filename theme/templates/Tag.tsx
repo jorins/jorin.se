@@ -5,7 +5,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 import { readdirSync } from 'fs'
 
 import Head from 'next/head'
-import { useSSG } from 'nextra/data'
+import { useData } from 'nextra/hooks'
 
 import { useLayoutProps } from 'contexts'
 import { toTitle } from 'lib/case'
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps<{ ssg: Path }> = async context => {
 // This component is called from /pages/[collection]/tags/[tag].mdx
 export function MDXTag(): React.ReactNode {
   const { pageOpts, themeConfig } = useLayoutProps()
-  const { collection, tag } = useSSG()
+  const { collection, tag } = useData()
 
   const collectionTitle = toTitle(collection)
   const tagTitle = toTitle(tag)
