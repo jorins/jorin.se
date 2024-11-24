@@ -10,14 +10,14 @@ import * as regExp from './regExp'
  * Filter to include only Folders from PageMapItems
  */
 export function isFolder(page: PageMapItem): page is Folder {
-  return page.kind === 'Folder'
+  return Object.hasOwn(page, 'children')
 }
 
 /**
  * Filter to include only MdxFiles from PageMapItems
  */
 export function isMdxFile(page: PageMapItem): page is MdxFile {
-  return page.kind === 'MdxPage'
+  return Object.hasOwn(page, 'frontMatter')
 }
 
 /**
@@ -53,14 +53,15 @@ export function getAllPages(pageMap: PageMapItem[]): MdxFile[] {
 
   return pageMap
     .map(item => {
-      switch (item.kind) {
-        case 'MdxPage':
-          return item
-        case 'Meta':
-          return undefined
-        case 'Folder':
-          return getAllPages(item.children)
+      if (isFolder(item)) {
+        return getAllPages(item.children)
       }
+
+      if (isMdxFile(item)) {
+        return item
+      }
+
+      return undefined
     })
     .flat()
     .filter(isNotUndefined)
@@ -74,7 +75,6 @@ export function locateFolder(pageOpts: PageOpts, route: string): Folder {
 
   // Construct a fake index folder to simplify the reduce procedure
   const rootFolder: Folder = {
-    kind: 'Folder',
     route: '/',
     name: 'index',
     children: pageOpts.pageMap,
@@ -99,7 +99,7 @@ export function locateFolder(pageOpts: PageOpts, route: string): Folder {
  * mixed list of page map items and need everything as `MdxFile`s
  */
 export function asMdxFile(pageMapItem: MdxFile | Folder): MdxFile {
-  if (pageMapItem.kind === 'MdxPage') {
+  if (isMdxFile(pageMapItem)) {
     return pageMapItem
   }
 

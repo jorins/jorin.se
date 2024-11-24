@@ -107,7 +107,6 @@ export function MDXTag(): React.ReactNode {
     index,
     collectionPage,
     {
-      kind: 'MdxPage',
       name: `Pages tagged "${tagTitle}"`,
       route: `/${collection}/tags/${tag}`,
     },
