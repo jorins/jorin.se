@@ -153,3 +153,77 @@ should function without JS. The first load JS is about 180kB per page though,
 which is alarmingly high considering how little the front-end JS actually does.
 I don't think any components even can be re-rendered presently. The
 pre-rendered pages are 8kB at most.
+
+## 2024-11-26
+
+It's been a while since I worked on the site. I found a certain lack of motivation in expanding the Grimoire due to complexity of editing it. Some while ago I was booted out of using [Notion](https://www.notion.com/) due to creating a shared space and being marked a commercial user who had to pay to use the tool. I switched to [Obsidian](https://obsidian.md/). But since it's not a one to one match, there was a good amount of labour and learning involved in the switch which I didn't get around to until recently. As luck would have it, Obsidian maps very well to the Grimoire of Jorin, and I've found some new energy to build compatibility. My new goal for the site is to integrate its contents into my Obsidian vault.
+
+### Upgrading Nextra to 3.0
+
+This part wasn't a lot of fun. The docs don't go very far into the internals and there were multiple changes part of 3.0 that weren't covered in the migration guide. Regardless, I got the site back to functional parity with the 2.x-based iteration.
+
+### Synchronisation troubles
+
+There were quite a few steps to get synchronisation working comfortably between relevant devices and places. I can't include my entire vault in the repository. And I can't include the entire working site repository in my vault. I need the vault files, including those from the site, on my phone and my laptop and I need the full vault backed up against a third-party storage provider.
+
+Although I include all content from the site in my vault, synchronising the full repository as is adds a bit of friction to navigating to the relevant files. It would also mean syncing `node_modules` to my phone and cloud provider, which is wasteful of resources and time.
+
+Vault synchronisation to the third party is done using [Jottacloud](https://jottacloud.com/en/). This also doubles as my synchronisation between desktop and laptop. To get the vault onto my phone, I use [Syncthing](https://syncthing.net/). Unfortunately there's not enough support between Jottacloud and Obsidian on Android to use that as a synchronisation mechanism. My understanding of this is that while Jottacloud supports modern Android storage APIs that exposes the Jottacloud cloud storage area to the system without needing it all locally, Obsidian only operates on local files proper. Finally, synchronisation between the vault and the repository is done using [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) on my desktop. I made a systemd service for this available [here](https://gist.github.com/jorins/8ad977a952b328569f2e847e5e34362f). Is that a mess or what? 😄
+
+```mermaid
+flowchart TD
+
+subgraph phone["Phone"]
+	phoneVault["Vault"]
+end
+
+subgraph desktop["Desktop"]
+	desktopVault["Vault"]
+	desktopRepo["jorin.se repo"]
+end
+
+subgraph laptop["Laptop"]
+	laptopVault["Vault"]
+end
+
+subgraph github["Github"]
+	githubRepo["jorin.se repo"]
+	website["jorin.se"]
+end
+
+jottacloud["Jottacloud"]
+
+jottacloud <-- Jottacloud client --> desktopVault
+jottacloud <-- Jottacloud client --> laptopVault
+desktopVault <-- Syncthing --> phoneVault
+desktopVault <-- Unison --> desktopRepo
+desktopRepo --> githubRepo
+githubRepo --> website
+```
+
+### Limitations and challenges of Obsidian compatibility
+
+There's some limitations in Obsidian that'll require me to make changes to the website.
+
+- There's a limited set of supported data types for the front matter.
+- Markdown links don't parse in the front matter (wiki links and plain text links still do).
+- Tags cannot contain spaces.
+- MDX does not work natively.
+
+Conversely, there's limitations to my website that'll have me taking precautions in Obsidian:
+
+- I have not implemented support for hierarchical tags.
+
+As such, there's some things I need to do:
+
+- Convert further reading links to plain text links and add additional data for them elsewhere.
+- Convert related article lists to lists of links.
+- Change tag formatting to `CamelCase`.
+- Deprecate usage of custom components and look into alternatives that can work in both Obsidian and on the web.
+- Co-locate resources related to pages with said pages, so as to make sure they are usable in both.
+
+I think I can overcome most of this. Some changes might feel detrimental to the website's design in isolation, but good support for Obsidian is a larger benefit to me long-term.
+
+### Site performance
+
+I'm a bit worried I'm actually failing to make the site performant. The largest pitfalls would be bundle size, dynamic rendering where not needed, and intense graphical rendering due to the combination of animation and blurring effects in the background. I should absolutely see what I can do to benchmark possible issues here. In the spirit of making this website one of free culture, I think accessibility is an incredibly important aspect.
