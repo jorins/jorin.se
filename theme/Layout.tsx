@@ -4,7 +4,11 @@ import '@openfonts/quicksand_all'
 import { useRouter } from 'nextra/hooks'
 import { MDXProvider } from 'nextra/mdx'
 
-import { HeadingCounterProvider, LayoutPropsProvider } from 'contexts'
+import {
+  HeadingsProvider,
+  HeadingCounterProvider,
+  LayoutPropsProvider,
+} from 'contexts'
 import { expandLayoutProps } from 'lib/expandLayoutProps'
 import { mdxComponents } from 'mdxComponents'
 import { registerImage } from 'pageComponents'
@@ -31,14 +35,16 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
   return (
     <LayoutPropsProvider layoutProps={expandedProps}>
       <SiteNav />
-      <Toc />
-      <main className="site-block">
-        <HeadingCounterProvider>
-          <MDXProvider components={mdxComponents}>
-            <Template>{children}</Template>
-          </MDXProvider>
-        </HeadingCounterProvider>
-      </main>
+      <HeadingsProvider>
+        <MDXProvider components={mdxComponents}>
+          <Toc />
+          <HeadingCounterProvider>
+            <Template>
+              <main className="site-block">{children}</main>
+            </Template>
+          </HeadingCounterProvider>
+        </MDXProvider>
+      </HeadingsProvider>
     </LayoutPropsProvider>
   )
 }

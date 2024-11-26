@@ -1,6 +1,6 @@
 import { useRouter } from 'nextra/hooks'
 
-import { useLayoutProps } from 'contexts'
+import { useLayoutProps, useHeadings } from 'contexts'
 import { getTitle } from 'lib/pageMap'
 import { keyValuePair, uriProtocol, hash } from 'lib/regExp'
 import { absoluteRoute } from 'lib/route'
@@ -24,6 +24,7 @@ function SvgAnchor({ ...props }: AnchorProps) {
 
 export function Anchor(props: AnchorProps): React.ReactNode {
   const { pageOpts } = useLayoutProps()
+  const { headings } = useHeadings()
   const { route } = useRouter()
   const { children } = props
   const isInSvg = useIsInSvg()
@@ -86,9 +87,7 @@ export function Anchor(props: AnchorProps): React.ReactNode {
     }
     const hrefWithoutHash = match[1]
 
-    const target = pageOpts.headings.find(
-      heading => heading.id === hrefWithoutHash,
-    )
+    const target = headings.find(heading => heading.id === hrefWithoutHash)
     // Footnote-generated IDs start with 'user-content' but won't be found in headings
     const isValid =
       target !== undefined || hrefWithoutHash.startsWith('user-content')

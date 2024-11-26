@@ -13,7 +13,10 @@ export interface SeeAlsoProps {}
 export function SeeAlso({}: SeeAlsoProps): JSX.Element {
   const { pageOpts } = useLayoutProps()
   const { route } = useRouter()
-  const { relatedPages, empty } = resolveMetadata(pageOpts, route)
+  const { relatedPages, furtherReading, tagLinks, empty } = resolveMetadata(
+    pageOpts,
+    route,
+  )
 
   if (empty) {
     return <></>

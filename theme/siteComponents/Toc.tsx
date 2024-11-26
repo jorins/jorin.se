@@ -1,8 +1,8 @@
-import type { Heading } from 'nextra'
-
 import React from 'react'
 
+import { useHeadings, useLayoutProps } from 'contexts'
 import { nest, NestedHeadings } from 'lib/nestHeadings'
+import { SEE_ALSO_ID } from 'siteComponents'
 
 let nestedOlIndex = 0
 /**
@@ -20,14 +20,41 @@ function TocEntry(heading: NestedHeadings[number]) {
   )
 }
 
-export interface TocProps {
-  headings: Heading[]
-}
+export interface TocProps {}
 
 /**
  * A page's table of contents
  */
-export function Toc({ headings }: TocProps): JSX.Element {
+export function Toc({}: TocProps): JSX.Element {
+  const { headings, registerHeadings } = useHeadings()
+  const layoutProps = useLayoutProps()
+
+  const hasFootnotes = layoutProps.pageOpts?.frontMatter?.footnotes === true
+  const hasMetadata =
+    layoutProps.pageOpts?.frontMatter?.related !== undefined ||
+    layoutProps.pageOpts?.frontMatter?.tags !== undefined ||
+    layoutProps.pageOpts?.frontMatter?.furtherReading
+
+  const headingsToRegister = []
+
+  if (hasFootnotes) {
+    headingsToRegister.push({
+      value: 'Footnotes',
+      depth: 2 as const,
+      id: 'footnote-label',
+    })
+  }
+
+  if (hasMetadata) {
+    headingsToRegister.push({
+      value: 'See also',
+      depth: 2 as const,
+      id: SEE_ALSO_ID,
+    })
+  }
+
+  registerHeadings(headingsToRegister)
+
   nestedOlIndex = 0
   if (headings.length === 0) {
     return <></>
