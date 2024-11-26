@@ -26,7 +26,7 @@ const config: ThemeConfig = {
       height: 500,
     },
   },
-  externalLinks: [
+  navLinks: [
     {
       id: 'soundcloud',
       title: 'SoundCloud',

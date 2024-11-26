@@ -5,7 +5,7 @@ import { isFolder, isMdxFile, isIndex } from 'lib/pageMap'
 
 import { YgLogo } from './YgLogo'
 
-export interface LinkSpec {
+export interface NavLinkSpec {
   id: string
   title: string
   href: string
@@ -59,7 +59,7 @@ export function SiteNav({}: SiteNavProps): JSX.Element {
       <section id="site-navigation-external">
         <h2>External links</h2>
         <ul>
-          {themeConfig.externalLinks.map(({ id, title, href }) => (
+          {themeConfig.navLinks.map(({ id, title, href }) => (
             <li key={id}>
               <a rel="me" target="_blank" href={href}>
                 {title}

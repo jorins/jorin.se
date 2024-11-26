@@ -1,5 +1,5 @@
 import type { StrictImageProps } from '../pageComponents'
-import type { LinkSpec } from '../siteComponents'
+import type { NavLinkSpec } from '../siteComponents'
 import type { TemplatePattern } from '../templates'
 import type { Locale } from './types/locale'
 
@@ -12,7 +12,7 @@ export interface FullThemeConfig {
   }
   images: Record<string, StrictImageProps>
   templates: TemplatePattern[]
-  externalLinks: LinkSpec[]
+  navLinks: NavLinkSpec[]
 }
 
 /** A partial theme config. It is to be used in the theme config. */
@@ -47,7 +47,7 @@ export const defaultConfig: FullThemeConfig = {
       template: 'page',
     },
   ],
-  externalLinks: [
+  navLinks: [
     {
       id: 'theme',
       title: 'Nextra theme by Jorin',
