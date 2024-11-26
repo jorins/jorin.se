@@ -12,7 +12,7 @@ import { toTitle } from 'lib/case'
 import { getCollections, getFrontMatter } from 'lib/files'
 import { getTitle } from 'lib/pageMap'
 import { makeTitle } from 'lib/title'
-import { Breadcrumbs, PageTitle } from 'siteComponents'
+import { Breadcrumbs, Main, PageTitle } from 'siteComponents'
 
 interface Path {
   collection: string
@@ -118,22 +118,24 @@ export function MDXTag(): React.ReactNode {
         <title>{fullTitle}</title>
       </Head>
 
-      <Breadcrumbs segments={segments} />
-      <PageTitle>
-        Pages tagged &ldquo;{tagTitle}&rdquo; in {collectionTitle}
-      </PageTitle>
-      <ul>
-        {taggedPages.map(page => {
-          const title = getTitle(page)
-          const id = page.route
+      <Main>
+        <Breadcrumbs segments={segments} />
+        <PageTitle>
+          Pages tagged &ldquo;{tagTitle}&rdquo; in {collectionTitle}
+        </PageTitle>
+        <ul>
+          {taggedPages.map(page => {
+            const title = getTitle(page)
+            const id = page.route
 
-          return (
-            <li key={id}>
-              <a href={page.route}>{title}</a>
-            </li>
-          )
-        })}
-      </ul>
+            return (
+              <li key={id}>
+                <a href={page.route}>{title}</a>
+              </li>
+            )
+          })}
+        </ul>
+      </Main>
     </>
   )
 }

@@ -9,6 +9,7 @@ import {
   CollectionContents,
   CollectionHeader,
   Breadcrumbs,
+  Main,
   PageTitle,
 } from 'siteComponents'
 
@@ -25,18 +26,20 @@ const Collection: Template = ({ children }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      <CollectionHeader
-        title={
-          <>
-            <Breadcrumbs />
-            <PageTitle>{pageOpts.title}</PageTitle>
-          </>
-        }
-        description={children}
-        imgId={imgId}
-      />
+      <Main>
+        <CollectionHeader
+          title={
+            <>
+              <Breadcrumbs />
+              <PageTitle>{pageOpts.title}</PageTitle>
+            </>
+          }
+          description={children}
+          imgId={imgId}
+        />
 
-      <CollectionContents pageOpts={pageOpts} themeConfig={themeConfig} />
+        <CollectionContents pageOpts={pageOpts} themeConfig={themeConfig} />
+      </Main>
     </>
   )
 }

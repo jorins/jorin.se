@@ -5,6 +5,7 @@ import { useRouter } from 'nextra/hooks'
 
 import { useLayoutProps } from 'contexts'
 import { makeHierarchicalTitle } from 'lib/title'
+import { Main } from 'siteComponents'
 
 const Tags: Template = ({ children }) => {
   const { pageOpts, themeConfig } = useLayoutProps()
@@ -17,7 +18,7 @@ const Tags: Template = ({ children }) => {
         <title>{fullTitle}</title>
       </Head>
 
-      {children}
+      <Main>{children}</Main>
     </>
   )
 }

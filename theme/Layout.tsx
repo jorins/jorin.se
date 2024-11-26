@@ -39,9 +39,7 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
         <MDXProvider components={mdxComponents}>
           <Toc />
           <HeadingCounterProvider>
-            <Template>
-              <main className="site-block">{children}</main>
-            </Template>
+            <Template>{children}</Template>
           </HeadingCounterProvider>
         </MDXProvider>
       </HeadingsProvider>
