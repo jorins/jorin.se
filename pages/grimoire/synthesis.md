@@ -1,8 +1,10 @@
 ---
 title: Synthesis
 tags:
-  - music technology
-  - musical instruments
+  - MusicTechnology
+  - MusicalInstruments
+related:
+furtherReading:
 ---
 
 In music, synthesis is the process of creating artificial sounds, either

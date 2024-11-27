@@ -2,7 +2,7 @@
 title: Jorin.se in Nextra
 date: 2024-01-05
 tags:
-  - software
+  - Software
 ---
 
 import { ExtLink, FunctionPlot } from 'pageComponents'

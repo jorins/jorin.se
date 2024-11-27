@@ -1,30 +1,16 @@
 ---
 title: Capacitor
-
-related:
-  - inductor
-  - filter
-
 tags:
-  - electronics
-  - components
-
+  - Electronics
+  - Components
+related:
+  - '[[inductor]]'
+  - '[[filter]]'
 furtherReading:
-  - name: Wikipedia (en) - Capacitor
-    href: 'https://en.wikipedia.org/wiki/Capacitor'
-    lang: en-US
-
-  - name: Wikipedia (sv) - Kondensator
-    href: 'https://sv.wikipedia.org/wiki/Kondensator'
-    lang: sv-SE
-
-  - name: RSD Academy - Capacitors in AC Circuits
-    href: 'https://rsdacademy.net/textbooks/acelectronics/Part2/PageSetup.php?Page=12&FileName=CapacitorsInACCircuits'
-    lang: en-US
-
-  - name: RSD Academy - Capacitors in DC Circuits
-    href: 'https://rsdacademy.net/textbooks/dcelectronics/Part5/PageSetup.php?Page=43'
-    lang: en-US
+  - https://en.wikipedia.org/wiki/Capacitor
+  - https://sv.wikipedia.org/wiki/Kondensator
+  - https://vocademy.net/textbooks/dcelectronics/Part5/PageSetup.php?CourseDirectory=dcelectronics&Page=44&FileName=Capacitors
+  - https://vocademy.net/textbooks/acelectronics/Part2/PageSetup.php?CourseDirectory=acelectronics&Page=13&FileName=CapacitorsInACCircuits
 ---
 
 A capacitor is a passive electronic component that can hold a charge.

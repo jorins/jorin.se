@@ -1,13 +1,10 @@
 ---
 title: Universal truths of music
-
 tags:
-  - music theory
-
+  - MusicTheory
+related:
 furtherReading:
-  - name: Wikipedia - Harmonic series
-    href: https://en.wikipedia.org/wiki/Harmonic_series_(music)
-    lang: en-US
+  - https://en.wikipedia.org/wiki/Harmonic_series_(music)
 ---
 
 There are few things about music that are universally true across cultures. The

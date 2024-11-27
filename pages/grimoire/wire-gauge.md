@@ -1,7 +1,9 @@
 ---
 title: Wire gauge
 tags:
-  - electronics
+  - Electronics
+related:
+furtherReading:
 ---
 
 The gauge of a wire determines notable characteristics such as resistance,

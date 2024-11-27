@@ -1,19 +1,13 @@
 ---
 title: Diode
 footnotes: true
-
 tags:
-  - electronics
-  - components
-
+  - Electronics
+  - Components
+related:
 furtherReading:
-  - name: Wikipedia (en) - Diode
-    href: 'https://en.wikipedia.org/wiki/Diode'
-    lang: en-US
-
-  - name: Wikipedia (sv) - Diod
-    href: 'https://sv.wikipedia.org/wiki/Diod'
-    lang: sv-SE
+  - https://en.wikipedia.org/wiki/Diode
+  - https://sv.wikipedia.org/wiki/Diod
 ---
 
 A diode is an [active electronic component](/grimoire/active-component) that

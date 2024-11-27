@@ -1,16 +1,13 @@
 ---
 title: MIDI
 footnotes: true
-
 tags:
-  - protocol
-  - connector
-  - music technology
-
+  - Protocol
+  - Connector
+  - MusicTechnology
+related:
 furtherReading:
-  - name: A simplified guide to MIDI over TRS minijacks - minimidi.world
-    href: 'https://minimidi.world'
-    lang: en-US
+  - https://minimidi.world
 ---
 
 MIDI is a protocol used to transmit data about musical events.

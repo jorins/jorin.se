@@ -1,6 +1,8 @@
 ---
 title: seoul256 in Jekyll code snippets
 footnotes: true
+tags:
+  - Software
 ---
 
 # Introduction

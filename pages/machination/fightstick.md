@@ -1,7 +1,7 @@
 ---
 title: "'The Usher' Fightstick"
 tags:
-  - electronics
+  - Electronics
 ---
 
 I made a fightstick once.

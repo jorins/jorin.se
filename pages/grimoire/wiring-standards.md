@@ -1,7 +1,11 @@
 ---
 title: Wiring standards
 tags:
-  - electronics
+  - Electronics
+related:
+  - '[[wire-gauge]]'
+  - '[[connector]]'
+furtherReading:
 ---
 
 Standardising how wires are supposed to be connected is an effective method of

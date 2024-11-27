@@ -1,7 +1,9 @@
 ---
 title: Shops
 tags:
-  - recommendations
+  - Recommendations
+related:
+furtherReading:
 ---
 
 **WIP:**

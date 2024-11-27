@@ -1,17 +1,11 @@
 ---
 title: Screws and bolts
-
 tags:
-  - mechanical engineering
-
+  - MechanicalEngineering
+related:
 furtherReading:
-  - name: ISO metric screw thread - Wikipedia.org
-    href: 'https://en.wikipedia.org/wiki/ISO_metric_screw_thread'
-    lang: 'en-US'
-
-  - name: List of screw drives - Wikipedia.org
-    href: 'https://en.wikipedia.org/wiki/List_of_screw_drives'
-    lang: 'en-US'
+  - https://en.wikipedia.org/wiki/ISO_metric_screw_thread
+  - https://en.wikipedia.org/wiki/List_of_screw_drives
 ---
 
 Screws are used to fasten things against one another.

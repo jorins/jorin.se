@@ -1,17 +1,12 @@
 ---
 title: Equalisation
-
-related:
-  - filter
-
 tags:
-  - signal processing
-  - audio effects
-
+  - SignalProcessing
+  - AudioEffects
+related:
+  - '[[filter]]'
 furtherReading:
-  - name: Wikipedia (en) - Equalization (audio)
-    href: 'https://en.wikipedia.org/wiki/Equalization_(audio)'
-    lang: en-US
+  - https://en.wikipedia.org/wiki/Equalization_(audio)
 ---
 
 Equalisation, shortened to EQ, is the process of reducing, removing, or

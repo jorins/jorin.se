@@ -1,19 +1,13 @@
 ---
 title: Units
-
 tags:
-  - science
-  - mechanical engineering
-  - electronics
-
+  - Science
+  - MechanicalEngineering
+  - Electronics
+related:
 furtherReading:
-  - name: Wikipedia (en) - Unit of measurement
-    href: 'https://en.wikipedia.org/wiki/Unit_of_measurement'
-    lang: en-US
-
-  - name: Wikipedia (sv) - Måttenhet
-    href: 'https://sv.wikipedia.org/wiki/M%C3%A5ttenhet'
-    lang: sv-SE
+  - https://en.wikipedia.org/wiki/Unit_of_measurement
+  - https://sv.wikipedia.org/wiki/M%C3%A5ttenhet
 ---
 
 Units are the references we use to measure real world phenomena. They are

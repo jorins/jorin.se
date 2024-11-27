@@ -2,21 +2,16 @@
 title: Filter
 
 tags:
-  - signal processing
-  - audio effects
+  - SignalProcessing
+  - AudioEffects
 
 related:
-  - inductor
-  - capacitor
+  - '[[inductor]]'
+  - '[[capacitor]]'
 
 furtherReading:
-  - name: Wikipedia (en) - Filter (signal processing)
-    href: 'https://en.wikipedia.org/wiki/Filter_(signal_processing)'
-    lang: en-US
-
-  - name: Wikipedia (sv) - Filter (signalbehandling)
-    href: 'https://sv.wikipedia.org/wiki/Filter_(signalbehandling)'
-    lang: sv-SE
+  - 'https://en.wikipedia.org/wiki/Filter_(signal_processing)'
+  - 'https://sv.wikipedia.org/wiki/Filter_(signalbehandling)'
 ---
 
 A filter is a process that removes frequencies from a signal.
