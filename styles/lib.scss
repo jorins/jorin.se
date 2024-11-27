@@ -17,9 +17,9 @@ $primary: rgb(85%, 85%, 85%);
 $background: rgb(15%, 15%, 15%);
 $lowlight: rgb(0%, 0%, 0%);
 
-$low-transparency: 0.5;
-$medium-transparency: 0.25;
-$high-transparency: 0.1;
+$low-transparency: 0.6;
+$medium-transparency: 0.4;
+$high-transparency: 0.2;
 
 $instant-animation: 0.05s;
 $fast-animation: 0.1s;
@@ -43,11 +43,10 @@ $invalid-link-color-highlight: color.adjust(
 @mixin glass(
   $background: $background,
   $radius: $border-radius,
-  $panel-transparency: $medium-transparency,
+  $panel-transparency: $low-transparency,
   $border-transparency: $high-transparency
 ) {
   background-color: color.change($background, $alpha: $panel-transparency);
-  backdrop-filter: blur(4px);
 
   $border-a: $border-width solid
     color.change($primary, $alpha: $border-transparency);
