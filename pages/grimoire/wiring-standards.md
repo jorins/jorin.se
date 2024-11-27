@@ -18,7 +18,7 @@ increasing the maintainability and safety of systems.
 - Green + yellow: ground
 
 A good way to remember is that the brown lead shares colour with your underwear
-if you touch it. Blue can be likened to cold, analoguous to the negative in a
+if you touch it. Blue can be likened to cold, analogous to the negative in a
 balanced signal. Ground is not found in all installations. Of course, it is
 possible to swap live and neutral by just turning a plug around, so they should
 be treated with equal care.
