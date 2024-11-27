@@ -13,6 +13,14 @@ export interface FullThemeConfig {
   images: Record<string, StrictImageProps>
   templates: TemplatePattern[]
   navLinks: NavLinkSpec[]
+  furtherReadingLinks: Array<
+    Partial<{
+      href: string
+      hrefLang: string
+      name: string
+      lang: string
+    }>
+  >
 }
 
 /** A partial theme config. It is to be used in the theme config. */
@@ -54,4 +62,6 @@ export const defaultConfig: FullThemeConfig = {
       href: 'https://github.com/jorins',
     },
   ],
+
+  furtherReadingLinks: [],
 }

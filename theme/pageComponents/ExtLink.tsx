@@ -10,7 +10,7 @@ function linkTitle(href: string, lang?: string): string {
   let res = `External link to domain "${domain}"`
 
   if (lang !== undefined) {
-    res = `${res} with expected locale "${lang}`
+    res = `${res} with expected locale "${lang}"`
   }
 
   return res
@@ -19,25 +19,31 @@ function linkTitle(href: string, lang?: string): string {
 export interface ExtLinkProps {
   children: React.ReactNode
   href: string
+  hrefLang?: string
   lang?: string
   title?: string
   target?: AnchorTarget
 }
 
 export function ExtLink(props: ExtLinkProps): JSX.Element {
-  const { href, lang, target, children } = {
+  const { href, hrefLang, lang, target, children } = {
     target: '_blank',
     ...props,
   }
 
-  const flag = lang === undefined ? undefined : getFlag(lang)
+  const flag =
+    hrefLang !== undefined
+      ? getFlag(hrefLang)
+      : lang !== undefined
+        ? getFlag(lang)
+        : undefined
   const title = linkTitle(href, lang)
 
   return (
     <a
       className="external-link"
       href={href}
-      hrefLang={lang}
+      hrefLang={hrefLang}
       target={target}
       title={title}
     >

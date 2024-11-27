@@ -65,14 +65,15 @@ export type FrontMatter = Partial<{
   tags: string[]
 
   /**
-   * Related pages on the site. Use absolute routes.
+   * Related pages on the site. Use [[wikilinks]]
    */
   related: string[]
 
   /**
-   * External links for further reading
+   * External links for further reading. They can be given titles using the
+   * furtherReadingLinks property of the theme config.
    */
-  furtherReading: FurtherReadingLink[]
+  furtherReading: string[]
 
   /**
    * Workaround to inform the theme whether the page uses footnotes.

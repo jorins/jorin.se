@@ -3,7 +3,7 @@
  * Functions for processing metadata in the front matter.
  */
 
-import type { PageOpts } from './types'
+import type { ThemeLayoutProps } from './types'
 import type { MdxFile } from 'nextra'
 import type { ExtLinkProps } from 'pageComponents'
 import type { AnchorHTMLAttributes } from 'react'
@@ -22,12 +22,12 @@ interface ResolvedMetadata {
 }
 
 export function resolveMetadata(
-  pageOpts: PageOpts,
+  layoutProps: ThemeLayoutProps,
   currentRoute: string,
 ): ResolvedMetadata {
-  const relatedPages = resolveRelatedPages(pageOpts, currentRoute)
-  const tagLinks = resolveTagLinks(pageOpts, currentRoute)
-  const furtherReading = resolveFurtherReading(pageOpts)
+  const relatedPages = resolveRelatedPages(layoutProps, currentRoute)
+  const tagLinks = resolveTagLinks(layoutProps, currentRoute)
+  const furtherReading = resolveFurtherReading(layoutProps)
 
   const empty = [...relatedPages, ...tagLinks, ...furtherReading].length === 0
 
@@ -40,17 +40,18 @@ export function resolveMetadata(
 }
 
 function resolveRelatedPages(
-  pageOpts: PageOpts,
+  layoutProps: ThemeLayoutProps,
   currentRoute: string,
 ): MdxFile[] {
-  const rawRoutes = pageOpts.frontMatter?.related ?? []
+  const rawRoutes = layoutProps.pageOpts.frontMatter?.related ?? []
 
-  const absoluteRoutes = rawRoutes.map(rawRoute =>
-    absoluteRoute(currentRoute, rawRoute),
-  )
+  const absoluteRoutes = rawRoutes
+    .map(wikilink => wikilink.replaceAll(/(?:^\[\[|\]\]$)/g, ''))
+    .map(rawRoute => absoluteRoute(currentRoute, rawRoute))
 
   return absoluteRoutes.map(route => {
-    const found = pageOpts.pages.find(page => page.route === currentRoute)
+    const found = layoutProps.pageOpts.pages.find(page => page.route === route)
+    console.log('Route:', route, found)
 
     if (found === undefined) {
       throw new Error(
@@ -62,11 +63,11 @@ function resolveRelatedPages(
 }
 
 function resolveTagLinks(
-  pageOpts: PageOpts,
+  layoutProps: ThemeLayoutProps,
   currentRoute: string,
 ): AnchorAttributes[] {
   const hrefBase = `${currentRoute.replace(finalSegment, '')}/tags`
-  const tags = pageOpts?.frontMatter?.tags ?? []
+  const tags = layoutProps.pageOpts?.frontMatter?.tags ?? []
   return tags.map(tag => {
     const children = toTitle(tag)
     const href = `${hrefBase}/${tag}`
@@ -78,10 +79,24 @@ function resolveTagLinks(
   })
 }
 
-function resolveFurtherReading(pageOpts: PageOpts): ExtLinkProps[] {
-  const links = pageOpts?.frontMatter?.furtherReading ?? []
-  return links.map(link => ({
-    ...link,
-    children: link.name,
-  }))
+function resolveFurtherReading(layoutProps: ThemeLayoutProps): ExtLinkProps[] {
+  const links = layoutProps.pageOpts?.frontMatter?.furtherReading ?? []
+  return links.map(href => {
+    const match = layoutProps.themeConfig.furtherReadingLinks.find(
+      i => i.href === href,
+    )
+    if (match === undefined) {
+      return {
+        href,
+        children: href,
+      }
+    }
+
+    return {
+      href: href,
+      hrefLang: match.hrefLang,
+      lang: match.lang,
+      children: match.name,
+    }
+  })
 }

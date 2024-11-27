@@ -11,10 +11,10 @@ export const SEE_ALSO_ID = 'see-also-label'
 export interface SeeAlsoProps {}
 
 export function SeeAlso({}: SeeAlsoProps): JSX.Element {
-  const { pageOpts } = useLayoutProps()
+  const layoutProps = useLayoutProps()
   const { route } = useRouter()
   const { relatedPages, furtherReading, tagLinks, empty } = resolveMetadata(
-    pageOpts,
+    layoutProps,
     route,
   )
 
