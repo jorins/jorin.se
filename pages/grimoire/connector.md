@@ -5,13 +5,13 @@ tags:
   - Engineering
 related:
   - '[[midi]]'
-  - '[[wire-gauge]]'
+  - '[[conductor]]'
 furtherReading:
-  - 'https://www.mattmillman.com/info/crimpconnectors/common-jst-connector-types'
-  - 'https://www.mattmillman.com/info/crimpconnectors/dupont-and-dupont-connectors/'
+  - https://www.mattmillman.com/info/crimpconnectors/common-jst-connector-types
+  - https://www.mattmillman.com/info/crimpconnectors/dupont-and-dupont-connectors/
 ---
 
-A connector is placed at the end of [[wire-gauge|wires]] and on circuit boards in order to make electrical connections.
+A connector is placed at the end of [[conductor|wires]] and on circuit boards in order to make electrical connections.
 
 # Types
 

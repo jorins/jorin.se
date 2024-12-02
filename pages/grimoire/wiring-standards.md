@@ -3,7 +3,7 @@ title: Wiring standards
 tags:
   - Electronics
 related:
-  - '[[wire-gauge]]'
+  - '[[conductor]]'
   - '[[connector]]'
 furtherReading:
 ---
