@@ -20,6 +20,8 @@ export default function Layout(rawProps: NextraThemeLayoutProps) {
   const { route } = useRouter()
   const { children } = expandedProps
 
+  console.log('\n=== TEMPLATE ===\n', { route, rawProps, expandedProps })
+
   // Register pre-defined images
   Object.entries(expandedProps.themeConfig.images).forEach(([key, image]) =>
     registerImage(key, image),
