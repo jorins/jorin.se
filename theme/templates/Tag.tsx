@@ -4,7 +4,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 
 import { readdirSync } from 'fs'
 
-import { capitalCase } from 'change-case'
+import { capitalCase, kebabCase } from 'change-case'
 import Head from 'next/head'
 import { useData } from 'nextra/hooks'
 
@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
           const frontMatter = await getFrontMatter(
             `pages/${collection}/${file}`,
           )
-          return frontMatter.tags ?? []
+          return frontMatter.tags?.map(tag => kebabCase(tag)) ?? []
         })
 
       return [collection, (await Promise.all(tags)).flat()]

@@ -8,7 +8,7 @@ import type { MdxFile } from 'nextra'
 import type { ExtLinkProps } from 'pageComponents'
 import type { AnchorHTMLAttributes } from 'react'
 
-import { capitalCase } from 'change-case'
+import { capitalCase, kebabCase } from 'change-case'
 
 import { finalSegment } from './regExp'
 import { absoluteRoute } from './route'
@@ -68,9 +68,10 @@ function resolveTagLinks(
 ): AnchorAttributes[] {
   const hrefBase = `${currentRoute.replace(finalSegment, '')}/tags`
   const tags = layoutProps.pageOpts?.frontMatter?.tags ?? []
-  return tags.map(tag => {
-    const children = capitalCase(tag)
-    const href = `${hrefBase}/${tag}`
+  return tags.map(capitalTag => {
+    const kebabTag = kebabCase(capitalTag)
+    const children = capitalCase(kebabTag)
+    const href = `${hrefBase}/${kebabTag}`
 
     return {
       children,
