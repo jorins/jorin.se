@@ -51,7 +51,6 @@ function resolveRelatedPages(
 
   return absoluteRoutes.map(route => {
     const found = layoutProps.pageOpts.pages.find(page => page.route === route)
-    console.log('Route:', route, found)
 
     if (found === undefined) {
       throw new Error(
