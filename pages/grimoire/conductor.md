@@ -2,6 +2,7 @@
 title: Conductor
 tags:
   - Electronics
+  - Science
 related:
   - '[[connector]]'
 furtherReading:
