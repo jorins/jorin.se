@@ -4,11 +4,11 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 
 import { readdirSync } from 'fs'
 
+import { capitalCase } from 'change-case'
 import Head from 'next/head'
 import { useData } from 'nextra/hooks'
 
 import { useLayoutProps } from 'contexts'
-import { toTitle } from 'lib/case'
 import { getCollections, getFrontMatter } from 'lib/files'
 import { getTitle } from 'lib/pageMap'
 import { makeTitle } from 'lib/title'
@@ -81,8 +81,8 @@ export function MDXTag(): React.ReactNode {
   const { pageOpts, themeConfig } = useLayoutProps()
   const { collection, tag } = useData()
 
-  const collectionTitle = toTitle(collection)
-  const tagTitle = toTitle(tag)
+  const collectionTitle = capitalCase(collection)
+  const tagTitle = capitalCase(tag)
 
   const fullTitle = makeTitle([tagTitle, 'Tags', collectionTitle], themeConfig)
 

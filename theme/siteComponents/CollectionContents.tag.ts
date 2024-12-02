@@ -1,6 +1,7 @@
 import type * as Generic from './CollectionContents'
 
-import { toSpaced, toTitle, toLower } from 'lib/case'
+import { capitalCase } from 'change-case'
+
 import { getTitle } from 'lib/pageMap'
 
 type CategorySortKey = string
@@ -47,8 +48,8 @@ const tagTabSpec: TabSpec = {
           : [UNTAGGED]
 
       for (const tag of tags) {
-        const heading = toTitle(toSpaced(tag))
-        const sortKey = toLower(tag)
+        const heading = capitalCase(tag)
+        const sortKey = tag.toLocaleLowerCase()
         const preExisting = categorised.find(
           category => category.heading === heading,
         )
