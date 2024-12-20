@@ -100,17 +100,21 @@ I don't have much guidance on dialling in an active bass in particular. It's the
 
 Scale length, tuning, and string tension make a triangle. Increase pitch, and string tension increases. Increase scale length, and pitch drops. A lower tuning will require a longer scale length unless you want extremely thick strings. My personal opinion is that 35" is fine for a B tuning, maybe A standard, but once you start going lower you probably want to start going longer. My bass is 35" and has a G0 at 0.170" string gauge, and that's really pushing the boundaries of what can be done at that scale length. However, a longer scale length kind of lessens the effect of a low tuning, so I'm not a fan of the 40+" scale length basses because they don't drastically alter the timbre of the instrument despite being tuned down a full octave.
 
-### Things that don't matter
-
-#### Toan wood
-
-Toan wood is not real. Toan wood will not save you.
-
-#### Finish
-
-Nitrocellulose finish is the gold-plated optical cables of the guitar world.
-
 ## Getting a good clean tone
+
+Once you like what you're hearing coming out of the instrument, there's a couple of common touch ups you can do. First is compression, to help alter your dynamics. Generally, the way to approach this is to try to even out your dynamics a bit to reduce inconsistencies in your attack. No matter how well practised you are, you will have some degree of variation. While a tiny bit is a good thing to have, a compressor can help you play more comfortably. I won't get into the details of how to set up a compressor here because there's simply other resources that can explain it better.
+
+My approach to early compression is to run heavy compression with input blend. This is sometimes known as L.A. style compression, or parallel compression. This allows you to keep most of your attack dynamics intact, while smoothing out and prolonging sustain. This is very helpful for doom metal, especially with instruments and rigs that don't sustain too well.
+
+After compressing, you might want to add some EQ to compensate for things you don't quite like about your dry tone. Subtlety is key, it's seldom you want to adjust more than a few dBs. If we divide the spectrum up by three bands like most EQs will provide, we've got bass, mids, and treble. These bands can of course be divided further, but you're better off consulting a dedicated engineer than a bassist if you're going that far. What should you do with each band?
+
+- **Bass**: bass is the part of the spectrum that is perhaps more so felt than heard. So dial after feeling. Make sure your instrument is actually felt. Just make sure that the feeling doesn't overpower what you're saying.
+- **Mids:** mids are where your instrument is really heard. Cutting your mids sounds cool in isolation, but it sounds terrible in the context of most mixes. Turning them up too much can be a bit overbearing though. High mids is the stuff toddler screams are made of and we're fine tuned by nature to react strongly to them.[^toddlers]
+- **Treble:** treble will make your sound hip and cool and fresh. You should absolutely have some, they're basically a shortcut for achieving a modern sound. Conversely, cutting them makes you sound more vintage. They contribute a lot to moving the bass into the foreground, so be mindful of whether that's something you want to achieve.
+
+[^toddlers]: I don't have a source for this and I'm not going to bother finding one because it fits my preconceived perception of reality.
+
+Once your clean tone is good, it's ready to record for most music. But if you're bothering reading this, you probably aren't one for pure clean tones. Make no mistake that you should achieve a good clean tone regardless. It'll hone your ability as a bassist, you'll probably want it in some songs even if you play the heaviest music you've ever heard, it'll be helpful as a foundation for dirt, and having a solid clean tone to mix with is a godsend.
 
 ## Adding effects
 
@@ -120,7 +124,56 @@ Nitrocellulose finish is the gold-plated optical cables of the guitar world.
 
 # Analogue vs Digital
 
+This is always a heated subject prone to misinformation. It gets harder and harder to argue against digital modelling for each year that passes as models get more powerful and more accurate.
+
+Here's the things digital can do perfectly that I will not argue about:
+
+- Linear delay and reverb
+- Speaker simulation
+- EQ
+- Compression
+
+Here's the things that digital can do almost perfectly that can be argued about, but I will not be bothered:
+
+- Modulation effects
+- Non-linear delay and reverb
+
+The primary realm where analogue still serves some purpose is the realm of dirt. I still like analogue for a few very specific reasons:
+
+1. Analogue doesn't place limits on my volume that'll result in harsh clipping. Instead, I can get cool sounds if I push more volume into my units.
+2. Digital dirt modellers, even the fancier units, have some remaining tendency to produce digital artefacts. This is generally a non-issue that a listener is unlikely to notice, but I play music for my own enjoyment and it harshes my vibe.
+3. Twisting real knobs is a lot more fun than using your mouse to turn a digital dial, using an app on your phone, or diving into nested menus.
+4. The endless possibilities of digital models often have little to offer other than option paralysis.
+
+# Tubes vs Transistors
+
+Like today's analogue vs digital bickering, arguing about tubes and transistors was all the rage in the past. Tubes are certainly cool, but they weigh a boatload, cost another boatload, require a third boatload of maintenance, and can't be played at high gain without a fourth boatload of volume. So transistor amplifiers became really popular when they started becoming loud enough to compete with tubes, to the dismay of many tube purists who were born in the 70's but got somehow got stuck in the 60's. What's more noteworthy than the choice of tubes or transistors is probably the circuit design itself though. It's useless bickering about subjective things with moving goalposts. Use your ears to determine what you think sounds good.
+
+I really like a lot of historical tube amps, but I don't particularly care for breaking my back or my bank. So I use JFET-based emulations of the amps I like. It's taken the pedal designers some time to get there, but the modern ones integrate proper power-amp emulation to improve accuracy. To me, they sound really close to the real deal and give me most of the pros of a proper amp without the drawbacks of digital models.
+
+# Anti-toanchaser propaganda
+
+For every good advice on the internet, there's ten certifiably terrible ideas circulated in the darkest pits of Reddit comments. I think it's good to know of a few things that absolutely don't make sense and should be laughed at. After all, you will not be a successful toan chaser if you spend your days chasing lies.
+
+## "Toan wood is totally real"
+
+Toan wood is not real. Toan wood will not save you. Any change it makes amounts to an increase by 0.01% Toan Points™ at most. Toan Wood believers should be immediately converted the religion they'll use to inflict the least harm possible on their immediate surroundings.
+
+## "Finish affects toan"
+
+Nitrocellulose finish is the gold-plated optical cables of the guitar world. Your instrument doesn't have a more "open" sound because you can see the wood grain better. You should have an instrument that looks as cool as possible so that you can get laid if you play any shows, as you'll sorely need the external body heat to make it through the cold night if you are a gigging musician.
+
+## "Toan is in the fingers"
+
+How you play your instrument absolutely affects how it sounds, but this phrase is copium spoken only by people who have never had their face blasted off by a cubed baker's dozen Model T's powering a total of eighteen billion speaker cones crying in agony.
+
+## "Trust your ears"
+
+A phrase commonly spoken by snake oil enthusiasts who listen with their eyes and wallets. You should absolutely trust your ears in the sense that if it sounds better, it is better. However, a difference must be reproducible and measurable. There is no audio magic, there is only audio engineering and trustworthy engineers can back their claims up with measurements. Knows the difference between someone saying that something sounds better because there is an audible difference that they like, and someone saying that something sounds better because they need to justify having spent half a month's wages on a pretty aluminium box that adds 0.5dB of gain.
+
 # Specific gear units
+
+There's a lot of bass gear that is important, either for historical and cultural reasons, or because of my own preferences.
 
 ## Amps
 
@@ -152,15 +205,43 @@ Nitrocellulose finish is the gold-plated optical cables of the guitar world.
 
 ### Darkglass
 
+### DigiTech Bad Monkey
+
 ### DOD 250
+
+### Ibanez PD7
+
+### Ibanez Tube Screamer
 
 ## Compressors
 
+There's a lot to be said about different compressors. I've used a few and have some opinions, but you should refer to [Ovnilab](https://www.ovnilab.com/) for actual reviews. Although they haven't done reviews since 2018, their site is by far the greatest resource on bass compressors on the internet. There's been a few notable releases since. Empress released the second version of their compressor, and Darkglass replaced the Supersymmetry with the Hyper Luminal. But nothing fundamental has changed about compression.
+
+### Electro-Harmonix Bass Preacher
+
+The Bass Preacher was my first compressor. It's good for the price and is a pretty typical "gets the job done" compressor. I found it a little bit limited though, in particular because I wanted to do parallel compression to achieve more sustain.
+
+### Empress Compressor v1
+
+The Empress is an amazing compressor that is highly versatile. It has just the right amount of tone-sweetening. It is without a doubt the best analogue compressor I've used. If you're in the market for an analogue compressor and you're willing to shell out, I'd say the Empress is ideal. I haven't used the v2, but it should be more of the same good stuff.
+
+### MXR M87 Bass Compressor
+
+I got an MXR that I spent a little bit of time with, but not enough to evaluate it well. What I could tell was that I overall felt the Empress was easier to work with and sounded a bit better. Which is not to say the M87 is necessarily bad.
+
+### Boss X-COMP model
+
+I switched to digital models because I run a [[#Rick-o-sound]] and it was far more economical to do so through a modelling pedal, namely a Boss GT 1000 Core. And the Boss X-Comp model, which should be the same as (or at least pretty much the same as) the one found in the Boss BC-1X, is wonderful. It's overall very easy to dial in, doesn't have any notable noise floor, and the brightness control can add a nice sparkle. I think I still like the Empress a little bit more, but that's very likely just analogue copium.
+
+## Octavers
+
+Octavers are fun little things.
+
 ## Other effects
 
-# Specific players
+# Noteworthy bassists
 
-Here's a few noteworthy bassist who have influenced me a lot.
+Here's a few noteworthy bassists who have influenced me a lot.
 
 ## Geezer Butler
 
@@ -180,4 +261,16 @@ His play style is very similar to his personal saviour [[#Geezer Butler]], perha
 
 ## Dylan Desmond
 
+Desmond is the lead vocalist and bassist of funeral doom band Bell Witch. He plays with a lot of influences from classical music and creates amazingly cathartic music, mournful yet hopeful together with his collaborators.
+
+Desmond's approach to tone is to split his signal by frequency into three bands, mimicking a death metal ensemble with two guitars and a bass. The gear itself isn't that noteworthy, but his success in this approach absolutely is. I have no doubt he will be viewed as one of, if not the most influential metal bassists of the 2010's.
+
+## Jo Bench
+
+Bench is the bassist of death metal band Bolt Thrower. She's notable in that she uses some absolutely filthy tones to great effect. Her go-to method was bog-standard distortion into amplifier tones. What makes her unique, especially for her time, was that she had sense enough to use pedals that could achieve high gain without losing bass response or getting completely lost in the mix all the way back in the 80's and 90's. She's perhaps the most famous user of the [[#Ibanez PD7]], but has been known to use other pedals too.
+
 ## Jorin Seline
+
+That's me! I think a rundown of my own primary rig and style is justified to contextualise this page. I run a Woodo X6 Black Ash tuned to G0 using Octave4Plus flats. The pickups are Nordstrand Big Blades (Warm & Woolly) and the electronics have been converted to a passive Rick-o-sound setup. This lets me do a dual tone approach with the neck pickup powering a Kuro Exegol (Sunn Model T emulation), while the bridge pickup runs into a Kuro T120 (Matamp GT120 emulation). It's nothing short of a huge sound and I quite frankly think it sounds better than anything else I've ever heard.
+
+My inspirations for this include Al Cisneros, Dylan Desmond, Conan (the band), and Boris (also the band) among others. I wanted something that's massive, expressive, dynamic, and personal. I think I succeeded so far, but I am notoriously bad at actually completing music, which makes me a bedroom poser.
