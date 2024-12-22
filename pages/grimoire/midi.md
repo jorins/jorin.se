@@ -8,6 +8,7 @@ tags:
 related:
 furtherReading:
   - https://minimidi.world
+  - https://notebook.zoeblade.com/MIDI.html
 ---
 
 MIDI is a protocol used to transmit data about musical events.
