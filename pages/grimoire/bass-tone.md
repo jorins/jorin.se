@@ -205,7 +205,7 @@ How you play your instrument absolutely affects how it sounds, but this phrase i
 
 ## "Trust your ears"
 
-A phrase commonly spoken by snake oil enthusiasts who listen with their eyes and wallets. You should absolutely trust your ears in the sense that if it sounds better, it is better. However, a difference must be reproducible and measurable. There is no audio magic, there is only audio engineering and trustworthy engineers can back their claims up with measurements. Knows the difference between someone saying that something sounds better because there is an audible difference that they like, and someone saying that something sounds better because they need to justify having spent half a month's wages on a pretty aluminium box that adds 0.5dB of gain.
+A phrase commonly spoken by snake oil enthusiasts who listen with their eyes and wallets. You should absolutely trust your ears in the sense that if it sounds better, it is better. However, a difference must be reproducible and measurable. There is no audio magic, there is only audio engineering and trustworthy engineers can back their claims up with measurements. Know the difference between someone saying that something sounds better because there is an audible difference that they like, and someone saying that something sounds better because they need to justify having spent half a month's wages on a pretty aluminium box that adds 0.5dB of gain.
 
 ## "10 inch speakers are treble-focused, 12 inch speakers are balanced, 15 inch speakers are bass-focused"
 
@@ -249,6 +249,8 @@ There's a lot of bass gear that is important, either for historical and cultural
 
 ### Darkglass
 
+### Electro-Harmonix Big Muff Pi
+
 ### DigiTech Bad Monkey
 
 ### DOD 250
@@ -285,7 +287,7 @@ Octavers are fun little things.
 
 # Noteworthy bassists
 
-Here's a few noteworthy bassists who have influenced me a lot.
+Here's a few noteworthy bassists who have influenced me a lot, or otherwise deserve to be discussed for their influence on the industry from a perspective of tone.
 
 ## Geezer Butler
 
@@ -307,7 +309,7 @@ His play style is very similar to his personal saviour [[#Geezer Butler]], perha
 
 Desmond is the lead vocalist and bassist of funeral doom band Bell Witch. He plays with a lot of influences from classical music and creates amazingly cathartic music, mournful yet hopeful together with his collaborators.
 
-Desmond's approach to tone is to split his signal by frequency into three bands, mimicking a death metal ensemble with two guitars and a bass. The gear itself isn't that noteworthy, but his success in this approach absolutely is. I have no doubt he will be viewed as one of, if not the most influential metal bassists of the 2010's.
+Desmond's approach to tone is to split his signal by frequency into three bands, mimicking a death metal ensemble with two guitars and a bass. The gear itself isn't particularly noteworthy as he achieves pretty standard death/doom metal tones, but his success in this approach absolutely is. I have no doubt he will be viewed as one of, if not the most, influential metal bassist of the 2010's.
 
 ## Jo Bench
 
