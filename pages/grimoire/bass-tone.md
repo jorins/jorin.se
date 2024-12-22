@@ -323,3 +323,7 @@ Bench is the bassist of death metal band Bolt Thrower. She's notable in that she
 That's me! I think a rundown of my own primary rig and style is justified to contextualise this page. I run a Woodo X6 Black Ash tuned to G0 using Octave4Plus flats. The pickups are Nordstrand Big Blades (Warm & Woolly) and the electronics have been converted to a passive Rick-o-sound setup. This lets me do a dual tone approach with the neck pickup powering a Kuro Exegol (Sunn Model T emulation), while the bridge pickup runs into a Kuro T120 (Matamp GT120 emulation). It's nothing short of a huge sound and I quite frankly think it sounds better than anything else I've ever heard.
 
 My inspirations for this include Al Cisneros, Dylan Desmond, Conan (the band), and Boris (also the band) among others. I wanted something that's massive, expressive, dynamic, and personal. I think I succeeded so far, but I am notoriously bad at actually completing music, which makes me a bedroom poser.
+
+## Cliff Burton
+
+Burton was the first bassist of Metallica. He was a genius of metal and left us far too soon. If we hone in on his tone we can see a pretty clear cut example of something that might've sounded good in isolation but got absolutely lost in the mix. He played a Rickenbacker and employed heavy use of [[#Electro-Harmonix Big Muff Pi]] fuzz, along with some creative uses of a Morley Power Wah. The heavy mids scoop of the Pi just makes the bass near inaudible in many cases.
