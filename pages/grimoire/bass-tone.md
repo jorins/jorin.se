@@ -146,6 +146,7 @@ The primary realm where analogue still serves some purpose is the realm of dirt.
 4. The endless possibilities of digital models often have little to offer other than option paralysis.
 
 ## Real amps, fake cabs
+
 Impulse response based cab sims are pretty much perfectly accurate. Even if you insist on running real amps, it is my unprofessional opinion that you should still grab a DI signal coming out of the power amp for the purpose of adding a cab sim. Capturing cabinets is not an easy task, nor a cheap one. I personally proudly shill for [Dr. Bonkers](https://www.drbonkerssoundlab.com/) without receiving any compensation. He has captured loads of rare and interesting cabinets, in addition to a lot of standard ones.
 
 It is worth noting that impulse responses are not capable of capturing non-linear behaviours of cabs. However, if your cab is responding non-linearly, you're pushing it too hard and are risking serious damage to it. This is fine if you are Lemmy, but Lemmy is dead and no rock or metal bassist can generate enough revenue to chew through cabinets at that rate without risking bankruptcy.
@@ -161,11 +162,13 @@ I really like a lot of historical tube amps, but I don't particularly care for b
 This section primarily concerns pedals. Some studio gear may be affected too though. Guitars have a limited range, a limited frequency response, and pretty typical sounds. Pedal designers can use these properties to their advantages, whereas designers of other studio gear generally have to make their units fit for high-fidelity applications.
 
 ## Why pedals cut your lows
+
 Most pedals are designed for guitar, which in standard tuning has its lowest pitch at about 80Hz. Mains voltage is usually 50Hz or 60Hz and it has a sneaking tendency to add noise to your signal path. A great way to keep your pedal noise free is to just filter out these lows. It won't necessarily get everything, but it's a pretty surefire way to improve the performance of a pedal at large.
 
 Similarly, a problem a lot of dirt pedals have is that the fundamental frequency becomes very dominant in the sound. When you clip the top and bottom of a signal, it adds harmonics and that's how we usually get distortion effects. Unfortunately, some of the nuance of the input harmonics is lost if the fundamental frequency just has the output swinging between minimum and maximum, essentially producing a square wave. For this reason, good management of bass frequencies is crucial to making dirt pedals that don't just sound the same. Most pedals will therefore employ a series of low-end cuts to perfect their sound.
 
 ## Resulting issues and immediate solutions
+
 With these two things in mind, it's easy to see why a lot of pedals, especially dirt pedals, perform poorly with bass. They cut your precious bass frequencies! Usually, this is fine. You can turn up your bass knob a tiny bit if you feel the need to compensate. Sometimes it's not fine. If you're playing through five pedals that all cause a little bit of low-end loss, you're suddenly seeing the life sucked out of your performance. If you tune lower, these cuts become even more extreme as you slide further down the filter slopes.
 
 This issue can kind of be solved with a clean blend. Combining the affected, tone-sucked signal with your original signal will restore your original bass response. Even if the offending pedal itself doesn't have a clean blend built into it, there's a lot of utility pedals that allow you to blend your clean signal with an affected pedal. The Boss LS-2 is a popular choice for this.
@@ -177,6 +180,7 @@ This might make a crossover sound like an objectively better solution, but regul
 With regards to using it with dirt, plain clean blend is more of a 2000's rock sound (e.g. Chris Wolstenholme of Muse) whereas crossover blending has become more popular in the 2010's extreme metal, especially popularised by [Nolly Getgood of Periphery](https://www.youtube.com/watch?v=2smB0p8P-GQ) and [Darkglass](https://www.youtube.com/watch?v=Ee8JOMB7oSc).
 
 ## Limitations of blending solutions
+
 Blends are great solutions! And I don't like them much at all! As a mixing tool, they're amazing. But they don't help me achieve the dirt sounds I want. If you think critically about what happens in a blended signal path with a poorly responding dirt pedal, the problem should become fairly obvious.
 
 Let's say you play a low B. It has a fundamental frequency of about 30Hz, a second harmonic at 60Hz, and a third at 90Hz. These three harmonics account for a significant amount of your volume overall. You send this signal into a dirt effect with a low cut that cuts starting at 120Hz. The distortion circuit thus receives a decent bit of your third harmonic, much less of your second harmonic, and virtually none of your fundamental frequency. What it's receiving will amount to a fraction of the volume that you tried to put in and there won't be much distortion going on. If you then go up two octaves, your fundamental frequency is at 120Hz and none of your signal is being cut when it goes into the distortion. It gets properly distorted.
@@ -202,6 +206,14 @@ How you play your instrument absolutely affects how it sounds, but this phrase i
 ## "Trust your ears"
 
 A phrase commonly spoken by snake oil enthusiasts who listen with their eyes and wallets. You should absolutely trust your ears in the sense that if it sounds better, it is better. However, a difference must be reproducible and measurable. There is no audio magic, there is only audio engineering and trustworthy engineers can back their claims up with measurements. Knows the difference between someone saying that something sounds better because there is an audible difference that they like, and someone saying that something sounds better because they need to justify having spent half a month's wages on a pretty aluminium box that adds 0.5dB of gain.
+
+## "10 inch speakers are treble-focused, 12 inch speakers are balanced, 15 inch speakers are bass-focused"
+
+People like to think that bigger speaker means bassier sound. This may have some historical reason, or it may just be that they really want to arbitrarily categorise. The reality is that there is no guaranteed correlation between speaker size and frequency response thanks to the advances in speaker cone manufacturing and cabinet design over the last hundred or so years.
+
+A great example of something that breaks these expectations is the [[#Ampeg 8×10]]. It's a very dark sounding cabinet despite using 10 inch cones. Conversely, there's no shortage of poor-performing, oversized cabs from the past that have their frequency response and volume alike outmatched by modern, well designed 1×10" cabs.
+
+There's something to be said about marketing based on size to a demographic obsessed with measuring inches, but it more or less goes without saying. Rock and metal bassist have, especially historically, primarily been young men.
 
 # Specific gear units
 
