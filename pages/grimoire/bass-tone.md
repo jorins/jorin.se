@@ -6,10 +6,13 @@ This page is a WIP, being written for my own amusement and patche's benefit. Sho
 
 Bass tone is a beautiful subject. It carries infinite nuance for those with ears to hear it. It is simultaneously well explored and criminally unexplored. This is my attempt to document it from a doom metal bassist's perspective.
 
-Some things to note:
+# Disclaimers
 
 1. This is written from my own perspective with my own biases and artistic preferences.
-2. For most of this document, I'll be referring to amplifiers, analogue amplifier emulators, and digital amplifier models as just amplifiers. Likewise, I will not make a distinction between physical speaker cabinets or impulse responses. See [[#Analogue vs Digital]] for why and my personal preferences in those matters.
+2. For most of this document, I'll be referring to amplifiers, analogue amplifier emulators, and digital amplifier models as just amplifiers. Likewise, I will not make a distinction between physical speaker cabinets or impulse responses. See [[#Analogue vs Digital]] and [[#Tubes vs Transistors]] for why and my personal preferences in those matters.
+3. Most of this advice is hopefully applicable to other forms of sound design as well. Primarily guitars, which technologically overlap a lot with basses. However, I don't know the first thing about how to mic a trumpet or how to
+4. A lot of this document has yet not been reviewed, not by myself and not by my peers. Some of it was written while I had a fever.
+5. I am a habitual clown with a relatively dry sense of humour. I try to keep the joker inside of me muzzled but I cannot contain her forever. Hopefully the jokes are pretty obvious and help make my point, but if something is unclear as a result of poor attempts at humour, I'd love to hear that feedback if you can be bothered reaching out.
 
 # Designing a tone
 
